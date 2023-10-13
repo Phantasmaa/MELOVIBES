@@ -1,0 +1,49 @@
+body {
+    background-color: #DBDBDB;
+}
+
+.banner-container{
+    padding: 0px;
+}
+
+.banner {
+    width: 50vw;
+    height:100vh;
+}
+
+.logoMeloVibe{
+    width: 35vw;
+}
+
+.welcome-msg{
+    font-size: 1.5em;
+}
+
+input:focus{
+    outline: none;
+}
+
+.codeDigit{
+    border-radius: 5px;
+    border-width: 0px 0px 1px 0px;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.codeDigit::-webkit-inner-spin-button,
+.codeDigit::-webkit-outer-spin-button{
+    display:none;
+}
+
+.link{
+    color: #cc36ae;
+}
+
+.link:hover{
+    color: #8D397C;
+}
+
+#validateBtn {
+    background-color: #8D397C;
+    color:#FFFFFF;
+}

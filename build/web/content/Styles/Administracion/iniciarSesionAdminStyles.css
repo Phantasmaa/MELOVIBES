@@ -1,0 +1,60 @@
+body {
+    background-color: #DBDBDB;
+}
+
+.banner-container{
+    padding: 0px;
+}
+
+.banner {
+    width: 50vw;
+    height:100vh;
+}
+
+.logoMeloVibe{
+    width: 35vw;
+}
+
+.welcome-msg{
+    font-size: 1.5em;
+}
+
+.form-input{
+    margin-bottom: 1em;
+}
+
+.text-field{
+    background-color: transparent;
+    border-color: #666;
+    border-width: 0px 0px 1px 0px;
+}
+
+.checkbox-round{
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.checkbox-round:checked {
+    background-color: #8D397C;
+}
+
+.link{
+    color: #cc36ae;
+}
+
+.link:hover{
+    color: #8D397C;
+}
+
+#logInBtn {
+    background-color: #8D397C;
+    color:#FFFFFF
+}
