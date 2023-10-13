@@ -14,7 +14,7 @@ for (int i = 0; i < users.length; i++) {
         sesion.setAttribute("logueado", "OK");
         mensaje = "activo";
         userFound = true;
-        // Enviar a la página deseada
+        
         if (user.equals("12")) {
             response.sendRedirect("../views/user/feed.jsp");
         } else if (user.equals("admin")) {
