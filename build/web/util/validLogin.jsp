@@ -18,7 +18,7 @@ for (int i = 0; i < users.length; i++) {
         if (user.equals("12")) {
             response.sendRedirect("../views/user/feed.jsp");
         } else if (user.equals("admin")) {
-            response.sendRedirect("../views/admin/adminPorfiles.jsp");
+            response.sendRedirect("../views/admin/userList.jsp");
         }
         break;
     }
