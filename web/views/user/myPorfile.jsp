@@ -1,3 +1,4 @@
+<%@include file="../../util/validSesion.jsp" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
