@@ -30,7 +30,7 @@
                 <img src="../../content/Images/Autenticacion/logoMeloVibe.png" class="logoMeloVibe" alt="Logo de MeloVibe">
                 <div class="col-6 text-center">
                     <p class="fw-bold welcome-msg">Información básica</p>
-                    <form id="registroForm" action="iniciarSesion.html" class="row justify-content-around" autocomplete="off">
+                    <form id="registroForm" action="login.jsp" class="row justify-content-around" autocomplete="off">
                         <input id="user" name="user" type="text" class="text-field form-input" placeholder="Usuario" required>
                         <input id="email" name="email" type="email" class="text-field form-input" placeholder="Email" required>
                         <input id="names" name="names" type="text" class="text-field form-input col-6" placeholder="Nombres" required>

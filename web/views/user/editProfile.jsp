@@ -77,8 +77,8 @@
                                 <div class="d-grid gap-4 d-md-flex justify-content-md-between" id="Botones">
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#CredencialesModal" id="Eliminar">Eliminar Perfil <i class="bi bi-trash-fill"></i></button>
                                     <div class="text-md-end">
-                                        <button type="button" class="btn btn-secondary btn-md" id="Cancelar" onclick="location.href='miPerfil.html'">Cancelar <i class="bi bi-pause-fill"></i></button>
-                                        <button type="button" class="btn btn-primary btn-md" id="Guardar">Guardar <i class="bi bi-play-fill"></i></button>
+                                        <button type="button" class="btn btn-secondary btn-md" id="Cancelar" onclick="location.href='feed.jsp'">Cancelar <i class="bi bi-pause-fill"></i></button>
+                                        <button type="button" class="btn btn-primary btn-md" id="Guardar" onclick="location.href='feed.jsp'">Guardar <i class="bi bi-play-fill"></i></button>
                                     </div>
                                 </div>
                         </div>
@@ -137,7 +137,7 @@
             <div class="modal-footer">
                 <div id="BotonCredencial">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar<i class="bi bi-pause-fill"></i></button>
-                    <button type="button" class="btn btn-danger"id="Eliminar" onclick="location.href='../Autenticacion/iniciarSesion.html'">Si, eliminar Cuenta<i class="bi bi-trash-fill"></i></button>
+                    <button type="button" class="btn btn-danger"id="Eliminar" onclick="location.href='../log/login.jsp'">Si, eliminar Cuenta<i class="bi bi-trash-fill"></i></button>
                 </div>
             </div>
           </div>

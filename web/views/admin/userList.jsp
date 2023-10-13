@@ -1,4 +1,5 @@
 <%@include file="../../util/validSesion.jsp" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -58,7 +59,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">�Est�s seguro de que quieres eliminar este
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">ï¿½Estï¿½s seguro de que quieres eliminar este
                             usuario?</h1>
                     </div>
                     <div class="modal-body">

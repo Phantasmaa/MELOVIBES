@@ -77,13 +77,13 @@
                     <div class="text-center px-5 pt-4">
                         <div class="row">
                             <div class="col-2">
-                                <a href="otroPerfil.html"><img class="postProfilePicture"
+                                <a href="otherProfile.jsp"><img class="postProfilePicture"
                                                                src="../../Content/Images/Administracion/usuario.png" alt=""></a>
                             </div>
                             <div class="col-10">
                                 <div class="row justify-content-between text-start">
                                     <div class="col-4">
-                                        <p class="authorNickname" onclick="location.href = 'otroPerfil.html'" style="cursor: pointer;">JeffMusicMan</p>
+                                        <p class="authorNickname" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">JeffMusicMan</p>
                                     </div>
                                     <div class="col-2 text-end">
                                         <p><i class="bi bi-clock"></i> Hoy</p>
@@ -113,13 +113,13 @@
 
                         <div class="row">
                             <div class="col-2">
-                                <a href="otroPerfil.html"><img class="postProfilePicture"
+                                <a href="otherProfile.jsp"><img class="postProfilePicture"
                                                                src="../../Content/Images/Administracion/usuario.png" alt=""></a>
                             </div>
                             <div class="col-10">
                                 <div class="row justify-content-between text-start">
                                     <div class="col-4">
-                                        <p class="authorNickname" onclick="location.href = 'otroPerfil.html'" style="cursor: pointer;">JeffMusicMan</p>
+                                        <p class="authorNickname" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">JeffMusicMan</p>
                                     </div>
                                     <div class="col-2 text-end">
                                         <p><i class="bi bi-clock"></i> Hoy</p>
@@ -149,13 +149,13 @@
 
                         <div class="row">
                             <div class="col-2">
-                                <a href="otroPerfil.html"><img class="postProfilePicture"
+                                <a href="otherProfile.jsp"><img class="postProfilePicture"
                                                                src="../../Content/Images/Administracion/usuario.png" alt=""></a>
                             </div>
                             <div class="col-10">
                                 <div class="row justify-content-between text-start">
                                     <div class="col-4">
-                                        <p class="authorNickname" onclick="location.href = 'otroPerfil.html'" style="cursor: pointer;">JeffMusicMan</p>
+                                        <p class="authorNickname" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">JeffMusicMan</p>
                                     </div>
                                     <div class="col-2 text-end">
                                         <p><i class="bi bi-clock"></i> Hoy</p>
@@ -200,11 +200,11 @@
                 <div class="container-fluid mt-3" id="recomendados">
                     Recomendados
                     <div class="recomendado">
-                        <img src="../../Content/Images/Usuario/usuario.png" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otroPerfil.html'" style="cursor: pointer;">
+                        <img src="../../Content/Images/Usuario/usuario.png" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
                         TeoMusicMan
                     </div>
                     <div class="recomendado">
-                        <img src="../../Content/Images/Usuario/usuario.png" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otroPerfil.html'" style="cursor: pointer;">
+                        <img src="../../Content/Images/Usuario/usuario.png" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
                         TeoMusicMan
                     </div>  
                 </div>
@@ -240,3 +240,4 @@
         <script src="../../util/script/logOutScript.js">
         </script>
     </body>
+    </html>

@@ -1,4 +1,5 @@
 <%@include file="../../util/validSesion.jsp" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,7 +26,7 @@
                                 <img class="profilePicture" src="../../content/Images/Administracion/usuario.png"
                                     alt="profilePicture">
                             </div>
-                            <button class="btn btn-lg btn-secondary my-3" onclick="location.href='EditarPerfil.html'">Editar perfil <i
+                            <button class="btn btn-lg btn-secondary my-3" onclick="location.href='editProfile.jsp'">Editar perfil <i
                                     class="bi bi-pencil"></i></button>
                         </div>
                         <div class="stats mt-5">
@@ -36,7 +37,7 @@
                     <div class="col-9">
                         <div class="row">
                             <div class="col-6 details">
-                                <h3>Sobre mí</h3>
+                                <h3>Sobre mÃ­</h3>
                                 <p class="Info">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur
                                     aperiam recusandae non quis aspernatur illum blanditiis tempore quos sit voluptates
                                     qui mollitia velit minus, tempora repellendus veniam esse a assumenda, illo atque?
@@ -51,15 +52,15 @@
                                         <p class="Info">TeoMusicMan</p>
                                         <label class="labelInfo">Ciudad <i class="bi bi-geo-alt"></i></label>
                                         <p class="Info">Krakow, Polska</p>
-                                        <label class="labelInfo">Teléfono <i class="bi bi-telephone"></i></label>
+                                        <label class="labelInfo">TelÃ©fono <i class="bi bi-telephone"></i></label>
                                         <p class="Info">(+51) xxx-xxx-xxx</p>
                                     </div>
                                     <div class="col-6">
                                         <label class="labelInfo">Nombre</label>
                                         <p class="Info">Teodoro Ugaz</p>
                                         <label class="labelInfo">Edad <i class="bi bi-cake2"></i></label>
-                                        <p class="Info">21 años</p>
-                                        <label class="labelInfo">Género <i class="bi bi-person-circle"></i></label>
+                                        <p class="Info">21 aÃ±os</p>
+                                        <label class="labelInfo">GÃ©nero <i class="bi bi-person-circle"></i></label>
                                         <p class="Info">Masculino</p>
                                     </div>
                                 </div>
@@ -76,13 +77,13 @@
                                 <div class="text-center p-5">
                                     <div class="row">
                                         <div class="col-2">
-                                            <a href="miPerfil.html"><img class="postProfilePicture"
+                                            <a href="myProfile.jsp"><img class="postProfilePicture"
                                                 src="../../content/Images/Administracion/usuario.png" alt=""></a>
                                         </div>
                                         <div class="col-10">
                                             <div class="row justify-content-between text-start">
                                                 <div class="col-4">
-                                                    <p class="authorNickname" onclick="location.href='otroPerfil.html'" style="cursor: pointer;">Juan Garnizo</p>
+                                                    <p class="authorNickname" onclick="location.href='otherProfile.jsp'" style="cursor: pointer;">Juan Garnizo</p>
                                                 </div>
                                                 <div class="col-2 text-end">
                                                     <p><i class="bi bi-clock"></i> Hoy</p>
@@ -122,3 +123,4 @@
         <script src="../../util/script/logOutScript.js">     
     </script>
 </body>
+</html>

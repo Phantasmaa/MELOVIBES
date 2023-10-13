@@ -25,15 +25,12 @@ for (int i = 0; i < users.length; i++) {
 }
 
 if (!userFound) {
-    mensaje = "no activo";
-%>
-<script>
-    alert("Error: Usuario o contraseña incorrectos");
-    response.sendRedirect("../views/log/login.jsp");
-    // Recargar la página actual
-</script>
-<%
-}
+    %>
+    <script>
+        alert("Error de contraseña");
+    </script>
+    <%
+    response.sendRedirect("../views/log/login.jsp");}
 %>
 
 

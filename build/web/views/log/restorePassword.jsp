@@ -1,5 +1,4 @@
 <%@include file="../../util/validSesion.jsp" %>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -27,7 +26,7 @@
                     <form action="#" class="row justify-content-around" method="post" autocomplete="off">
                         <input id="user" name="user" type="text" class="text-field form-input" placeholder="Usuario">
                         <input id="email" name="email" type="email" class="text-field form-input" placeholder="Email">
-                        <button id="sendCodeBtn" type="submit" class="btn form-input" onclick="location.href='validarCodigo.html'">Enviar Código</button>
+                        <button id="sendCodeBtn" type="submit" class="btn form-input" onclick="location.href='login.jsp'">Enviar Código</button>
                         <p class="form-input">Volver a la <a href="login.jsp" class="link">Página Principal</a></p>
                     </form>
                 </div>

@@ -1,4 +1,5 @@
 <%@include file="../../util/validSesion.jsp" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,14 +17,14 @@
             <div id="bienvenida">Bienvenido, admin!</div>
             <div class="container-fluid p-3">
                 <h4>Lista de Publicaciones</h4>
-                <button class="btn btn-primary my-2" id="btn-crearPublicacion">Crear Publicaci�n <i
+                <button class="btn btn-primary my-2" id="btn-crearPublicacion">Crear Publicaciï¿½n <i
                         class="bi bi-plus-lg"></i></button>
                 <div class="row my-2">
                     <div class="col-10">
                         <input type="text" id="textSearch" class="form-control">
                     </div>
                     <div class="col-2">
-                        <button id="btn-buscarPublicacion" class="btn btn-primary">Buscar Publicaci�n</button>
+                        <button id="btn-buscarPublicacion" class="btn btn-primary">Buscar Publicaciï¿½n</button>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -57,8 +58,8 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">�Est�s seguro de que quieres eliminar esta
-                        publicaci�n?</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">ï¿½Estï¿½s seguro de que quieres eliminar esta
+                        publicaciï¿½n?</h1>
                 </div>
                 <div class="modal-body">
                     <div class="row align-items-center justify-content-center">

@@ -1,4 +1,5 @@
 <%@include file="../../util/validSesion.jsp" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -38,7 +39,7 @@
                     <div class="col-9">
                         <div class="row">
                             <div class="col-6 details">
-                                <h3>Sobre m�</h3>
+                                <h3>Sobre mï¿½</h3>
                                 <p class="Info">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur
                                     aperiam recusandae non quis aspernatur illum blanditiis tempore quos sit voluptates
                                     qui mollitia velit minus, tempora repellendus veniam esse a assumenda, illo atque?
@@ -60,7 +61,7 @@
                                         <label class="labelInfo">Nombre</label>
                                         <p class="Info">Jeff Magallanes</p>
                                         <label class="labelInfo">Edad <i class="bi bi-cake2"></i></label>
-                                        <p class="Info">21 a�os</p>
+                                        <p class="Info">21 aï¿½os</p>
                                         <label class="labelInfo">Genero <i class="bi bi-person-circle"></i></label>
                                         <p class="Info">Masculino</p>
                                     </div>
@@ -78,13 +79,13 @@
                                 <div class="text-center p-5">
                                     <div class="row">
                                         <div class="col-2">
-                                            <a href="adminPorfiles.jsp"><img class="postProfilePicture"
+                                            <a href="adminProfiles.jsp"><img class="postProfilePicture"
                                                 src="../../content/Images/Administracion/usuario.png" alt=""></a>
                                         </div>
                                         <div class="col-10">
                                             <div class="row justify-content-between text-start">
                                                 <div class="col-2">
-                                                    <p class="authorNickname" onclick="location.href='adminPorfiles.jsp'" style="cursor: pointer;">Juan Garnizo</p>
+                                                    <p class="authorNickname" onclick="location.href='adminProfiles.jsp'" style="cursor: pointer;">Juan Garnizo</p>
                                                 </div>
                                                 <div class="col-2 text-end">
                                                     <p><i class="bi bi-clock"></i> Hoy</p>

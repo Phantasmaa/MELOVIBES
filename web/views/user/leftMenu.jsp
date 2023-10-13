@@ -12,12 +12,12 @@
                             <a class="nav-link links_feed" href="#" ><i class="bi bi-shop"></i>  Marketplace</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link links_feed" href="myPorfile.jsp"  ><i class="bi bi-person"></i>  Perfil</a>
+                            <a class="nav-link links_feed" href="myProfile.jsp"  ><i class="bi bi-person"></i>  Perfil</a>
                         </li>
                     </ul>
                 </div>
                 <div class="text-center">
-                    <button class="btn btn-primary mt-3" id="crear_pub">Crear publicación <i class="bi bi-music-note-beamed"></i></button> 
+                    <button class="btn btn-primary mt-3" id="crear_pub">Crear publicaciï¿½n <i class="bi bi-music-note-beamed"></i></button> 
                 </div>
                 <div class="text-center d-flex align-items-center">
                     <img id="imagen_cantante" class="img-fluid rounded" src="../../content/Images/Usuario/cantante2.png" alt="cantante">
@@ -25,7 +25,7 @@
 
                 <div class="mt-auto d-flex align-items-center"  id="nombre_usuario">
                     <div id="user_foto">
-                        <a href="myPorfile.jsp">
+                        <a href="myProfile.jsp">
                             <img src="../../content/Images/Usuario/usuario.png" alt="usuario" height="40px" >
                         </a>       
                     </div>
