@@ -9,4 +9,3 @@
         response.sendRedirect("../log/login.jsp");
     }
 %>
-

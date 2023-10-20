@@ -1,38 +1,36 @@
-<%
-String user = request.getParameter("user");
-String password = request.getParameter("password");
-
-String[] users = {"12", "admin"};
-String[] passwords = {"12", "admin"};
-
-String mensaje = "";
-boolean userFound = false;
-
-for (int i = 0; i < users.length; i++) {
-    if (user != null && password != null && user.equals(users[i]) && password.equals(passwords[i])) {
-        HttpSession sesion = request.getSession();
-        sesion.setAttribute("logueado", "OK");
-        mensaje = "activo";
-        userFound = true;
-        
-        if (user.equals("12")) {
-            response.sendRedirect("../views/user/feed.jsp");
-        } else if (user.equals("admin")) {
-            response.sendRedirect("../views/admin/userList.jsp");
-        }
-        break;
-    }
-}
-
-if (!userFound) {
-    %>
-    <script>
-        alert("Error de contrase馻");
-    </script>
-    <%
-    response.sendRedirect("../views/log/login.jsp");}
-%>
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Autenticacion</title>
+    </head>
+    <body>
+        <h1>Autenticando ... </h1>
+        <jsp:useBean id="user" class="beans.User" scope="session" />
+        <jsp:declaration>
+            String username;
+            String password;
+            int log;
+        </jsp:declaration>
+        <jsp:scriptlet>
+            username = request.getParameter("user");
+            password = request.getParameter("password");
+            log = user.authenticate(username, password);
+            if (log == 1) {
+                // Inicio de sesi贸n exitoso, guarda la sesi贸n
+                HttpSession sesion = request.getSession();
+                sesion.setAttribute("logueado", "OK");
+                session.setAttribute("user", user);
+                // Redirigir a la p谩gina de inicio
+                response.sendRedirect("../views/user/feed.jsp");
+            } else {
+                // Autenticaci贸n fallida, redirige de nuevo a la p谩gina de inicio de sesi贸n con error
+                response.sendRedirect("../views/log/login.jsp");
+            }
+        </jsp:scriptlet>
+    </body>
+</html>
 
 
 

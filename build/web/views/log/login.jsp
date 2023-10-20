@@ -22,7 +22,7 @@
                 <img src="../../content/Images/Autenticacion/logoMeloVibe.png" class="logoMeloVibe" alt="Logo de MeloVibe">
                 <div class="col-6 text-center">
                     <p class="fw-bold welcome-msg">Bienvenido, inicie sesión</p>
-                    <form action="../../util/validLogin.jsp" class="row justify-content-around" autocomplete="off">
+                    <form action="../../util/validLogin.jsp" class="row justify-content-around" autocomplete="off" method="post">
                         <input id="user" name="user" type="text" class="text-field form-input" placeholder="Usuario">
                         <input id="password" name="password" type="password" class="text-field form-input" placeholder="Contraseña">
 

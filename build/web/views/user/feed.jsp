@@ -1,3 +1,4 @@
+<%@include file="../../util/getUser.jsp" %>
 <%@include file="../../util/validSesion.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

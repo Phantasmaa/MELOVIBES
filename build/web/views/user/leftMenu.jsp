@@ -29,7 +29,7 @@
                             <img src="../../content/Images/Usuario/usuario.png" alt="usuario" height="40px" >
                         </a>       
                     </div>
-                    TeoMusicMan
+                    <%= profile.getUserName() %>
                     <i class="bi bi-power" id="desconectar" style="cursor: pointer;"></i>
 
                 </div>
