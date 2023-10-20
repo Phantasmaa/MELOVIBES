@@ -31,6 +31,3 @@
         </jsp:scriptlet>
     </body>
 </html>
-
-
-

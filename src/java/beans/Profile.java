@@ -132,10 +132,10 @@ public class Profile {
         pstmt.setString(1, userName);
         pstmt.setString(2, city);
         pstmt.setInt(3, age);
-        pstmt.setInt(4, this.profileID); // Usar el ID del perfil actual
+        pstmt.setInt(4, this.profileID); 
 
         pstmt.executeUpdate();
-        // Puedes agregar más lógica aquí, como actualizar los atributos del perfil.
+        
     } catch (SQLException e) {
         e.printStackTrace();
     }

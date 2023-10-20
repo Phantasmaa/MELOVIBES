@@ -4,8 +4,16 @@
         <servlet-name>srvUser</servlet-name>
         <servlet-class>com.controllers.srvUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProfileServlet</servlet-name>
+        <servlet-class>beans.ProfileServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>srvUser</servlet-name>
         <url-pattern>/srvUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfileServlet</servlet-name>
+        <url-pattern>/ProfileServlet</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -1,7 +1,6 @@
 <%@include file="../../util/getUser.jsp" %>
 <%@include file="../../util/validSesion.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!-- Importa la clase Publication -->
 <%@ page import="java.util.List" %>
 <%@ page import="beans.Publication" %>
 <%@ page import="beans.User" %>
