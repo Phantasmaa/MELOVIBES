@@ -1,7 +1,17 @@
-<%@include file="../../util/getUser.jsp" %>
-<%@include file="../../util/validSesion.jsp" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<<!DOCTYPE html>
+<%@ include file="../../util/getUser.jsp" %>
+<%@ include file="../../util/validSesion.jsp" %>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="beans.User" %>
+<%@ page import="beans.Profile" %>
+<%@ page import="javax.servlet.http.HttpSession" %>
+
+<%
+    //HttpSession session = request.getSession();
+    //User user = (User) session.getAttribute("user");
+    //Profile profile = user.getProfile();
+%>
+
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +24,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-
 </head>
 <body>
     <div class="row vh-100">
@@ -26,60 +35,26 @@
             <div class="row">
                 <div class="col-md-3" id="CambiarFoto">
                     <div>TeoMusicMan <i class="bi bi-soundwave"></i></div>
-                        <div>
+                    <div>
                         <img src="../../Content/Images/Administracion/usuario.png" alt="Foto" class="img-fluid rounded-circle mt-4" width="250">
                         <div class="mt-4" ><button type="button" class="btn btn-primary btn-lg" id="Foto">Subir Foto <i class="bi bi-upload"></i></button></div>
-                        </div>
+                    </div>
                 </div>
                 <div class="col-md-7" id="EditarDatos">
                     <h4>Datos Personales</h4>
-                    <form>
+                    <form action="ActualizarPerfilServlet" method="post"> <!-- Cambiar 'ActualizarPerfilServlet' por el nombre de tu servlet de actualización -->
                         <div class="col-md-12 mb-1">
                             <label for="Nickname" class="form-label" >Nickname </label>
-                            <input type="text" class="form-control" id="Nickname" placeholder="Nickname" value="TeoMusicMan">
+                            <input type="text" class="form-control" id="Nickname" name="Nickname" placeholder="Nickname" value="<%= profile.getUserName() %>">
                         </div>
                         <div class="row mb-1">
-                            <div class="col-md-6">
-                                <label for="Nombre" class="form-label">Nombre </label>
-                                <input type="text" class="form-control" id="Nombre" placeholder="Nombre" value="Teodoro" disabled>
-                            </div>
-                             <div class="col-md-6">
-                                <label for="Apellido" class="form-label">Apellido</label>
-                                <input type="text" class="form-control" id="Apellido" placeholder="Apellido" value="Ugaz" disabled>
-                             </div>
+                            <!-- Resto de los campos de datos personales aquí -->
                         </div>
-                        <div class="row mb-1">
-                            <div class="col-md-6">
-                                <label for="Ciudad" class="form-label">Ciudad </label>
-                                <input type="text" class="form-control" id="Ciudad" placeholder="Ciudad" value="Kraków, Polska">
-                            </div>
-                             <div class="col-md-6">
-                                <label for="Edad" class="form-label">Edad</label>
-                                <input type="number" class="form-control" id="Edad" placeholder="Edad" value="21">
-                             </div>
-                        </div>
-                        <div class="row mb-1">
-                            <div class="col-md-6">
-                                <label for="Telefono" class="form-label">Teléfono </label>
-                                <input type="tel" class="form-control" id="Telefono" placeholder="(+51) xxx xxx xxx" value="999888777">
-                            </div>
-                             <div class="col-md-6">
-                                <label for="Género" class="form-label">Género </label>
-                                <select class="form-select" aria-label="Slección Genero">
-                                    <option value="Masculino" selected>Masculino</option>
-                                    <option value="Femenino">Femenino</option>
-                                    <option value="Otro">Otro</option>
-                                  </select>
-                             </div>
-                             <div class="col-md-12 mb-1">
-                                <label for="Biografia" class="form-label" >Biografia </label>
-                                <textarea class="form-control" id="Biografia" rows="4"></textarea>
-                            </div>
-                                <div class="d-grid gap-4 d-md-flex justify-content-md-between" id="Botones">
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#CredencialesModal" id="Eliminar">Eliminar Perfil <i class="bi bi-trash-fill"></i></button>
-                                    <div class="text-md-end">
-                                        <button type="button" class="btn btn-secondary btn-md" id="Cancelar" onclick="location.href='feed.jsp'">Cancelar <i class="bi bi-pause-fill"></i></button>
-                                        <button type="button" class="btn btn-primary btn-md" id="Guardar" onclick="location.href='feed.jsp'">Guardar <i class="bi bi-play-fill"></i></button>
+                        <div class="d-grid gap-4 d-md-flex justify-content-md-between" id="Botones">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#CredencialesModal" id="Eliminar">Eliminar Perfil <i class="bi bi-trash-fill"></i></button>
+                            <div class="text-md-end">
+                                <button type="button" class="btn btn-secondary btn-md" id="Cancelar" onclick="location.href='feed.jsp'">Cancelar <i class="bi bi-pause-fill"></i></button>
+                                <button type="submit" class="btn btn-primary btn-md" id="Guardar">Guardar <i class="bi bi-play-fill"></i></button>
                                     </div>
                                 </div>
                         </div>

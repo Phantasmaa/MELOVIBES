@@ -52,7 +52,7 @@
                         <div class="col-9">
                             <div class="row justify-content-between text-start">
                                 <div class="col-4">
-                                    <p class="authorNickname" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;"><%= publication.getProfile().getUserName() %></p>
+                                    <p class="authorNickname" onclick="location.href = 'otherProfile.jsp?userID=<%= profile.getProfileID() %>'" style="cursor: pointer;"><%= publication.getProfile().getUserName() %></p>
                                 </div>
                                 <div class="col-2 text-end">
                                     <!-- Muestra la fecha de la publicación -->

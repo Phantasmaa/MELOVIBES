@@ -1,5 +1,14 @@
 <%@include file="../../util/getUser.jsp" %>
 <%@include file="../../util/validSesion.jsp" %>
+<%@ page import="beans.Profile" %>
+<%@ page import="beans.User" %>
+<%@ page import="beans.Calendar" %>
+<%
+    int userID = Integer.parseInt(request.getParameter("userID"));
+    //Profile profile = Profile.retrieveProfileFromDatabase(userID);
+    User currentUser = (User) session.getAttribute("user");
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,6 +22,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     </head>
     <body>
+
         <div class="row vh-100">
 
             <%@include file="leftMenu.jsp" %>
@@ -31,9 +41,9 @@
 
                 <div class="row">
                     <div class="container-flud col-5 text-center mt-4">
-                        <h2>JeffMusicMan<i class="bi bi-soundwave"></i></h2>
+                        <h2><%= profile.getUserName() %><i class="bi bi-soundwave"></i></h2>
                         <div class="my-4">
-                            <img class="profilePicture" src="../../Content/Images/Administracion/usuario.png" alt="profilePicture">
+                            <img class="profilePicture" src="<%= profile.getUserImage() %>" alt="profilePicture">
                         </div>
                         <div class="stats mt-3">
                             <p><i class="bi bi-music-note-list"></i> Publicaciones <span>120</span></p>
@@ -79,7 +89,7 @@
                         <div class="row">
                             <div class="col-2">
                                 <a href="otherProfile.jsp"><img class="postProfilePicture"
-                                                               src="../../Content/Images/Administracion/usuario.png" alt=""></a>
+                                                                src="../../Content/Images/Administracion/usuario.png" alt=""></a>
                             </div>
                             <div class="col-10">
                                 <div class="row justify-content-between text-start">
@@ -115,7 +125,7 @@
                         <div class="row">
                             <div class="col-2">
                                 <a href="otherProfile.jsp"><img class="postProfilePicture"
-                                                               src="../../Content/Images/Administracion/usuario.png" alt=""></a>
+                                                                src="../../Content/Images/Administracion/usuario.png" alt=""></a>
                             </div>
                             <div class="col-10">
                                 <div class="row justify-content-between text-start">
@@ -151,7 +161,7 @@
                         <div class="row">
                             <div class="col-2">
                                 <a href="otherProfile.jsp"><img class="postProfilePicture"
-                                                               src="../../Content/Images/Administracion/usuario.png" alt=""></a>
+                                                                src="../../Content/Images/Administracion/usuario.png" alt=""></a>
                             </div>
                             <div class="col-10">
                                 <div class="row justify-content-between text-start">
@@ -241,4 +251,4 @@
         <script src="../../util/script/logOutScript.js">
         </script>
     </body>
-    </html>
+</html>
