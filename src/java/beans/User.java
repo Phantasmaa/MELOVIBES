@@ -110,7 +110,7 @@ public class User {
         session.invalidate();
     }
 
-    private Profile retrieveUserProfileFromDatabase(int userID) {
+    Profile retrieveUserProfileFromDatabase(int userID) {
     Conexion c = new Conexion();
     Connection cnx = c.conecta();
     String query = "SELECT * FROM `Profile` WHERE `UserID` = ?";
