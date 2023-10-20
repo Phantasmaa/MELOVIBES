@@ -55,7 +55,8 @@
                                     <p class="authorNickname" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;"><%= publication.getProfile().getUserName() %></p>
                                 </div>
                                 <div class="col-2 text-end">
-                                    <p><i class="bi bi-clock"></i> Hoy</p>
+                                    <!-- Muestra la fecha de la publicación -->
+                                    <p><i class="bi bi-clock"></i> <%= publication.getCalendar().getDate() %></p>
                                 </div>
                             </div>
                             <p class="text-start postContent"><%= publication.getContent() %></p>

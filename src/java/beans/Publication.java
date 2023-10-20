@@ -17,6 +17,7 @@ public class Publication {
     private int dateID;
     private int profileID;
     private Profile profile; // Una referencia al perfil del usuario que hizo la publicación
+    private Calendar calendar;
 
     public Publication() {
     }
@@ -85,6 +86,14 @@ public class Publication {
         this.profile = profile;
     }
 
+    public Calendar getCalendar() {
+        return calendar;
+    }
+
+    public void setCalendar(Calendar calendar) {
+        this.calendar = calendar;
+    }
+
     public static List<Publication> getAllPublications() {
         List<Publication> publications = new ArrayList<>();
         Conexion c = new Conexion();
@@ -108,6 +117,10 @@ public class Publication {
                 User user = new User();
                 Profile profile = user.retrieveUserProfileFromDatabase(publication.getProfileID());
                 publication.setProfile(profile);
+
+                // Recupera la fecha asociada a esta publicación y asígnala a la publicación
+                Calendar calendar = Calendar.retrieveCalendarFromDatabase(publication.getDateID());
+                publication.setCalendar(calendar);
 
                 publications.add(publication);
             }
@@ -140,9 +153,12 @@ public class Publication {
 
                 // Recupera el perfil del usuario que hizo la publicación y asígnalo a la publicación
                 User user = new User();
-                // Recupera el perfil del usuario que hizo la publicación y asígnalo a la publicación
                 Profile profile = user.retrieveUserProfileFromDatabase(publication.getProfileID());
                 publication.setProfile(profile);
+
+                // Recupera la fecha asociada a esta publicación y asígnala a la publicación
+                Calendar calendar = Calendar.retrieveCalendarFromDatabase(publication.getDateID());
+                publication.setCalendar(calendar);
 
                 publications.add(publication);
             }
