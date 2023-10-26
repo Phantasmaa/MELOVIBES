@@ -1,15 +1,7 @@
 <%@ include file="../../util/getUser.jsp" %>
 <%@ include file="../../util/validSesion.jsp" %>
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="beans.User" %>
-<%@ page import="beans.Profile" %>
-<%@ page import="javax.servlet.http.HttpSession" %>
 
-<%
-    //HttpSession session = request.getSession();
-    //User user = (User) session.getAttribute("user");
-    //Profile profile = user.getProfile();
-%>
 
 <!DOCTYPE html>
 <html lang="es">
