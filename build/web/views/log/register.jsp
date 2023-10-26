@@ -12,12 +12,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../../content/Styles/Autenticacion/registroStyles.css">
-    <!--Javascripts-->
+    <!--Javascripts
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="../../content/Scripts/Autenticacion/registroScripts.js"></script>
+    -->
 </head>
 
 <body>
@@ -30,17 +31,18 @@
                 <img src="../../content/Images/Autenticacion/logoMeloVibe.png" class="logoMeloVibe" alt="Logo de MeloVibe">
                 <div class="col-6 text-center">
                     <p class="fw-bold welcome-msg">Información básica</p>
-                    <form id="registroForm" action="login.jsp" class="row justify-content-around" autocomplete="off">
-                        <input id="user" name="user" type="text" class="text-field form-input" placeholder="Usuario" required>
+                    <form id="registroForm" action="registerData.jsp" method="post" class="row justify-content-around" autocomplete="off">
+                        
+                        <!--<input id="user" name="user" type="text" class="text-field form-input" placeholder="Usuario" required> -->
                         <input id="email" name="email" type="email" class="text-field form-input" placeholder="Email" required>
                         <input id="names" name="names" type="text" class="text-field form-input col-6" placeholder="Nombres" required>
                         <input id="surname" name="surname" type="text" class="text-field form-input col-6" placeholder="Apellidos" required>
                         
                         <input id="password" name="password" type="password" class="text-field form-input" placeholder="Contraseña" required>
-                        <input id="confirmPassword" name="confirmPassword" type="password" class="text-field form-input" placeholder="Confirmar contraseña" required>
+                        <input id="confirmPassword" name="confirmPassword" type="password" class="text-field form-input" placeholder="Confirmar contraseña" required> 
                         <span id="mensajeError"></span>
 
-                        <input id="city" name="city" type="text" class="text-field form-input col-8" placeholder="Ciudad" required>
+                        <!--<input id="city" name="city" type="text" class="text-field form-input col-8" placeholder="Ciudad" required>
                         <input id="age" name="age" type="text" class="text-field form-input col-4" placeholder="Edad" maxlength="2" required>
                         <input id="phoneNumber" name="phoneNumber" type="text" class="text-field form-input col-6" placeholder="Teléfono" maxlength="9" required>
                         <div class="col-6 mb-3">
@@ -51,7 +53,7 @@
                                 <option value="Otro">Otro</option>
                             </select>
                         </div>
-                        
+                        -->
                         <button id="registerBtn" type="submit" class="btn form-input" onclick="clicked(event)">Registrarse</button>
                         <p class="form-input">¿Ya tienes una cuenta? <a href="login.jsp" class="link">Inicia Sesión!</a></p>
                     </form>
@@ -60,6 +62,7 @@
         </div>
     </div>
 
+    <!--
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -71,6 +74,7 @@
             </div>
         </div>
     </div>
+-->    
 </body>
 
 </html>

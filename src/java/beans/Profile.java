@@ -1,11 +1,12 @@
 package beans;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class Profile {
+
     private int profileID;
     private String userName;
     private String userImage;
@@ -90,88 +91,105 @@ public class Profile {
     public void setUser(User user) {
         this.user = user;
     }
-    
-    
+
     public static Profile retrieveProfileFromDatabase(int profileID) {
-    Profile profile = new Profile();
-    Conexion c = new Conexion();
-    Connection cnx = c.conecta();
-    String query = "SELECT * FROM `Profile` WHERE `ProfileID` = ?";
+        Profile profile = new Profile();
+        Conexion c = new Conexion();
+        Connection cnx = c.conecta();
+        String query = "SELECT * FROM `Profile` WHERE `ProfileID` = ?";
 
-    try (PreparedStatement pstmt = cnx.prepareStatement(query)) {
-        pstmt.setInt(1, profileID);
-        ResultSet result = pstmt.executeQuery();
+        try (PreparedStatement pstmt = cnx.prepareStatement(query)) {
+            pstmt.setInt(1, profileID);
+            ResultSet result = pstmt.executeQuery();
 
-        if (result.next()) {
-            profile.setProfileID(result.getInt("ProfileID"));
-            profile.setUserName(result.getString("UserName"));
-            profile.setUserImage(result.getString("UserImage"));
-            profile.setCity(result.getString("City"));
-            profile.setAge(result.getInt("Age"));
-            profile.setBio(result.getString("Bio"));
-            profile.setPhoneNumber(result.getString("PhoneNumber"));
-            profile.setGender(result.getString("Gender"));
-        }
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-    
-    
-    
-    
-
-    return profile;
-}
-    
-    public void updateProfile(String userName, String city, int age) {
-    Conexion c = new Conexion();
-    Connection cnx = c.conecta();
-    String query = "UPDATE Profile SET UserName = ?, City = ?, Age = ? WHERE ProfileID = ?";
-
-    try (PreparedStatement pstmt = cnx.prepareStatement(query)) {
-        pstmt.setString(1, userName);
-        pstmt.setString(2, city);
-        pstmt.setInt(3, age);
-        pstmt.setInt(4, this.profileID); 
-
-        pstmt.executeUpdate();
-        
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-}
-    public void deleteProfile() {
-    Conexion c = new Conexion();
-    Connection cnx = c.conecta();
-    String deleteProfileQuery = "DELETE FROM Profile WHERE ProfileID = ?";
-    String deletePublicationsQuery = "DELETE FROM Publication WHERE ProfileID = ?";
-    String deleteCommentsQuery = "DELETE FROM Comment WHERE ProfileID = ?";
-
-    try {
-        cnx.setAutoCommit(false); // Iniciar una transacción
-        try (PreparedStatement pstmtProfile = cnx.prepareStatement(deleteProfileQuery);
-             PreparedStatement pstmtPublications = cnx.prepareStatement(deletePublicationsQuery);
-             PreparedStatement pstmtComments = cnx.prepareStatement(deleteCommentsQuery)) {
-
-            pstmtComments.setInt(1, this.profileID);
-            pstmtComments.executeUpdate();
-
-            pstmtPublications.setInt(1, this.profileID);
-            pstmtPublications.executeUpdate();
-
-            pstmtProfile.setInt(1, this.profileID);
-            pstmtProfile.executeUpdate();
-
-            cnx.commit(); // Confirmar la transacción
+            if (result.next()) {
+                profile.setProfileID(result.getInt("ProfileID"));
+                profile.setUserName(result.getString("UserName"));
+                profile.setUserImage(result.getString("UserImage"));
+                profile.setCity(result.getString("City"));
+                profile.setAge(result.getInt("Age"));
+                profile.setBio(result.getString("Bio"));
+                profile.setPhoneNumber(result.getString("PhoneNumber"));
+                profile.setGender(result.getString("Gender"));
+            }
         } catch (SQLException e) {
-            cnx.rollback(); // Revertir la transacción en caso de error
             e.printStackTrace();
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
+
+        return profile;
     }
-}
+
+    public void newProfile(String userID, String userName, String city, int age, String phoneNumber, String gender) {
+
+        try {
+            Conexion c = new Conexion();
+            Connection cnx = c.conecta();
+            String query = "INSERT INTO profile (UserName, City, Age, PhoneNumber, Gender, UserID) VALUES (?,?,?,?,?,?);";
+
+            PreparedStatement sentencia = cnx.prepareStatement(query);
+
+            sentencia.setString(1, userName);
+            sentencia.setString(2, city);
+            sentencia.setInt(3, age);
+            sentencia.setString(4, phoneNumber);
+            sentencia.setString(5, gender);
+            sentencia.setString(6, userID);
+            sentencia.executeUpdate();
+            sentencia.close();
+            cnx.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    public void updateProfile(String userName, String city, int age) {
+        Conexion c = new Conexion();
+        Connection cnx = c.conecta();
+        String query = "UPDATE Profile SET UserName = ?, City = ?, Age = ? WHERE ProfileID = ?";
+
+        try (PreparedStatement pstmt = cnx.prepareStatement(query)) {
+            pstmt.setString(1, userName);
+            pstmt.setString(2, city);
+            pstmt.setInt(3, age);
+            pstmt.setInt(4, this.profileID);
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteProfile() {
+        Conexion c = new Conexion();
+        Connection cnx = c.conecta();
+        String deleteProfileQuery = "DELETE FROM Profile WHERE ProfileID = ?";
+        String deletePublicationsQuery = "DELETE FROM Publication WHERE ProfileID = ?";
+        String deleteCommentsQuery = "DELETE FROM Comment WHERE ProfileID = ?";
+
+        try {
+            cnx.setAutoCommit(false); // Iniciar una transacción
+            try (PreparedStatement pstmtProfile = cnx.prepareStatement(deleteProfileQuery); PreparedStatement pstmtPublications = cnx.prepareStatement(deletePublicationsQuery); PreparedStatement pstmtComments = cnx.prepareStatement(deleteCommentsQuery)) {
+
+                pstmtComments.setInt(1, this.profileID);
+                pstmtComments.executeUpdate();
+
+                pstmtPublications.setInt(1, this.profileID);
+                pstmtPublications.executeUpdate();
+
+                pstmtProfile.setInt(1, this.profileID);
+                pstmtProfile.executeUpdate();
+
+                cnx.commit(); // Confirmar la transacción
+            } catch (SQLException e) {
+                cnx.rollback(); // Revertir la transacción en caso de error
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
-
-

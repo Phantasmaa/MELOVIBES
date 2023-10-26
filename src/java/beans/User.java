@@ -7,12 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class User {
+
     private int userID;
     private String email;
     private String firstName;
     private String lastName;
     private String password;
-    private Profile profile; 
+    private Profile profile;
 
     public User() {
     }
@@ -81,21 +82,20 @@ public class User {
                 this.firstName = result.getString("FirstName");
                 this.lastName = result.getString("LastName");
                 this.password = result.getString("Password");
-                
+
                 // Recupera el perfil del usuario desde la base de datos y asígnalo al usuario
                 Profile profile = retrieveUserProfileFromDatabase(this.userID);
                 this.profile = profile;
-                
+
                 return 1;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        // Usuario no autenticado
         return 0;
     }
-    
+
     public Profile getProfile() {
         return profile;
     }
@@ -103,39 +103,61 @@ public class User {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
-    
-    // Método para cerrar la sesión
+
     public static void logout(HttpSession session) {
         session.removeAttribute("usuario");
         session.invalidate();
     }
 
     Profile retrieveUserProfileFromDatabase(int userID) {
-    Conexion c = new Conexion();
-    Connection cnx = c.conecta();
-    String query = "SELECT * FROM `Profile` WHERE `UserID` = ?";
+        Conexion c = new Conexion();
+        Connection cnx = c.conecta();
+        String query = "SELECT * FROM `Profile` WHERE `UserID` = ?";
 
-    try (PreparedStatement pstmt = cnx.prepareStatement(query)) {
-        pstmt.setInt(1, userID);
-        ResultSet result = pstmt.executeQuery();
+        try (PreparedStatement pstmt = cnx.prepareStatement(query)) {
+            pstmt.setInt(1, userID);
+            ResultSet result = pstmt.executeQuery();
 
-        if (result.next()) {
-            Profile profile = new Profile();
-            profile.setProfileID(result.getInt("ProfileID"));
-            profile.setUserName(result.getString("UserName"));
-            profile.setUserImage(result.getString("UserImage"));
-            profile.setCity(result.getString("City"));
-            profile.setAge(result.getInt("Age"));
-            profile.setBio(result.getString("Bio"));
-            profile.setPhoneNumber(result.getString("PhoneNumber"));
-            profile.setGender(result.getString("Gender"));
-            return profile;
+            if (result.next()) {
+                Profile profile = new Profile();
+                profile.setProfileID(result.getInt("ProfileID"));
+                profile.setUserName(result.getString("UserName"));
+                profile.setUserImage(result.getString("UserImage"));
+                profile.setCity(result.getString("City"));
+                profile.setAge(result.getInt("Age"));
+                profile.setBio(result.getString("Bio"));
+                profile.setPhoneNumber(result.getString("PhoneNumber"));
+                profile.setGender(result.getString("Gender"));
+                return profile;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
+
+        return null;
     }
-
-    return null; // Devuelve null si no se encuentra un perfil para el usuario.
-}
-
+    
+    public void insertUser( String email, String firstName, String lastName, String password) {
+        try {
+            Conexion c = new Conexion();
+            Connection cnx = c.conecta();            
+            String query = "insert into user (Email, FirstName, LastName, Password) values (?,?,?,?);";
+            
+            PreparedStatement sentencia = cnx.prepareStatement(query);
+            
+            sentencia.setString(1, email);
+            sentencia.setString(2, firstName);
+            sentencia.setString(3, lastName);
+            sentencia.setString(4, password);
+            
+            sentencia.executeUpdate();
+            sentencia.close();
+            cnx.close();
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }    
+        
+    }
+    
 }

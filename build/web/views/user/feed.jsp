@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     </head>
     <body>
+                
         <div class="row vh-100">
 
             <%@include file="leftMenu.jsp" %>
@@ -37,7 +38,6 @@
 
 
                 <div class="text-center pt-4" id="pubs">
-                    <!-- Itera sobre las publicaciones del perfil -->
 
                     <%
                         List<Publication> publications = Publication.getAllPublications(); // Recupera todas las publicaciones
@@ -54,7 +54,7 @@
                                     <p class="authorNickname" onclick="location.href = 'otherProfile.jsp?userID=<%= profile.getProfileID() %>'" style="cursor: pointer;"><%= publication.getProfile().getUserName() %></p>
                                 </div>
                                 <div class="col-2 text-end">
-                                    <!-- Muestra la fecha de la publicación -->
+                                    
                                     <p><i class="bi bi-clock"></i> <%= publication.getCalendar().getDate() %></p>
                                 </div>
                             </div>

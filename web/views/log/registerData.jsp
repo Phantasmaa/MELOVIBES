@@ -1,4 +1,5 @@
-<%@include file="../../util/validSesion.jsp" %>
+<%//@include file="../../util/validSesion.jsp" %>
+<%@page import="beans.User" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -22,6 +23,44 @@
 </head>
 
 <body>
+    
+    
+        
+    
+    <%
+         String email = request.getParameter("email");
+         String firstName = request.getParameter("names");
+         String lastName = request.getParameter("surname");
+         String password = request.getParameter("password");
+         
+         User u = new User();
+         u.insertUser(email, firstName, lastName, password);
+         
+    %>
+    
+    
+   <jsp:useBean id="user" class="beans.User" scope="session" />
+        <jsp:declaration>
+            String username;
+            String password;
+            int log;
+        </jsp:declaration>
+        <jsp:scriptlet>
+            username = request.getParameter("email");
+            password = request.getParameter("password");
+            log = user.authenticate(username, password);
+            if (log == 1) {
+                // Inicio de sesión exitoso, guarda la sesión
+                HttpSession sesion = request.getSession();
+                sesion.setAttribute("logueado", "OK");
+                session.setAttribute("user", user);
+                
+            } else {
+                // Autenticación fallida, redirige de nuevo a la página de inicio de sesión con error
+                response.sendRedirect("../views/log/login.jsp");
+            }
+    </jsp:scriptlet>
+    
     <div class="container-fluid">
         <div class="row">
             <div class="col-6 banner-container">
@@ -31,18 +70,10 @@
                 <img src="../../content/Images/Autenticacion/logoMeloVibe.png" class="logoMeloVibe" alt="Logo de MeloVibe">
                 <div class="col-6 text-center">
                     <p class="fw-bold welcome-msg">Información básica</p>
-                    <form id="registroForm" action="registerData.jsp" method="post" class="row justify-content-around" autocomplete="off">
-                        
-                        <!--<input id="user" name="user" type="text" class="text-field form-input" placeholder="Usuario" required> -->
-                        <input id="email" name="email" type="email" class="text-field form-input" placeholder="Email" required>
-                        <input id="names" name="names" type="text" class="text-field form-input col-6" placeholder="Nombres" required>
-                        <input id="surname" name="surname" type="text" class="text-field form-input col-6" placeholder="Apellidos" required>
-                        
-                        <input id="password" name="password" type="password" class="text-field form-input" placeholder="Contraseña" required>
-                        <input id="confirmPassword" name="confirmPassword" type="password" class="text-field form-input" placeholder="Confirmar contraseña" required> 
-                        <span id="mensajeError"></span>
-
-                        <!--<input id="city" name="city" type="text" class="text-field form-input col-8" placeholder="Ciudad" required>
+                    <form id="registroForm" action="validRegister.jsp" method="post" class="row justify-content-around" autocomplete="off">
+                        <input type="hidden" name="userID" value="<%= user.getUserID() %>"> 
+                        <input id="user" name="user" type="text" class="text-field form-input" placeholder="Usuario" required> 
+                        <input id="city" name="city" type="text" class="text-field form-input col-8" placeholder="Ciudad" required>
                         <input id="age" name="age" type="text" class="text-field form-input col-4" placeholder="Edad" maxlength="2" required>
                         <input id="phoneNumber" name="phoneNumber" type="text" class="text-field form-input col-6" placeholder="Teléfono" maxlength="9" required>
                         <div class="col-6 mb-3">
@@ -53,7 +84,7 @@
                                 <option value="Otro">Otro</option>
                             </select>
                         </div>
-                        -->
+                        
                         <button id="registerBtn" type="submit" class="btn form-input" onclick="clicked(event)">Registrarse</button>
                         <p class="form-input">¿Ya tienes una cuenta? <a href="login.jsp" class="link">Inicia Sesión!</a></p>
                     </form>
