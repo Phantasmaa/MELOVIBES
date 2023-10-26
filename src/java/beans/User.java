@@ -136,28 +136,53 @@ public class User {
 
         return null;
     }
-    
-    public void insertUser( String email, String firstName, String lastName, String password) {
+
+    public void insertUser(String email, String firstName, String lastName, String password) {
         try {
             Conexion c = new Conexion();
-            Connection cnx = c.conecta();            
+            Connection cnx = c.conecta();
             String query = "insert into user (Email, FirstName, LastName, Password) values (?,?,?,?);";
-            
+
             PreparedStatement sentencia = cnx.prepareStatement(query);
-            
+
             sentencia.setString(1, email);
             sentencia.setString(2, firstName);
             sentencia.setString(3, lastName);
             sentencia.setString(4, password);
-            
+
             sentencia.executeUpdate();
             sentencia.close();
             cnx.close();
-            
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }    
-        
+        }
+
     }
-    
+
+    public void editUser(String userName, String city, int age, int userID) {
+        try {
+            Conexion c = new Conexion();
+            Connection cnx = c.conecta();
+            String query = "UPDATE Profile "
+              + "SET UserName = ?, City = ?, Age = ? "
+              + "WHERE UserID = ?;";
+
+            PreparedStatement sentencia = cnx.prepareStatement(query);
+
+            sentencia.setString(1, userName);
+            sentencia.setString(2, city);
+            sentencia.setInt(3, age);
+            sentencia.setInt(4, userID);
+
+            sentencia.executeUpdate();
+            sentencia.close();
+            cnx.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
 }

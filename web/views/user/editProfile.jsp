@@ -34,19 +34,20 @@
                     </div>
                     <div class="col-md-7" id="EditarDatos">
                         <h4>Datos Personales</h4>
-                        <form action="feed.jsp" method="post"> <!-- Cambiar 'ActualizarPerfilServlet' por el nombre de tu servlet de actualización -->
+                        <form action="../../util/editProfile.jsp" method="post"> 
                             <div class="col-md-12 mb-1">
                                 <label for="Nickname" class="form-label" >Nickname </label>
                                 <input type="text" class="form-control" id="Nickname" name="Nickname" placeholder="Nickname" value="<%= profile.getUserName() %>">
                             </div>
                             <div class="col-md-12 mb-1">
                                 <label for="Nickname" class="form-label" >Ciudad </label>
-                                <input type="text" class="form-control" id="Nickname" name="Nickname" placeholder="Nickname" value="<%= profile.getCity() %>">
+                                <input type="text" class="form-control" id="Nickname" name="City" placeholder="Nickname" value="<%= profile.getCity() %>">
                             </div>
                             <div class="col-md-12 mb-1">    
                                 <label for="Nickname" class="form-label" >Edad </label>
-                                <input type="text" class="form-control" id="Nickname" name="Nickname" placeholder="Nickname" value="<%= profile.getAge() %>">
+                                <input type="text" class="form-control" id="Nickname" name="Age" placeholder="Nickname" value="<%= profile.getAge() %>">
                             </div>
+                            <input type="hidden" name="userID" value="<%= user.getUserID() %>"> 
                             <div class="d-grid gap-4 d-md-flex justify-content-md-between" id="Botones">
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#CredencialesModal" id="Eliminar">Eliminar Perfil <i class="bi bi-trash-fill"></i></button>
                                 <div class="text-md-end">
@@ -54,8 +55,9 @@
                                     <button type="submit" class="btn btn-primary btn-md" id="Guardar">Guardar <i class="bi bi-play-fill"></i></button>
                                 </div>
                             </div>
+                            </form>
                     </div>
-                    </form>
+                    
                 </div>          
             </div>
         </div>     
