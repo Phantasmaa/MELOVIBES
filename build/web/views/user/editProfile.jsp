@@ -112,7 +112,7 @@
                 <div class="modal-footer">
                     <div id="BotonCredencial">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar<i class="bi bi-pause-fill"></i></button>
-                        <button type="button" class="btn btn-danger"id="Eliminar" onclick="location.href = '../log/login.jsp'">Si, eliminar Cuenta<i class="bi bi-trash-fill"></i></button>
+                        <button type="button" class="btn btn-danger"id="Eliminar" onclick="location.href = '../../util/deleteProfile.jsp?userID=<%=user.getUserID()%>'">Si, eliminar Cuenta<i class="bi bi-trash-fill"></i></button>
                     </div>
                 </div>
             </div>

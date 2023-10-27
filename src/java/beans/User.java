@@ -184,5 +184,52 @@ public class User {
         }
 
     }
+    
+    
+    public void deleteUser(int userID) {
+    try {
+        Conexion c = new Conexion();
+        Connection cnx = c.conecta();
 
+        // Borrar el perfil del usuario
+        String query = "DELETE FROM Profile WHERE UserID = ?;";
+        PreparedStatement sentencia = cnx.prepareStatement(query);
+        sentencia.setInt(1, userID);
+        sentencia.executeUpdate();
+        sentencia.close();
+
+        // Borrar las publicaciones del usuario
+        query = "DELETE FROM Publication WHERE ProfileID = ?;";
+        sentencia = cnx.prepareStatement(query);
+        sentencia.setInt(1, userID);
+        sentencia.executeUpdate();
+        sentencia.close();
+
+        // Borrar los comentarios del usuario
+        query = "DELETE FROM Comment WHERE ProfileID = ?;";
+        sentencia = cnx.prepareStatement(query);
+        sentencia.setInt(1, userID);
+        sentencia.executeUpdate();
+        sentencia.close();
+
+        // Borrar las reacciones a las publicaciones del usuario
+        query = "DELETE FROM Reaction WHERE PublicationID IN (SELECT PublicationID FROM Publication WHERE ProfileID = ?)";
+        sentencia = cnx.prepareStatement(query);
+        sentencia.setInt(1, userID);
+        sentencia.executeUpdate();
+        sentencia.close();
+
+        // Borrar el usuario
+        query = "DELETE FROM User WHERE UserID = ?";
+        sentencia = cnx.prepareStatement(query);
+        sentencia.setInt(1, userID);
+        sentencia.executeUpdate();
+        sentencia.close();
+
+        cnx.close();
+    } catch (SQLException e) {
+        System.out.println(e.getMessage());
+    }
+
+}
 }
