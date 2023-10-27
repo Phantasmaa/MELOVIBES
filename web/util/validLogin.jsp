@@ -16,6 +16,7 @@
         <jsp:scriptlet>
             username = request.getParameter("user");
             password = request.getParameter("password");
+            
             log = user.authenticate(username, password);
             if (log == 1) {
                 // Inicio de sesión exitoso, guarda la sesión
@@ -28,6 +29,9 @@
                 // Autenticación fallida, redirige de nuevo a la página de inicio de sesión con error
                 response.sendRedirect("../views/log/login.jsp");
             }
+            
+            
+            
         </jsp:scriptlet>
     </body>
 </html>

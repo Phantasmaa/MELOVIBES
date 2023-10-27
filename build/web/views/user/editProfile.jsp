@@ -36,16 +36,45 @@
                         <h4>Datos Personales</h4>
                         <form action="../../util/editProfile.jsp" method="post"> 
                             <div class="col-md-12 mb-1">
-                                <label for="Nickname" class="form-label" >Nickname </label>
-                                <input type="text" class="form-control" id="Nickname" name="Nickname" placeholder="Nickname" value="<%= profile.getUserName() %>">
+                            <label for="Nickname" class="form-label" >Nickname </label>
+                            <input type="text" class="form-control" id="Nickname" name="Nickname" placeholder="Nickname" value="<%= profile.getUserName() %>">
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col-md-6">
+                                <label for="Nombre" class="form-label">Nombre </label>
+                                <input type="text" class="form-control" id="Nombre" name="Name" placeholder="Nombre" value="<%= user.getFirstName() %>" >
                             </div>
-                            <div class="col-md-12 mb-1">
-                                <label for="Nickname" class="form-label" >Ciudad </label>
-                                <input type="text" class="form-control" id="Nickname" name="City" placeholder="Nickname" value="<%= profile.getCity() %>">
+                             <div class="col-md-6">
+                                <label for="Apellido" class="form-label">Apellido</label>
+                                <input type="text" class="form-control" id="Apellido" name="lastName" placeholder="Apellido" value="<%= user.getLastName() %>" >
+                             </div>
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col-md-6">
+                                <label for="Ciudad" class="form-label">Ciudad </label>
+                                <input type="text" class="form-control" id="Ciudad" name="City" placeholder="Ciudad" value="<%= profile.getCity() %>">
                             </div>
-                            <div class="col-md-12 mb-1">    
-                                <label for="Nickname" class="form-label" >Edad </label>
-                                <input type="text" class="form-control" id="Nickname" name="Age" placeholder="Nickname" value="<%= profile.getAge() %>">
+                             <div class="col-md-6">
+                                <label for="Edad" class="form-label">Edad</label>
+                                <input type="number" class="form-control" id="Edad" name="Age" placeholder="Edad" value="<%= profile.getAge() %>">
+                             </div>
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col-md-6">
+                                <label for="Telefono" class="form-label">Teléfono </label>
+                                <input type="tel" class="form-control" id="Telefono" name="phoneNumber" placeholder="(+51) xxx xxx xxx" value="<%= profile.getPhoneNumber() %>">
+                            </div>
+                             <div class="col-md-6">
+                                <label for="Género" class="form-label">Género </label>
+                                <select class="form-select" name="gender" aria-label="Slección Genero">
+                                    <option value="Masculino" selected>Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                    <option value="Otro">Otro</option>
+                                  </select>
+                             </div>
+                             <div class="col-md-12 mb-1">
+                                <label for="Biografia" class="form-label" >Biografia </label>
+                                <textarea class="form-control" id="Biografia" name="bio" rows="4" ><%= profile.getBio() %></textarea>
                             </div>
                             <input type="hidden" name="userID" value="<%= user.getUserID() %>"> 
                             <div class="d-grid gap-4 d-md-flex justify-content-md-between" id="Botones">

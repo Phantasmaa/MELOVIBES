@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 public class User {
 
+    private boolean admin = false;
     private int userID;
     private String email;
     private String firstName;
@@ -23,6 +24,14 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+    }
+
+    public boolean getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 
     public int getUserID() {
@@ -160,12 +169,26 @@ public class User {
 
     }
 
-    public void editUser(String userName, String city, int age, int userID) {
+    
+    
+    public void editUser(String userName, String name, String lastName, String city, int age, String phoneNumber, String gender, String bio, int userID) {
         try {
+
             Conexion c = new Conexion();
             Connection cnx = c.conecta();
+            
+            String queryUser = "UPDATE User "
+              + "SET FirstName = ?,  LastName = ?"
+              + "WHERE UserID = ?;";
+            PreparedStatement sentenciaUser = cnx.prepareStatement(queryUser);
+            sentenciaUser.setString(1, name);
+            sentenciaUser.setString(2, lastName);
+            sentenciaUser.setInt(3, userID);
+            sentenciaUser.executeUpdate();
+            sentenciaUser.close();
+            
             String query = "UPDATE Profile "
-              + "SET UserName = ?, City = ?, Age = ? "
+              + "SET UserName = ?, City = ?, Age = ?, PhoneNumber = ?, Gender = ?, Bio = ?"
               + "WHERE UserID = ?;";
 
             PreparedStatement sentencia = cnx.prepareStatement(query);
@@ -173,7 +196,10 @@ public class User {
             sentencia.setString(1, userName);
             sentencia.setString(2, city);
             sentencia.setInt(3, age);
-            sentencia.setInt(4, userID);
+            sentencia.setString(4, phoneNumber);
+            sentencia.setString(5, gender);
+            sentencia.setString(6, bio);
+            sentencia.setInt(7, userID);
 
             sentencia.executeUpdate();
             sentencia.close();
@@ -182,54 +208,54 @@ public class User {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
     }
     
     
+
     public void deleteUser(int userID) {
-    try {
-        Conexion c = new Conexion();
-        Connection cnx = c.conecta();
+        try {
+            Conexion c = new Conexion();
+            Connection cnx = c.conecta();
 
-        // Borrar el perfil del usuario
-        String query = "DELETE FROM Profile WHERE UserID = ?;";
-        PreparedStatement sentencia = cnx.prepareStatement(query);
-        sentencia.setInt(1, userID);
-        sentencia.executeUpdate();
-        sentencia.close();
+            // Borrar el perfil del usuario
+            String query = "DELETE FROM Profile WHERE UserID = ?;";
+            PreparedStatement sentencia = cnx.prepareStatement(query);
+            sentencia.setInt(1, userID);
+            sentencia.executeUpdate();
+            sentencia.close();
 
-        // Borrar las publicaciones del usuario
-        query = "DELETE FROM Publication WHERE ProfileID = ?;";
-        sentencia = cnx.prepareStatement(query);
-        sentencia.setInt(1, userID);
-        sentencia.executeUpdate();
-        sentencia.close();
+            // Borrar las publicaciones del usuario
+            query = "DELETE FROM Publication WHERE ProfileID = ?;";
+            sentencia = cnx.prepareStatement(query);
+            sentencia.setInt(1, userID);
+            sentencia.executeUpdate();
+            sentencia.close();
 
-        // Borrar los comentarios del usuario
-        query = "DELETE FROM Comment WHERE ProfileID = ?;";
-        sentencia = cnx.prepareStatement(query);
-        sentencia.setInt(1, userID);
-        sentencia.executeUpdate();
-        sentencia.close();
+            // Borrar los comentarios del usuario
+            query = "DELETE FROM Comment WHERE ProfileID = ?;";
+            sentencia = cnx.prepareStatement(query);
+            sentencia.setInt(1, userID);
+            sentencia.executeUpdate();
+            sentencia.close();
 
-        // Borrar las reacciones a las publicaciones del usuario
-        query = "DELETE FROM Reaction WHERE PublicationID IN (SELECT PublicationID FROM Publication WHERE ProfileID = ?)";
-        sentencia = cnx.prepareStatement(query);
-        sentencia.setInt(1, userID);
-        sentencia.executeUpdate();
-        sentencia.close();
+            // Borrar las reacciones a las publicaciones del usuario
+            query = "DELETE FROM Reaction WHERE PublicationID IN (SELECT PublicationID FROM Publication WHERE ProfileID = ?)";
+            sentencia = cnx.prepareStatement(query);
+            sentencia.setInt(1, userID);
+            sentencia.executeUpdate();
+            sentencia.close();
 
-        // Borrar el usuario
-        query = "DELETE FROM User WHERE UserID = ?";
-        sentencia = cnx.prepareStatement(query);
-        sentencia.setInt(1, userID);
-        sentencia.executeUpdate();
-        sentencia.close();
+            // Borrar el usuario
+            query = "DELETE FROM User WHERE UserID = ?";
+            sentencia = cnx.prepareStatement(query);
+            sentencia.setInt(1, userID);
+            sentencia.executeUpdate();
+            sentencia.close();
 
-        cnx.close();
-    } catch (SQLException e) {
-        System.out.println(e.getMessage());
+            cnx.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
-
-}
 }
