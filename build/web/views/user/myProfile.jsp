@@ -54,7 +54,7 @@
                                         </div>
                                         <div class="col-6">
                                             <label class="labelInfo">Nombre</label>
-                                            <p class="Info"><%= user.getFirstName() %></p>
+                                            <p class="Info"><%= user.getFirstName()%> <%= user.getLastName()%></p>
                                             <label class="labelInfo">Edad <i class="bi bi-cake2"></i></label>
                                             <p class="Info"><%= profile.getAge() %> años</p>
                                             <label class="labelInfo">Género <i class="bi bi-person-circle"></i></label>

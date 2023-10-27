@@ -69,7 +69,7 @@
             <div class="col-6 row justify-content-center align-content-center">
                 <img src="../../content/Images/Autenticacion/logoMeloVibe.png" class="logoMeloVibe" alt="Logo de MeloVibe">
                 <div class="col-6 text-center">
-                    <p class="fw-bold welcome-msg">Información básica</p>
+                    <p class="fw-bold welcome-msg">Información de Perfil</p>
                     <form id="registroForm" action="validRegister.jsp" method="post" class="row justify-content-around" autocomplete="off">
                         <input type="hidden" name="userID" value="<%= user.getUserID() %>"> 
                         <input id="user" name="user" type="text" class="text-field form-input" placeholder="Usuario" required> 

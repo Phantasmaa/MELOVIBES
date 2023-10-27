@@ -2,6 +2,21 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/practs/MELOVIBES/web/views/log/si.jsp</file>
+            <file>file:/D:/practs/MELOVIBES/web/util/editProfile.jsp</file>
+            <file>file:/D:/practs/MELOVIBES/src/java/beans/Publication.java</file>
+            <file>file:/D:/practs/MELOVIBES/src/java/beans/Profile.java</file>
+            <file>file:/D:/practs/MELOVIBES/web/views/user/editProfile.jsp</file>
+            <file>file:/D:/practs/MELOVIBES/web/views/user/myProfile.jsp</file>
+            <file>file:/D:/practs/MELOVIBES/web/views/user/feed.jsp</file>
+            <file>file:/D:/practs/MELOVIBES/src/java/beans/User.java</file>
+            <file>file:/D:/practs/MELOVIBES/web/util/validLogin.jsp</file>
+            <file>file:/D:/practs/MELOVIBES/web/util/validSesion.jsp</file>
+            <file>file:/D:/practs/MELOVIBES/web/views/user/leftMenu.jsp</file>
+            <file>file:/D:/practs/MELOVIBES/web/util/deleteProfile.jsp</file>
+            <file>file:/D:/practs/MELOVIBES/web/views/log/validRegister.jsp</file>
+            <file>file:/D:/practs/MELOVIBES/web/views/log/registerData.jsp</file>
+        </group>
     </open-files>
 </project-private>
