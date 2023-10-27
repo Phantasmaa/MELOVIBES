@@ -46,7 +46,7 @@
                     <div class="row">
                         <div class="col-2">
                             <a href="otherProfile.jsp"><img class="postProfilePicture"
-                                                            src="<%= publication.getProfile().getUserImage() %>" alt=""></a>
+                                                            src="../../content/Images/Usuario/usuario.png" alt=""></a>
                         </div>
                         <div class="col-9">
                             <div class="row justify-content-between text-start">

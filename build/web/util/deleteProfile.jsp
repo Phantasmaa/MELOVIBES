@@ -19,8 +19,7 @@
             HttpSession sesion = request.getSession();
             sesion.removeAttribute("logueado"); 
             sesion.invalidate();
-            // u.getProfile(); // Asume que este método recupera el perfil del usuario           
-            //session.setAttribute("profile", u.getProfile());
+
             response.sendRedirect("../views/log/login.jsp");
         %>
     </body>
