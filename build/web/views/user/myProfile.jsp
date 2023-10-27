@@ -38,7 +38,8 @@
                             <div class="row">
                                 <div class="col-6 details">
                                     <h3>Sobre mí</h3>
-                                    <p class="Info"><%= profile.getBio() %></p>
+                                    <p class="Info"><%= (profile.getBio() != null) ? profile.getBio() : "Sin biografía :(" %>                                  
+                                    </p>
                                 </div>
                                 <div class="col-6 details">
                                     <h3>Detalles</h3>
