@@ -25,20 +25,11 @@
             
             User u = new User();  
             u.editUser(userName, name, lastName, city, age, phoneNumber, gender, bio, userID);
- /*
-            String userName = request.getParameter("Nickname");
-            String city = request.getParameter("City");
-            int age = Integer.parseInt(request.getParameter("Age"));
-            int userID = Integer.parseInt(request.getParameter("userID"));
-            
-            User u = new User();  
-            u.editUser(userName, city, age, userID);*/
-                
+   
             HttpSession sesion = request.getSession();
             sesion.removeAttribute("logueado"); 
             sesion.invalidate();
-            // u.getProfile(); // Asume que este método recupera el perfil del usuario           
-            //session.setAttribute("profile", u.getProfile());
+
             response.sendRedirect("../views/log/login.jsp");
         %>
 
