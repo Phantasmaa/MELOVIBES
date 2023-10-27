@@ -23,7 +23,7 @@
                 <div class="col-6 text-center">
                     <p class="fw-bold welcome-msg">Bienvenido, inicie sesión</p>
                     <form action="../../util/validLogin.jsp" class="row justify-content-around" autocomplete="off" method="post">
-                        <input id="user" name="user" type="text" class="text-field form-input" placeholder="Usuario">
+                        <input id="user" name="user" type="text" class="text-field form-input" placeholder="Correo">
                         <input id="password" name="password" type="password" class="text-field form-input" placeholder="Contraseña">
 
                         <div class="input-group form-input justify-content-between">

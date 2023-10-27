@@ -33,7 +33,7 @@ body{
     font-weight: bold;
 }
 
-#link_feed_selected{
+.link_feed_selected{
     color:#8D397C;  
     font-weight: bold;
     background-color: #E5D6E2;

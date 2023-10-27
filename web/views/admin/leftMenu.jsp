@@ -7,11 +7,11 @@
         <div id="opciones">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="userList.jsp" id="link_feed_selected"><i
+                    <a class="nav-link links_feed link_feed_selected" href="userList.jsp" id="LeftMenu-Perfiles"><i
                             class="bi bi-person-fill me-2"></i>Perfiles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link links_feed" href="adminFeeds.jsp"><i
+                    <a class="nav-link links_feed" href="adminFeeds.jsp" id="LeftMenu-Publicaciones"><i
                             class="bi bi-pass-fill me-2"></i>Publicaciones</a>
                 </li>
             </ul>

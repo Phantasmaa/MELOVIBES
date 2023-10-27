@@ -26,8 +26,8 @@
                                     <img class="profilePicture" src="../../content/Images/Administracion/usuario.png"
                                     alt="profilePicture">
                                 </div>
-                                <button class="btn btn-lg btn-secondary my-3" onclick="location.href = 'editProfile.jsp'">Editar perfil <i
-                                        class="bi bi-pencil"></i></button>
+                                <button class="btn btn-lg btn-secondary my-3" onclick= "location.href = 'editProfile.jsp'">Editar perfil 
+                                    <i class="bi bi-pencil"></i>  </button>
                             </div>
                             <div class="stats mt-5">
                                 <p><i class="bi bi-music-note-list"></i> Publicaciones <span>120</span></p>
@@ -62,7 +62,45 @@
                                     </div>
                                 </div>
                                 <div class="col12">
-                                    <!-- El resto de tu código aquí -->
+                                    <div class="text-center p-5 pubs">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <a href="adminProfiles.jsp"><img class="postProfilePicture"
+                                                src="../../content/Images/Administracion/usuario.png" alt=""></a>
+                                        </div>
+                                        <div class="col-10">
+                                            <div class="row justify-content-between text-start">
+                                                <div class="col-2">
+                                                    <p class="authorNickname" onclick="location.href='adminProfiles.jsp'" style="cursor: pointer;">carlosgz</p>
+                                                </div>
+                                                <div class="col-2 text-end">
+                                                    <p><i class="bi bi-clock"></i> Hoy</p>
+                                                </div>
+                                            </div>
+                                            <p class="text-start postContent"> Lorem ipsum dolor sit amet consectetur
+                                                adipisicing
+                                                elit. Consequuntur
+                                                blanditiis numquam repellendus velit, incidunt aliquid ipsam harum
+                                                deserunt tempore officiis perspiciatis! Labore magni velit dolorum porro
+                                                ipsam quo exercitationem tempore necessitatibus distinctio pariatur
+                                                numquam, qui voluptatum nobis voluptates nam vero.</p>
+                                            <div>
+                                                <img class="postContentPicture"
+                                                    src="../../content/Images/Administracion/postSamplePicture.jpg"
+                                                    alt="">
+                                            </div>
+                                            <div class="row justify-content-start interactionBtnRow text-start mt-2">
+                                                <div class="col-2">
+                                                    <p><i class="bi bi-music-note-list"></i>10</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <p><i class="bi bi-music-note liked"></i> 481</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -73,6 +111,25 @@
 
             </div>
             <script src="../../util/script/logOutScript.js">
+            </script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function(event) {
+                    var tab1, tab2, tab3;
+                    tab1 = document.getElementById("LeftMenu-inicio");
+                    tab2 = document.getElementById("LeftMenu-marketplace");
+                    tab3 = document.getElementById("LeftMenu-perfil");
+                    tab1.classList.remove("link_feed_selected");
+                    tab2.classList.remove("link_feed_selected");
+                    tab3.classList.remove("link_feed_selected");
+                    tab1.classList.remove("links_feed");
+                    tab2.classList.remove("links_feed");
+                    tab3.classList.remove("links_feed");
+                    tab1.classList.add("links_feed");
+                    tab2.classList.add("links_feed");
+                    
+                    tab3.classList.add("link_feed_selected");
+                    
+                });
             </script>
     </body>
 </html>
