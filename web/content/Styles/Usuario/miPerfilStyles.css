@@ -28,17 +28,15 @@ body{
     padding-top: 1px;   
 }
 
+
+
+
 .links_feed:hover{
     color:#8D397C;  
     font-weight: bold;
 }
 
-#link_feed_selected{
-    color:#8D397C;  
-    font-weight: bold;
-    background-color: #E5D6E2;
-    border-left: 6px solid #8D397C;
-}
+
 
 
 #crear_pub{
@@ -132,18 +130,17 @@ body{
     padding-top: 1px;   
 }
 
-.links_feed:hover{
-    color:#8D397C;  
-    font-weight: bold;
-}
-
-#link_feed_selected{
+.link_feed_selected{
     color:#8D397C;  
     font-weight: bold;
     background-color: #E5D6E2;
     border-left: 6px solid #8D397C;
 }
 
+.links_feed:hover{
+    color:#8D397C;  
+    font-weight: bold;
+}
 
 #crear_pub{
     background-color: #8D397C;
@@ -303,4 +300,15 @@ body{
 
 .liked{
     color: #8D397C;
+}
+
+.pubs{
+    border: 2px solid #000;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+
+.details{
+    margin-bottom: 2%;
 }

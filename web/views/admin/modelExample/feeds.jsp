@@ -10,11 +10,11 @@
                         class="bi bi-eye"></i></button>
             </div>
             <div class="col-4">
-                <button id="btn-editarPublicacion" class="btn btn-secondary">Editar <i
+                <button id="btn-editarPublicacion" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editPublicationModal">Editar <i
                         class="bi bi-pencil"></i></button>
             </div>
             <div class="col-4">
-                <button id="btn-eliminarPublicacion" class="btn btn-danger"
+                <button class="btn btn-danger"
                     data-bs-toggle="modal"
                     data-bs-target="#eliminationWarningModal">Eliminar <i
                         class="bi bi-trash"></i></button>
