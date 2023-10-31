@@ -17,7 +17,7 @@
                     </ul>
                 </div>
                 <div class="text-center">
-                    <button class="btn btn-primary mt-3" id="crear_pub">Crear publicación <i class="bi bi-music-note-beamed"></i></button> 
+                    <button class="btn btn-primary mt-3" id="crear_pub" data-bs-toggle="modal"  data-bs-target="#createPublicationModal">Crear publicación <i class="bi bi-music-note-beamed"></i></button> 
                 </div>
                 <div class="text-center d-flex align-items-center">
                     <img id="imagen_cantante" class="img-fluid rounded" src="../../content/Images/Usuario/cantante2.png" alt="cantante">

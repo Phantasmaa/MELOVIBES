@@ -128,7 +128,7 @@
                             <textarea id="publicationTextContent" cols="60" rows="7" placeholder="Tu publicacion..."
                                 spellcheck="false"></textarea>
                         </div>
-                        <div class="publicationImageContainer">
+                        <div class="publicationImageContainer" style="cursor: pointer;" onclick="uploadImage();">
                             <div class="uploadImage text-center">
                                 <p class="">Subir Foto <i class="bi bi-upload"></i></p>
                             </div>
@@ -168,5 +168,8 @@
                     tab2.classList.add("link_feed_selected");
                     
                 });
+                function uploadImage(){
+                    alert("Este boton solicitara subir una imagen");
+                }
             </script>
 </html>

@@ -6,18 +6,18 @@
                 <div id="opciones">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="feed.jsp" id="link_feed_selected"><i class="bi bi-house-door-fill"></i> Inicio</a>
+                            <a class="nav-link links_feed link_feed_selected" id="LeftMenu-inicio" href="feed.jsp"><i class="bi bi-house-door-fill"></i> Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link links_feed" href="#" ><i class="bi bi-shop"></i>  Marketplace</a>
+                            <a class="nav-link links_feed" id="LeftMenu-marketplace" href="#" ><i class="bi bi-shop"></i>  Marketplace</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link links_feed" href="myProfile.jsp"  ><i class="bi bi-person"></i>  Perfil</a>
+                            <a class="nav-link links_feed" id="LeftMenu-perfil" href="myProfile.jsp"  ><i class="bi bi-person"></i>  Perfil</a>
                         </li>
                     </ul>
                 </div>
                 <div class="text-center">
-                    <button class="btn btn-primary mt-3" id="crear_pub">Crear publicaciï¿½n <i class="bi bi-music-note-beamed"></i></button> 
+                    <button class="btn btn-primary mt-3" id="crear_pub" data-bs-toggle="modal"  data-bs-target="#createPublicationModal">Crear publicación <i class="bi bi-music-note-beamed"></i></button> 
                 </div>
                 <div class="text-center d-flex align-items-center">
                     <img id="imagen_cantante" class="img-fluid rounded" src="../../content/Images/Usuario/cantante2.png" alt="cantante">

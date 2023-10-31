@@ -251,3 +251,46 @@ body{
     font-size: 30px;
     margin: 0 10px
 }
+
+.modal-footer{
+    padding-right: 6.4em;
+}
+
+.btn-editPublication{
+    background-color: #8D397C;
+    border-color: #8D397C;
+    color: #FFF;
+}
+
+#publicationTextContent{
+    background-color: #DBDBDB;
+    border: none;
+    resize: none;
+}
+
+#publicationTextContent:focus{
+    background-color: #DBDBDB;
+    border: none;
+    outline: none;
+}
+
+.publicationImageContainer{
+    width: 100%;
+    height: auto;
+}
+
+.publicationImageContainer>img{
+    width: 100%;
+    height: auto;
+}
+
+.uploadImage{
+    width: 100%;
+    height: 200px;
+    padding: 90px 0px;
+    background-color: #C0C0C0;
+}
+
+.modal-content{
+    background-color: #DBDBDB;
+}
