@@ -155,16 +155,11 @@
                     var tab1, tab2;
                     tab1 = document.getElementById("LeftMenu-Perfiles");
                     tab2 = document.getElementById("LeftMenu-Publicaciones");
-                   
                     tab1.classList.remove("link_feed_selected");
                     tab2.classList.remove("link_feed_selected");
-                    
                     tab1.classList.remove("links_feed");
                     tab2.classList.remove("links_feed");
-                   
-                    
                     tab1.classList.add("links_feed");
-                    
                     tab2.classList.add("link_feed_selected");
                     
                 });
