@@ -188,6 +188,20 @@
                                 alert("Este boton solicitara subir una imagen");
                             }
         </script>
+        
+      <!-- Script para validar 1000 caracteres en la publicación -->
+      <script>
+        const itemDescription = document.getElementById("publicationTextContent");
+        const maxCharacters = 1000;
+
+        itemDescription.addEventListener("input", function () {
+        const remainingCharacters = maxCharacters - itemDescription.value.length;
+ 
+        if (itemDescription.value.length > maxCharacters) {
+          itemDescription.value = itemDescription.value.slice(0, maxCharacters); // Selecciona solo los primeros 1000 caracteres
+        }
+        });
+      </script>
     </body>
 
 </html>

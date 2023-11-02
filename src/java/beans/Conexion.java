@@ -14,7 +14,7 @@ public class Conexion {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String user="root";
-            String password="admin";
+            String password="112211";
             String url="jdbc:mysql://localhost:3306/melovibe";
             cnx = DriverManager.getConnection(url, user, password);
             return cnx;

@@ -17,10 +17,7 @@
                 <button class="btn btn-danger" 
                     data-bs-toggle="modal" 
                     data-bs-target="#eliminationWarningModal">Eliminar<i
-                        class="bi bi-trash"></i></button>      
-                
-              
-                
+                        class="bi bi-trash"></i></button>       
             </div>
         </div>
     </td>

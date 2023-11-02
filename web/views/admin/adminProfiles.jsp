@@ -54,7 +54,7 @@
                                         <p class="Info">JeffMusicMan</p>
                                         <label class="labelInfo">Ciudad <i class="bi bi-geo-alt"></i></label>
                                         <p class="Info">Krakow, Polska</p>
-                                        <label class="labelInfo">Telefono <i class="bi bi-telephone"></i></label>
+                                        <label class="labelInfo">Teléfono <i class="bi bi-telephone"></i></label>
                                         <p class="Info">(+51) xxx-xxx-xxx</p>
                                     </div>
                                     <div class="col-6">

@@ -47,7 +47,7 @@
                                                     placeholder="Nickname">
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-1">
                                             <div class="col-6">
                                                 <label for="name" class="form-label">Nombre</label>
                                                 <input type="text" class="form-control" id="name" placeholder="Nombre">
@@ -58,7 +58,7 @@
                                                     placeholder="Apellido">
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-1">
                                             <div class="col-6">
                                                 <label for="city" class="form-label">Ciudad</label>
                                                 <input type="text" class="form-control" id="city" placeholder="Ciudad">
@@ -68,11 +68,11 @@
                                                 <input type="email" class="form-control" id="age" placeholder="Edad">
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-1">
                                             <div class="col-6">
                                                 <label for="phoneNumber" class="form-label">Teléfono</label>
                                                 <input type="email" class="form-control" id="phoneNumber"
-                                                    placeholder="Telefono">
+                                                    placeholder="Teléfono">
                                             </div>
                                             <div class="col-6">
                                                 <label for="email" class="form-label">Correo</label>
@@ -80,7 +80,7 @@
                                                     placeholder="Correo">
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-1">
                                             <div class="col-12">
                                                 <label for="biography" class="form-label">Biografía</label>
                                                 <textarea id="biography" class="form-control" rows="10"
