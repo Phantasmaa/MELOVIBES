@@ -1,11 +1,14 @@
-<%@include file="../../util/getUser.jsp" %>
-<%@include file="../../util/validSesion.jsp" %>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="models.Publication" %>
+<%@ page import="models.User" %>
 <%@ page import="java.util.List" %>
-<%@ page import="beans.Publication" %>
-<%@ page import="beans.User" %>
-<%@ page import="beans.Profile" %>
+<%@ page import="java.util.Iterator" %>
+<%@ page import="java.util.Collections" %>
+
+<% 
+    User user = (User) session.getAttribute("usuario");
+    
+%>
 
 <!DOCTYPE html>
 <html lang="es">

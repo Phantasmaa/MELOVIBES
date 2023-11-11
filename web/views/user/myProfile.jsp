@@ -29,8 +29,8 @@
                             <div id="profileCard" class="shadow p-3 mb-5">
                                 <h2><%= user.getUserName() %> <i class="bi bi-soundwave"></i></h2>
                                 <div class="my-4">
-                                    <img class="profilePicture" src="<%=user.getUserImage()%>"
-                                         alt="profilePicture">
+                                    <img class="profilePicture" src="<%=user.getUserImage() %>" alt="profilePicture">                               
+                                    
                                 </div>
                                 <button class="btn btn-lg btn-secondary my-3" onclick= "location.href = 'editProfile.jsp'">Editar perfil 
                                     <i class="bi bi-pencil"></i>  </button>

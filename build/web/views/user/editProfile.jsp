@@ -25,9 +25,9 @@
                 <div id="bienvenida">Editar Perfil</div>
                 <div class="row">
                     <div class="col-md-3" id="CambiarFoto">
-                        <div>TeoMusicMan <i class="bi bi-soundwave"></i></div>
+                        <div>Mi Foto <i class="bi bi-soundwave"></i></div>
                         <div>
-                            <img src="../../Content/Images/Administracion/usuario.png" alt="Foto" class="img-fluid rounded-circle mt-4" width="250">
+                            <img src="<%=user.getUserImage() %>" alt="Foto" class="img-fluid rounded-circle mt-4" width="250">
                             <div class="mt-4" ><button type="button" class="btn btn-primary btn-lg" id="Foto">Subir Foto <i class="bi bi-upload"></i></button></div>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#CredencialesModal" id="Eliminar" onclick="redirigirAPagina()">Eliminar Perfil <i class="bi bi-trash-fill"></i></button>
 
                                     <div class="text-md-end">
-                                        <button type="button" class="btn btn-secondary btn-md" id="Cancelar" onclick="location.href = 'myProfile.jsp'">Cancelar <i class="bi bi-pause-fill"></i></button>
+                                        <button type="button" class="btn btn-secondary btn-md" id="Cancelar" onclick="location.href = 'myprofile'">Cancelar <i class="bi bi-pause-fill"></i></button>
                                         <button type="submit" class="btn btn-primary btn-md" id="Guardar">Guardar <i class="bi bi-play-fill"></i></button>
                                     </div>
                                 </div>
