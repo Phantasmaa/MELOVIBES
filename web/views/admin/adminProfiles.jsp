@@ -39,7 +39,7 @@
                     <div class="col-9">
                         <div class="row">
                             <div class="col-6 details">
-                                <h3>Sobre mï¿½</h3>
+                                <h3>Sobre mí</h3>
                                 <p class="Info">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur
                                     aperiam recusandae non quis aspernatur illum blanditiis tempore quos sit voluptates
                                     qui mollitia velit minus, tempora repellendus veniam esse a assumenda, illo atque?
@@ -54,20 +54,20 @@
                                         <p class="Info">JeffMusicMan</p>
                                         <label class="labelInfo">Ciudad <i class="bi bi-geo-alt"></i></label>
                                         <p class="Info">Krakow, Polska</p>
-                                        <label class="labelInfo">Telefono <i class="bi bi-telephone"></i></label>
+                                        <label class="labelInfo">Teléfono <i class="bi bi-telephone"></i></label>
                                         <p class="Info">(+51) xxx-xxx-xxx</p>
                                     </div>
                                     <div class="col-6">
                                         <label class="labelInfo">Nombre</label>
                                         <p class="Info">Jeff Magallanes</p>
                                         <label class="labelInfo">Edad <i class="bi bi-cake2"></i></label>
-                                        <p class="Info">21 aï¿½os</p>
+                                        <p class="Info">21 años</p>
                                         <label class="labelInfo">Genero <i class="bi bi-person-circle"></i></label>
                                         <p class="Info">Masculino</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col12">
+                            <div class="col12 mt-3">
                                 <div class="tabRow row">
                                     <div class="col-2 text-center">
                                         <p><i></i> Mis publicaciones</p>
@@ -104,7 +104,7 @@
                                                     alt="">
                                             </div>
                                             <div class="row justify-content-start interactionBtnRow text-start mt-2">
-                                                <div class="col-1">
+                                                <div class="col-2">
                                                     <p><i class="bi bi-music-note-list"></i>10</p>
                                                 </div>
                                                 <div class="col-2">
@@ -123,6 +123,25 @@
     </div>
 
     <script src="../../util/script/logOutScript.js"></script>
+    <script>
+                document.addEventListener("DOMContentLoaded", function(event) {
+                    var tab1, tab2;
+                    tab1 = document.getElementById("LeftMenu-Perfiles");
+                    tab2 = document.getElementById("LeftMenu-Publicaciones");
+                   
+                    tab1.classList.remove("link_feed_selected");
+                    tab2.classList.remove("link_feed_selected");
+                    
+                    tab1.classList.remove("links_feed");
+                    tab2.classList.remove("links_feed");
+                   
+                    
+                    tab2.classList.add("links_feed");
+                    
+                    tab1.classList.add("link_feed_selected");
+                    
+                });
+    </script>
 </body>
 
 </html>

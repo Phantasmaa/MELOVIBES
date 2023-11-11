@@ -33,7 +33,7 @@ body{
     font-weight: bold;
 }
 
-#link_feed_selected{
+.link_feed_selected{
     color:#8D397C;  
     font-weight: bold;
     background-color: #E5D6E2;
@@ -134,7 +134,7 @@ body{
     width: 10%;
 }
 .col6{
-    width: 18%;
+    width: 22%;
 }
 
 .row>div>button{
@@ -192,3 +192,23 @@ tbody{
 .modal-footer{
     padding-right: 7em;
 }
+
+#RegistrarUsuarioCuadroModal{
+    background-color: #DBDBDB;
+
+}
+#GuardarRegistro{
+    background-color: #8D397C;
+    border-color: #8D397C;
+}
+#FormularioRegistro {
+    max-width: 600px; 
+  }
+.StylesCrearUsuarioModal .text-field {
+    border: 1px solid #C4C4C4;
+    border-radius: 0%; 
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+.StylesCrearUsuarioModal label {
+    font-weight:500;
+  }

@@ -16,4 +16,16 @@
         <servlet-name>ProfileServlet</servlet-name>
         <url-pattern>/ProfileServlet</url-pattern>
     </servlet-mapping>
+        
+    <!--
+    <filter>
+        <filter-name>SessionFilterServlet</filter-name>
+        <filter-class>controllers.SessionFilterServlet</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SessionFilterServlet</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    -->
 </web-app>

@@ -15,7 +15,7 @@
         <div class="container-fluid col-md-10" id="contenido">
             <div id="bienvenida" class="row justify-content-between">
                 <div class="col-2 text-start" onclick="location.href='userList.jsp'" style="cursor: pointer;">
-                    <p><i class="bi bi-caret-left-square"></i> AtrÃ¡s</p>
+                    <p><i class="bi bi-caret-left-square"></i> Atrás </p>
                 </div>
                 <div class="col-2 text-end">
                     <p>Editar Perfil</p>
@@ -47,7 +47,7 @@
                                                     placeholder="Nickname">
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-1">
                                             <div class="col-6">
                                                 <label for="name" class="form-label">Nombre</label>
                                                 <input type="text" class="form-control" id="name" placeholder="Nombre">
@@ -58,7 +58,7 @@
                                                     placeholder="Apellido">
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-1">
                                             <div class="col-6">
                                                 <label for="city" class="form-label">Ciudad</label>
                                                 <input type="text" class="form-control" id="city" placeholder="Ciudad">
@@ -68,11 +68,11 @@
                                                 <input type="email" class="form-control" id="age" placeholder="Edad">
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-1">
                                             <div class="col-6">
-                                                <label for="phoneNumber" class="form-label">TelÃ©fono</label>
+                                                <label for="phoneNumber" class="form-label">Teléfono</label>
                                                 <input type="email" class="form-control" id="phoneNumber"
-                                                    placeholder="Telefono">
+                                                    placeholder="Teléfono">
                                             </div>
                                             <div class="col-6">
                                                 <label for="email" class="form-label">Correo</label>
@@ -80,9 +80,9 @@
                                                     placeholder="Correo">
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-1">
                                             <div class="col-12">
-                                                <label for="biography" class="form-label">BiografÃ­a</label>
+                                                <label for="biography" class="form-label">Biografía</label>
                                                 <textarea id="biography" class="form-control" rows="10"
                                                     placeholder="Biografia"></textarea>
                                             </div>
@@ -113,7 +113,7 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header text-center">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Â¿EstÃ¡s seguro de que quieres eliminar este
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">¿Estas seguro de que quieres eliminar este
                                 usuario?</h1>
                         </div>
                         <div class="modal-body">
@@ -149,6 +149,25 @@
             </div>
 
             <script src="../../util/script/logOutScript.js"></script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function(event) {
+                    var tab1, tab2;
+                    tab1 = document.getElementById("LeftMenu-Perfiles");
+                    tab2 = document.getElementById("LeftMenu-Publicaciones");
+                   
+                    tab1.classList.remove("link_feed_selected");
+                    tab2.classList.remove("link_feed_selected");
+                    
+                    tab1.classList.remove("links_feed");
+                    tab2.classList.remove("links_feed");
+                   
+                    
+                    tab2.classList.add("links_feed");
+                    
+                    tab1.classList.add("link_feed_selected");
+                    
+                });
+            </script>
 </body>
 
 </html>

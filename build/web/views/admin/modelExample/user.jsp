@@ -14,9 +14,10 @@
                         class="bi bi-pencil"></i></button>
             </div>
             <div class="col-4">
-                <button class="btn btn-danger" data-bs-toggle="modal"
-                    data-bs-target="#eliminationWarningModal" onclick="location.href='adminUser.jsp'">Eliminar <i
-                        class="bi bi-trash"></i></button>
+                <button class="btn btn-danger" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#eliminationWarningModal">Eliminar<i
+                        class="bi bi-trash"></i></button>       
             </div>
         </div>
     </td>
