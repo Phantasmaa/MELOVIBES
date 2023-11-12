@@ -145,4 +145,35 @@ public class UserDAO {
     return null;
 }
     
+    
+    public User asignarDatosOtroUsuario(int userID) {
+        String consulta = "SELECT * FROM user WHERE UserID = ?";
+        try {
+            PreparedStatement statement = conexion.prepareStatement(consulta);
+            statement.setInt(1, userID);
+
+            ResultSet resultado = statement.executeQuery();
+
+            if (resultado.next()) {
+                User usuario = new User();
+                usuario.setUserID(resultado.getInt("UserID"));
+                usuario.setUserName(resultado.getString("username"));
+                usuario.setFirstName(resultado.getString("FirstName"));
+                usuario.setLastName(resultado.getString("LastName"));
+                usuario.setUserImage(resultado.getString("UserImage"));
+                usuario.setCity(resultado.getString("City"));
+                usuario.setAge(resultado.getInt("Age"));
+                usuario.setBio(resultado.getString("Bio"));
+                usuario.setPhoneNumber(resultado.getString("PhoneNumber"));
+                usuario.setGender(resultado.getString("Gender"));
+
+                return usuario;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+    
 }

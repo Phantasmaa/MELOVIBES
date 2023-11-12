@@ -50,7 +50,7 @@
                         <div class="col-9">
                             <div class="row justify-content-between text-start">
                                 <div class="col-4">
-                                    <p class="authorNickname" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
+                                    <p class="authorNickname" onclick="redirectToOtherProfile(<%= publication.getUser().getUserID() %>)" style="cursor: pointer;">
                                         <%= publication.getUser().getUserName() %>
                                     </p>
                                 </div>
@@ -160,34 +160,38 @@
         </div>
 
 
-
+        <script>
+            function redirectToOtherProfile(userID) {
+                location.href = 'OtherProfile?userID=' + userID;
+            }
+        </script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
         <script>
-                            document.addEventListener("DOMContentLoaded", function (event) {
-                                var tab1, tab2, tab3;
-                                tab1 = document.getElementById("LeftMenu-inicio");
-                                tab2 = document.getElementById("LeftMenu-marketplace");
-                                tab3 = document.getElementById("LeftMenu-perfil");
-                                tab1.classList.remove("link_feed_selected");
-                                tab2.classList.remove("link_feed_selected");
-                                tab3.classList.remove("link_feed_selected");
-                                tab1.classList.remove("links_feed");
-                                tab2.classList.remove("links_feed");
-                                tab3.classList.remove("links_feed");
-                                tab2.classList.add("links_feed");
-                                tab3.classList.add("links_feed");
+            document.addEventListener("DOMContentLoaded", function (event) {
+                var tab1, tab2, tab3;
+                tab1 = document.getElementById("LeftMenu-inicio");
+                tab2 = document.getElementById("LeftMenu-marketplace");
+                tab3 = document.getElementById("LeftMenu-perfil");
+                tab1.classList.remove("link_feed_selected");
+                tab2.classList.remove("link_feed_selected");
+                tab3.classList.remove("link_feed_selected");
+                tab1.classList.remove("links_feed");
+                tab2.classList.remove("links_feed");
+                tab3.classList.remove("links_feed");
+                tab2.classList.add("links_feed");
+                tab3.classList.add("links_feed");
 
-                                tab1.classList.add("link_feed_selected");
+                tab1.classList.add("link_feed_selected");
 
-                            });
+            });
 
-                            function uploadImage() {
-                                alert("Este boton solicitara subir una imagen");
-                            }
+            function uploadImage() {
+                alert("Este boton solicitara subir una imagen");
+            }
         </script>
 
         <!-- Script para validar 1000 caracteres en la publicación -->
