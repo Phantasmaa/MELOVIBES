@@ -1,7 +1,7 @@
 package dao;
 
 import models.Publication;
-import models.User; // Asegúrate de importar la clase User
+import models.User;
 import util.Conexion;
 
 import java.sql.*;
