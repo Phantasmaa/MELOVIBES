@@ -39,7 +39,10 @@ public class UserDAO {
                 usuario.setBio(resultado.getString("Bio"));
                 usuario.setPhoneNumber(resultado.getString("PhoneNumber"));
                 usuario.setGender(resultado.getString("Gender"));
-
+                
+                if(usuario.getUserImage()==null){usuario.setUserImage("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");}
+                  
+                
                 return usuario;
             }
         } catch (SQLException e) {
@@ -135,7 +138,6 @@ public class UserDAO {
             usuario.setBio(resultado.getString("Bio"));
             usuario.setPhoneNumber(resultado.getString("PhoneNumber"));
             usuario.setGender(resultado.getString("Gender"));
-
             return usuario;
         }
     } catch (SQLException e) {
@@ -166,7 +168,6 @@ public class UserDAO {
                 usuario.setBio(resultado.getString("Bio"));
                 usuario.setPhoneNumber(resultado.getString("PhoneNumber"));
                 usuario.setGender(resultado.getString("Gender"));
-
                 return usuario;
             }
         } catch (SQLException e) {

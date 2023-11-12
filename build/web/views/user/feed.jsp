@@ -54,8 +54,7 @@
                                         <%= publication.getUser().getUserName() %>
                                     </p>
                                 </div>
-                                <div class="col-2 text-end">
-                                    <!-- Muestra la fecha de la publicación -->
+                                <div class="col-2 text-end">                                  
                                     <p><i class="bi bi-clock"></i> <%= publication.getDate() %></p>
                                 </div>
                             </div>
