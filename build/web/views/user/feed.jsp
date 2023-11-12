@@ -43,7 +43,7 @@
                         for (Publication publication : publications) { %>
                     <div class="row">
                         <div class="col-2">
-                            <a href="otherProfile.jsp">
+                            <a href="OtherProfile?userID=<%=publication.getUser().getUserID()%>">
                                 <img class="postProfilePicture" src="<%= publication.getUser().getUserImage() %>" alt="">
                             </a>
                         </div>

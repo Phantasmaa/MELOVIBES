@@ -35,20 +35,16 @@ public class OtherProfileServlet extends HttpServlet {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("usuario");
 
-        // Ajusta según tu lógica para cargar los datos del usuario
         if (userID == user.getUserID()) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/views/user/myprofile");
             dispatcher.forward(request, response);
         } else {
             UserDAO userDAO = new UserDAO();
-            // Crear un objeto otherUser con los datos del usuario
             User otherUser = userDAO.asignarDatosOtroUsuario(userID);
-            // Puedes establecer otherUser como atributo de la solicitud para que sea accesible en tu JSP
             request.setAttribute("otherUser", otherUser);
             PublicationDAO publicationDAO = new PublicationDAO();
             List<Publication> publications = publicationDAO.getPublicationsByUserID(userID);
             request.setAttribute("publications", publications);
-            //Redirigir a la página de perfil de otro usuario
             RequestDispatcher dispatcher = request.getRequestDispatcher("/views/user/otherProfile.jsp");
             dispatcher.forward(request, response);
 

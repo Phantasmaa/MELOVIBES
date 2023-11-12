@@ -27,8 +27,8 @@ public class CreatePublicationServlet extends HttpServlet {
         String content = request.getParameter("publicationTextContent");
         // Aquí deberías manejar la carga de archivos (imagen) y guardar la ruta en la base de datos
         String image = "ruta_de_la_imagen"; // Reemplaza con la lógica adecuada
-        boolean isActive = true; // Puedes establecerlo como desees
-        boolean isMarket = false; // Puedes establecerlo como desees
+        boolean isActive = true; 
+        boolean isMarket = false; 
         Timestamp date = new Timestamp(System.currentTimeMillis()); // Obtener la fecha actual
         int userID = user.getUserID(); // Reemplaza con el ID del usuario actual (puedes obtenerlo de la sesión)
 
@@ -42,7 +42,7 @@ public class CreatePublicationServlet extends HttpServlet {
         publication.setUserID(userID);
 
         // Guardar la publicación en la base de datos
-        PublicationDAO publicationDAO = new PublicationDAO(); // Asegúrate de tener la conexión a la base de datos configurada
+        PublicationDAO publicationDAO = new PublicationDAO(); 
         publicationDAO.createPublication(publication);
 
         // Redirigir a la página principal o a donde desees después de crear la publicación
