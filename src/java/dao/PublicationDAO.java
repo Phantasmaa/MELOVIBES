@@ -1,6 +1,8 @@
 package dao;
 
 import models.Publication;
+import models.PublicationMarket;
+import models.PublicationNormal;
 import models.User;
 import util.Conexion;
 
@@ -25,7 +27,7 @@ public class PublicationDAO {
             ResultSet resultado = statement.executeQuery(consulta);
 
             while (resultado.next()) {
-                Publication publication = mapRowToPublication(resultado);
+                Publication publication = mapRowToPublication(resultado, new Publication());
                 publications.add(publication);
             }
         } catch (SQLException e) {
@@ -33,6 +35,47 @@ public class PublicationDAO {
         }
 
         return publications;
+    }
+
+    public List<PublicationNormal> getAllNormalPublications() {
+        List<PublicationNormal> normalPublications = new ArrayList<>();
+        String query = "SELECT * FROM Publication p INNER JOIN NormalPubli n ON p.PublicationID = n.PublicationID";
+
+        try {
+            Statement statement = conexion.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                PublicationNormal normalPublication = mapRowToPublication(resultSet, new PublicationNormal());
+                normalPublications.add(normalPublication);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return normalPublications;
+    }
+
+    public List<PublicationMarket> getAllMarketPublications() {
+        List<PublicationMarket> marketPublications = new ArrayList<>();
+        String query = "SELECT * FROM Publication p INNER JOIN MarketPubli m ON p.PublicationID = m.PublicationID";
+
+        try {
+            Statement statement = conexion.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                PublicationMarket marketPublication = mapRowToPublication(resultSet, new PublicationMarket());
+                marketPublication.setTitle(resultSet.getString("Tittle"));
+                marketPublication.setPrice(resultSet.getDouble("Price"));
+
+                marketPublications.add(marketPublication);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return marketPublications;
     }
 
     public List<Publication> getPublicationsByUserID(int userID) {
@@ -46,7 +89,7 @@ public class PublicationDAO {
             ResultSet resultado = statement.executeQuery();
 
             while (resultado.next()) {
-                Publication publication = mapRowToPublication(resultado);
+                Publication publication = mapRowToPublication(resultado, new Publication());
                 publications.add(publication);
             }
         } catch (SQLException e) {
@@ -56,26 +99,7 @@ public class PublicationDAO {
         return publications;
     }
 
-    private Publication mapRowToPublication(ResultSet resultado) throws SQLException {
-        UserDAO userDAO = new UserDAO();
-
-        int userID = resultado.getInt("UserID");
-        User user = userDAO.getUserByID(userID);
-
-        return new Publication(
-                resultado.getInt("PublicationID"),
-                resultado.getString("ContentPubli"),
-                resultado.getString("ImagePubli"),
-                resultado.getBoolean("ActivePubli"),
-                resultado.getBoolean("Market"),
-                resultado.getTimestamp("Date"),
-                userID,
-                user
-        );
-    }
-    
-    
-        public void createPublication(Publication publication) {
+    public void createPublication(Publication publication) {
         String query = "INSERT INTO Publication (ContentPubli, ImagePubli, ActivePubli, Market, Date, UserID) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement preparedStatement = conexion.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
@@ -89,7 +113,6 @@ public class PublicationDAO {
             int affectedRows = preparedStatement.executeUpdate();
 
             if (affectedRows > 0) {
-                // La publicación se insertó correctamente, obtener el ID generado
                 try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
                         int publicationID = generatedKeys.getInt(1);
@@ -106,6 +129,67 @@ public class PublicationDAO {
         }
     }
 
+    private <T extends Publication> T mapRowToPublication(ResultSet resultSet, T publication) throws SQLException {
+        UserDAO userDAO = new UserDAO();
 
-    
+        int userID = resultSet.getInt("UserID");
+        User user = userDAO.getUserByID(userID);
+
+        publication.setPublicationID(resultSet.getInt("PublicationID"));
+        publication.setContent(resultSet.getString("ContentPubli"));
+        publication.setImage(resultSet.getString("ImagePubli"));
+        publication.setActive(resultSet.getBoolean("ActivePubli"));
+        publication.setMarket(resultSet.getBoolean("Market"));
+        publication.setDate(resultSet.getTimestamp("Date"));
+        publication.setUserID(userID);
+        publication.setUser(user);
+
+        return publication;
+    }
+
+    public List<PublicationNormal> getNormalPublicationsByUserID(int userID) {
+        List<PublicationNormal> normalPublications = new ArrayList<>();
+        String query = "SELECT * FROM Publication p INNER JOIN NormalPubli n ON p.PublicationID = n.PublicationID WHERE p.UserID = ?";
+
+        try {
+            PreparedStatement statement = conexion.prepareStatement(query);
+            statement.setInt(1, userID);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                PublicationNormal normalPublication = mapRowToPublication(resultSet, new PublicationNormal());
+                normalPublications.add(normalPublication);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return normalPublications;
+    }
+
+    public List<PublicationMarket> getMarketPublicationsByUserID(int userID) {
+        List<PublicationMarket> marketPublications = new ArrayList<>();
+        String query = "SELECT * FROM Publication p INNER JOIN MarketPubli m ON p.PublicationID = m.PublicationID WHERE p.UserID = ?";
+
+        try {
+            PreparedStatement statement = conexion.prepareStatement(query);
+            statement.setInt(1, userID);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                PublicationMarket marketPublication = mapRowToPublication(resultSet, new PublicationMarket());
+                marketPublication.setTitle(resultSet.getString("Tittle"));
+                marketPublication.setPrice(resultSet.getDouble("Price"));
+
+                marketPublications.add(marketPublication);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return marketPublications;
+    }
+
 }

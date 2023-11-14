@@ -3,9 +3,6 @@ package models;
 import lombok.Data;
 
 @Data
-public class PublicationNormal {
-    
-    private Reaction reaction;
-   
-    
+public class PublicationNormal extends Publication{
+       
 }

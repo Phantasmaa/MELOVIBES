@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.List;
-import models.Publication;
+import models.PublicationNormal;
 import models.User;
 
 @WebServlet("/views/user/myprofile")
@@ -27,7 +27,7 @@ public class MyProfileServlet extends HttpServlet {
 
             // Obtener las publicaciones del usuario mediante el ID
             PublicationDAO publicationDAO = new PublicationDAO();
-            List<Publication> publications = publicationDAO.getPublicationsByUserID(userID);
+            List<PublicationNormal> publications = publicationDAO.getNormalPublicationsByUserID(userID);
 
             // Establecer las publicaciones en el atributo de la solicitud
             request.setAttribute("publications", publications);

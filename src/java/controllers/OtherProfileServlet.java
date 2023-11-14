@@ -1,25 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package controllers;
 
 import dao.PublicationDAO;
 import dao.UserDAO;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.sql.Connection;
 import java.util.List;
-import models.Publication;
+import models.PublicationNormal;
 import models.User;
-import util.Conexion;
+
 
 /**
  *
@@ -43,7 +37,7 @@ public class OtherProfileServlet extends HttpServlet {
             User otherUser = userDAO.asignarDatosOtroUsuario(userID);
             request.setAttribute("otherUser", otherUser);
             PublicationDAO publicationDAO = new PublicationDAO();
-            List<Publication> publications = publicationDAO.getPublicationsByUserID(userID);
+            List<PublicationNormal> publications = publicationDAO.getNormalPublicationsByUserID(userID);
             request.setAttribute("publications", publications);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/views/user/otherProfile.jsp");
             dispatcher.forward(request, response);

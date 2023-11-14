@@ -8,4 +8,5 @@ import lombok.Data;
 public class Reaction {
     private int userID;
     private int publicationID;
+    PublicationNormal publication;
 }
