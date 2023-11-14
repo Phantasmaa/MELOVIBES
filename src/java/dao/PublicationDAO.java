@@ -267,40 +267,17 @@ public class PublicationDAO {
         }
     }
 
-    public void deleteNormalPublication(int publicationID) {
-        String deleteNormalQuery = "DELETE FROM NormalPubli WHERE PublicationID = ?";
-        try (PreparedStatement preparedStatement = conexion.prepareStatement(deleteNormalQuery)) {
-            preparedStatement.setInt(1, publicationID);
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        String deleteQuery = "DELETE FROM Publication WHERE PublicationID = ?";
-        try (PreparedStatement preparedStatement = conexion.prepareStatement(deleteQuery)) {
-            preparedStatement.setInt(1, publicationID);
-            preparedStatement.executeUpdate();
+        public void deletePublication(int publicationID) {
+        // Llamar al procedimiento almacenado para eliminar la publicación normal
+        String callProcedure = "{ CALL DeletePublicationData(?) }";
+        try (CallableStatement statement = conexion.prepareCall(callProcedure)) {
+            statement.setInt(1, publicationID);
+            statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void deleteMarketPublication(int publicationID) {
-        String deleteMarketQuery = "DELETE FROM MarketPubli WHERE PublicationID = ?";
-        try (PreparedStatement preparedStatement = conexion.prepareStatement(deleteMarketQuery)) {
-            preparedStatement.setInt(1, publicationID);
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
-        String deleteQuery = "DELETE FROM Publication WHERE PublicationID = ?";
-        try (PreparedStatement preparedStatement = conexion.prepareStatement(deleteQuery)) {
-            preparedStatement.setInt(1, publicationID);
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
 }
