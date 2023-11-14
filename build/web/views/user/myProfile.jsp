@@ -30,7 +30,7 @@
                                 <h2><%= user.getUserName() %> <i class="bi bi-soundwave"></i></h2>
                                 <div class="my-4">
                                     <img class="profilePicture" src="<%=user.getUserImage() %>" alt="profilePicture">                               
-                                    
+
                                 </div>
                                 <button class="btn btn-lg btn-secondary my-3" onclick= "location.href = 'editProfile.jsp'">Editar perfil 
                                     <i class="bi bi-pencil"></i>  </button>
@@ -118,6 +118,11 @@
                                                     <img class="postContentPicture" src="<%= image %>" alt="Post Image">
                                                 </div>
                                             </c:if>
+                                            <form action="DeletePublicationNormal" method="post">
+                                                <input type="hidden" name="publicationID" value="<%=publicationID %>">
+                                                <input type="submit" value="Eliminar Publicación">
+                                            </form>
+
                                             <div class="row justify-content-start interactionBtnRow text-start mt-2">
                                                 <div class="col-2">
                                                     <p><i class="bi bi-music-note-list"></i> 10 likes</p>

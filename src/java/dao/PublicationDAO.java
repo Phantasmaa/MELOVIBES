@@ -200,7 +200,7 @@ public class PublicationDAO {
             preparedStatement.setString(1, normalPublication.getContent());
             preparedStatement.setString(2, normalPublication.getImage());
             preparedStatement.setBoolean(3, normalPublication.isActive());
-            preparedStatement.setBoolean(4, false); 
+            preparedStatement.setBoolean(4, false);
             preparedStatement.setTimestamp(5, normalPublication.getDate());
             preparedStatement.setInt(6, normalPublication.getUserID());
 
@@ -266,4 +266,41 @@ public class PublicationDAO {
             e.printStackTrace();
         }
     }
+
+    public void deleteNormalPublication(int publicationID) {
+        String deleteNormalQuery = "DELETE FROM NormalPubli WHERE PublicationID = ?";
+        try (PreparedStatement preparedStatement = conexion.prepareStatement(deleteNormalQuery)) {
+            preparedStatement.setInt(1, publicationID);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String deleteQuery = "DELETE FROM Publication WHERE PublicationID = ?";
+        try (PreparedStatement preparedStatement = conexion.prepareStatement(deleteQuery)) {
+            preparedStatement.setInt(1, publicationID);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteMarketPublication(int publicationID) {
+        String deleteMarketQuery = "DELETE FROM MarketPubli WHERE PublicationID = ?";
+        try (PreparedStatement preparedStatement = conexion.prepareStatement(deleteMarketQuery)) {
+            preparedStatement.setInt(1, publicationID);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String deleteQuery = "DELETE FROM Publication WHERE PublicationID = ?";
+        try (PreparedStatement preparedStatement = conexion.prepareStatement(deleteQuery)) {
+            preparedStatement.setInt(1, publicationID);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
