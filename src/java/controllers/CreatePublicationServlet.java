@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import models.Publication;
+import models.PublicationNormal;
 import models.User;
 
 @WebServlet("/views/user/createPublication")
@@ -20,33 +20,28 @@ import models.User;
 
 public class CreatePublicationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Recuperar los parámetros del formulario
+
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("usuario");
-        
+
         String content = request.getParameter("publicationTextContent");
-        // Aquí deberías manejar la carga de archivos (imagen) y guardar la ruta en la base de datos
-        String image = "ruta_de_la_imagen"; // Reemplaza con la lógica adecuada
-        boolean isActive = true; 
-        boolean isMarket = false; 
-        Timestamp date = new Timestamp(System.currentTimeMillis()); // Obtener la fecha actual
-        int userID = user.getUserID(); // Reemplaza con el ID del usuario actual (puedes obtenerlo de la sesión)
+        String image = "ruta_de_la_imagen"; 
+        boolean isActive = true;
+        Timestamp date = new Timestamp(System.currentTimeMillis()); 
+        int userID = user.getUserID(); 
 
-        // Crear un objeto de Publicación
-        Publication publication = new Publication();
-        publication.setContent(content);
-        publication.setImage(image);
-        publication.setActive(isActive);
-        publication.setMarket(isMarket);
-        publication.setDate(date);
-        publication.setUserID(userID);
+        PublicationNormal normalPublication = new PublicationNormal();
+        normalPublication.setContent(content);
+        normalPublication.setImage(image);
+        normalPublication.setActive(isActive);
+        normalPublication.setMarket(false);
+        normalPublication.setDate(date);
+        normalPublication.setUserID(userID);
 
-        // Guardar la publicación en la base de datos
-        PublicationDAO publicationDAO = new PublicationDAO(); 
-        publicationDAO.createPublication(publication);
 
-        // Redirigir a la página principal o a donde desees después de crear la publicación
+        PublicationDAO publicationDAO = new PublicationDAO();
+        publicationDAO.createNormalPublication(normalPublication);
+
         response.sendRedirect("feed");
     }
 }
-

@@ -192,4 +192,78 @@ public class PublicationDAO {
         return marketPublications;
     }
 
+    public void createNormalPublication(PublicationNormal normalPublication) {
+
+        String query = "INSERT INTO Publication (ContentPubli, ImagePubli, ActivePubli, Market, Date, UserID) VALUES (?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement preparedStatement = conexion.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+            preparedStatement.setString(1, normalPublication.getContent());
+            preparedStatement.setString(2, normalPublication.getImage());
+            preparedStatement.setBoolean(3, normalPublication.isActive());
+            preparedStatement.setBoolean(4, false); 
+            preparedStatement.setTimestamp(5, normalPublication.getDate());
+            preparedStatement.setInt(6, normalPublication.getUserID());
+
+            int affectedRows = preparedStatement.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        int publicationID = generatedKeys.getInt(1);
+                        normalPublication.setPublicationID(publicationID);
+
+                        String normalQuery = "INSERT INTO NormalPubli (PublicationID) VALUES (?)";
+                        try (PreparedStatement normalStatement = conexion.prepareStatement(normalQuery)) {
+                            normalStatement.setInt(1, publicationID);
+                            normalStatement.executeUpdate();
+                        }
+                    } else {
+                        throw new SQLException("No se pudo obtener el ID generado para la publicación normal.");
+                    }
+                }
+            } else {
+                throw new SQLException("No se pudo insertar la publicación normal, ninguna fila afectada.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void createMarketPublication(PublicationMarket marketPublication) {
+        String query = "INSERT INTO Publication (ContentPubli, ImagePubli, ActivePubli, Market, Date, UserID) VALUES (?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement preparedStatement = conexion.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+            preparedStatement.setString(1, marketPublication.getContent());
+            preparedStatement.setString(2, marketPublication.getImage());
+            preparedStatement.setBoolean(3, marketPublication.isActive());
+            preparedStatement.setBoolean(4, true);
+            preparedStatement.setTimestamp(5, marketPublication.getDate());
+            preparedStatement.setInt(6, marketPublication.getUserID());
+
+            int affectedRows = preparedStatement.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        int publicationID = generatedKeys.getInt(1);
+                        marketPublication.setPublicationID(publicationID);
+
+                        String marketQuery = "INSERT INTO MarketPubli (PublicationID, Tittle, Price) VALUES (?, ?, ?)";
+                        try (PreparedStatement marketStatement = conexion.prepareStatement(marketQuery)) {
+                            marketStatement.setInt(1, publicationID);
+                            marketStatement.setString(2, marketPublication.getTitle());
+                            marketStatement.setDouble(3, marketPublication.getPrice());
+                            marketStatement.executeUpdate();
+                        }
+                    } else {
+                        throw new SQLException("No se pudo obtener el ID generado para la publicación de mercado.");
+                    }
+                }
+            } else {
+                throw new SQLException("No se pudo insertar la publicación de mercado, ninguna fila afectada.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
