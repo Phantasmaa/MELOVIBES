@@ -1,11 +1,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="models.Publication" %>
+<%@ page import="models.PublicationMarket" %>
 <%@ page import="models.User" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.Collections" %>
 
-<% User user = (User) session.getAttribute("usuario");  %>
+<% User user = (User) session.getAttribute("usuario"); 
+
+List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.getAttribute("publicationsMarket");
+%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -18,6 +21,7 @@
         <link rel="stylesheet" href="../../content/Styles/Usuario/marketplaceFeedStyles.css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     </head>
+
     <body>
         <div class="row vh-100">
 
@@ -31,135 +35,57 @@
                         Bienvenido <b><%= user.getUserName() %></b>
                     </div>
                     <div class="col-4">
-                        
+
                     </div>
                     <div class="col-2 text-end">
                         Publicaciones
                     </div>
-                    <div class="col-3 mt-3 text-center marketplaceNavBar active">
+                    <%
+                        
+                    
+                    
+                    %>
+
+                    <style>
+                        .marketplaceNavBar {
+                            cursor: pointer;
+                        }
+
+                    </style>
+
+                    <div class="col-3 mt-3 text-center marketplaceNavBar active" onclick="redirigirAServlet('allPublications', event)">
                         <p>Recomendados</p>
                     </div>
-                    <div class="col-3 mt-3 text-center marketplaceNavBar">
+                    <div class="col-3 mt-3 text-center marketplaceNavBar" onclick="redirigirAServlet('myPublications', event)">
                         <p>Mis Publicaciones</p>
                     </div>
+
                 </div>
 
 
                 <div class="text-center pt-4" id="pubs">
+
+                    <% if (publicationsMarket != null && !publicationsMarket.isEmpty()) { %>
+                    <%   Collections.reverse(publicationsMarket);
+                        for (PublicationMarket publicationMarket : publicationsMarket) { %>
+
                     <div class="row">
+
                         <div class="col-3 text-start">
                             <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
+                                <img src="<%=publicationMarket.getImage()%>" alt=""/>
                             </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
-                            </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
-                            </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
-                            </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
-                            </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
-                            </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
-                            </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
-                            </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
-                            </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
-                            </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
-                            </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
-                            </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
-                            </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
-                            </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
-                            </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="../../content/Images/Usuario/postSamplePicture.jpg" alt=""/>
-                            </div>
-                            <p class="priceLabel">S/. 15.00</p>
-                            <p class="articleNameLabel">Hackaton</p>
-                        </div>
+                            <p class="priceLabel"><%=publicationMarket.getPrice()%></p>
+                            <p class="articleNameLabel"><%=publicationMarket.getTitle()%></p>
+                        </div>               
+
                     </div>
+
+                    <% } %>
+                    <% } else { %>
+                    <p>No hay publicaciones disponibles.</p>
+                    <% } %>
+
                 </div>
             </div>
 
@@ -242,11 +168,38 @@
                             function uploadImage() {
                                 alert("Este boton solicitara subir una imagen");
                             }
-                            
-                            function goToPublishArticle(){
+
+                            function goToPublishArticle() {
                                 window.location.href = "createMarketplacePublication.jsp";
                             }
         </script>
+
+        <script>
+            function redirigirAServlet(parametro) {
+                window.location.href = 'feedMarket?urlParam=' + parametro;
+            }
+        </script>
+
+        <script>
+            
+            //arreglar la parte visual para indicar si está en recomendados o en mis publicaciones
+            function redirigirAServlet(parametro, event) {
+                window.location.href = 'feedMarket?urlParam=' + parametro;
+
+
+                var elements = document.querySelectorAll('.marketplaceNavBar');
+                elements.forEach(function (element) {
+                    element.classList.remove('active');
+                });
+
+                var selectedElement = event.currentTarget;
+                selectedElement.classList.add('active');
+            }
+        </script>
+
+
+
+
     </body>
 
 </html>

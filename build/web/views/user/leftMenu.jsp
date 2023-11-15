@@ -9,7 +9,7 @@
                     <a class="nav-link links_feed link_feed_selected" id="LeftMenu-inicio" href="feed"><i class="bi bi-house-door-fill"></i> Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link links_feed" id="LeftMenu-marketplace" href="marketplaceFeed.jsp" ><i class="bi bi-shop"></i>  Marketplace</a>
+                    <a class="nav-link links_feed" id="LeftMenu-marketplace" href="feedMarket" ><i class="bi bi-shop"></i>  Marketplace</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link links_feed" id="LeftMenu-perfil" href="myprofile"  ><i class="bi bi-person"></i>  Perfil</a>

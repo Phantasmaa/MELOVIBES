@@ -8,6 +8,8 @@
 <% 
     User user = (User) session.getAttribute("usuario");
     List<Publication> publications = (List<Publication>) request.getAttribute("publications");
+    
+
 %>
 
 <!DOCTYPE html>
@@ -70,6 +72,7 @@
                                     <p><i class="bi bi-music-note liked" style="cursor: pointer;"></i> <%//= publication.getComments() %></p>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                     <% } %>

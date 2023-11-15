@@ -21,10 +21,7 @@ public class DeletePublicationNormalServlet extends HttpServlet {
 
 
         PublicationDAO publicationDAO = new PublicationDAO();
-
         publicationDAO.deletePublication(publicationID);
-
-
         response.sendRedirect("myprofile");
     }
 }
