@@ -42,35 +42,37 @@
 
                 <div class="pt-4">
                     <div class="formContainer">
-                        <form class="row g-3">
+                        <form id="marketPublicationForm" class="row g-3" method="post" action="createPublicationMarket">
                             <div class="col-8">
                                 <label for="itemTitle" class="form-label ms-1">Título</label>
-                                <input type="text" id="itemTitle" class="form-control" required="">
+                                <input type="text" id="itemTitle" name="itemTitle" class="form-control" required>
                             </div>
                             <div class="col-4">
                                 <label for="itemPrice" class="form-label ms-1">Precio en soles</label>
-                                <input type="text" id="itemPrice" class="form-control" required="">
+                                <input type="text" id="itemPrice" name="itemPrice" class="form-control" required>
                             </div>
                             <div class="col-12">
-                                <label for="itemDescription" class="form-label ms-1">Descripción
-                                 </label>
-                                <textarea class="form-control" id="itemDescription" rows="9"></textarea>
+                                <label for="itemDescription" class="form-label ms-1">Descripción</label>
+                                <textarea class="form-control" id="itemDescription" name="itemDescription" rows="9" required></textarea>
                                 <div id="charCountMessage">Caracteres restantes: 1000</div>
                             </div>
                             <div class="col-12">
                                 <label class="form-label">Imagen de referencia</label>
-                                <div class="uploadImageContainer text-center" onclick="uploadImage();">
-                                    <p>Subir imagen <i class="bi bi-upload"></i></p>
+                                <div class="uploadImageContainer text-center">
+                                    <p>Ingresa el link de la imagen</p>
+                                    <input type="text" id="linkImage" name="linkImage" class="form-control" required>
                                 </div>
                             </div>
-                            
                             <div class="col-12 justify-content-end">
-                                <button class="btn btn-lg btn-cancel me-3" onclick="cancelPublish();">Cancelar <i class="bi bi-pause-fill"></i></button>
+                                <button class="btn btn-lg btn-cancel me-3" type="button" onclick="cancelPublish();">
+                                    Cancelar <i class="bi bi-pause-fill"></i>
+                                </button>
                                 <button type="submit" class="btn btn-lg btn-publish">Publicar <i class="bi bi-play-circle"></i></button>
                             </div>
                         </form>
                     </div>
                 </div>
+
             </div>
 
             <div class="col-md-2" id="barra_derecha">
@@ -123,7 +125,7 @@
 
         </div>
 
-        
+
 
         <script src="../../util/script/logOutScript.js">
         </script>
@@ -136,7 +138,7 @@
                             document.addEventListener("DOMContentLoaded", function (event) {
                                 var btnPublishArticle = document.getElementById("crear_pub");
                                 btnPublishArticle.style.display = "none";
-                                
+
                                 var tab1, tab2, tab3;
                                 tab1 = document.getElementById("LeftMenu-inicio");
                                 tab2 = document.getElementById("LeftMenu-marketplace");
@@ -157,61 +159,61 @@
                             function uploadImage() {
                                 alert("Este boton solicitara subir una imagen");
                             }
-                            
-                            function cancelPublish(){
+
+                            function cancelPublish() {
                                 alert("Cancelamos la publicacion");
                                 window.location.href = "feed.jsp";
                             }
-                      
+
         </script>
-        
+
         <!-- Script para validar 25 carácteres en el título -->
         <script>
-        const itemTitle = document.getElementById("itemTitle");
-        const maxChars = 25;
+            const itemTitle = document.getElementById("itemTitle");
+            const maxChars = 25;
 
-        itemTitle.addEventListener("input", function () {
-          if (itemTitle.value.length > maxChars) {
-            itemTitle.value = itemTitle.value.slice(0, maxChars);
-          }
-        });
+            itemTitle.addEventListener("input", function () {
+                if (itemTitle.value.length > maxChars) {
+                    itemTitle.value = itemTitle.value.slice(0, maxChars);
+                }
+            });
         </script>
-        
+
         <!-- Script para validar 10 enteros y 2 decimales en el precio -->
         <script>
-        const itemPrice = document.getElementById("itemPrice");
+            const itemPrice = document.getElementById("itemPrice");
 
-        itemPrice.addEventListener("input", function () {
-          const validPrice = /^[0-9]{1,10}(\.[0-9]{1,2})?$/.test(itemPrice.value);
+            itemPrice.addEventListener("input", function () {
+                const validPrice = /^[0-9]{1,10}(\.[0-9]{1,2})?$/.test(itemPrice.value);
 
-          if (!validPrice) {
-            itemPrice.setCustomValidity("Ingrese un valor entero o un decimal de 2 decimales.");
-          } else {
-            itemPrice.setCustomValidity("");
-          }
-        });
-      </script>
-      
-      <!-- Script para validar 1000 caracteres en la descripción -->
-      <script>
-        const itemDescription = document.getElementById("itemDescription");
-        const charCountMessage = document.getElementById("charCountMessage");
-        const maxCharacters = 1000;
+                if (!validPrice) {
+                    itemPrice.setCustomValidity("Ingrese un valor entero o un decimal de 2 decimales.");
+                } else {
+                    itemPrice.setCustomValidity("");
+                }
+            });
+        </script>
 
-        itemDescription.addEventListener("input", function () {
-        const remainingCharacters = maxCharacters - itemDescription.value.length;
-        charCountMessage.textContent = `Caracteres restantes: `;
+        <!-- Script para validar 1000 caracteres en la descripción -->
+        <script>
+            const itemDescription = document.getElementById("itemDescription");
+            const charCountMessage = document.getElementById("charCountMessage");
+            const maxCharacters = 1000;
 
-        const remainingCharactersSpan = document.createElement("span");
-        remainingCharactersSpan.textContent = Math.max(remainingCharacters, 0); // Evitamos valores negativos
-        charCountMessage.appendChild(remainingCharactersSpan);
+            itemDescription.addEventListener("input", function () {
+                const remainingCharacters = maxCharacters - itemDescription.value.length;
+                charCountMessage.textContent = `Caracteres restantes: `;
 
-        if (itemDescription.value.length > maxCharacters) {
-          itemDescription.value = itemDescription.value.slice(0, maxCharacters); // Selecciona solo los primeros 1000 caracteres
-        }
-        });
-      </script>
-      
+                const remainingCharactersSpan = document.createElement("span");
+                remainingCharactersSpan.textContent = Math.max(remainingCharacters, 0); // Evitamos valores negativos
+                charCountMessage.appendChild(remainingCharactersSpan);
+
+                if (itemDescription.value.length > maxCharacters) {
+                    itemDescription.value = itemDescription.value.slice(0, maxCharacters); // Selecciona solo los primeros 1000 caracteres
+                }
+            });
+        </script>
+
     </body>
 
 </html>
