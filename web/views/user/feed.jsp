@@ -65,10 +65,10 @@
                                 <img class="postContentPicture" src="<%= publication.getImage() %>" alt="">
                             </div>
                             <div class="row justify-content-start interactionBtnRow text-start mt-2">
-                                <div class="col-1">
+                                <div class="col-2">
                                     <p><i class="bi bi-music-note-list" style="cursor: pointer;"></i> <%//= publication.getLikes() %></p>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-3">
                                     <p><i class="bi bi-music-note liked" style="cursor: pointer;"></i> <%//= publication.getComments() %></p>
                                 </div>
                             </div>
@@ -112,7 +112,7 @@
                     </div>
                     #McDonalds #Combos
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quidem.
+                        Llévate un sándwich BigMac + papas regulares + gaseosa 12 onzas + cono de helado a solo S/. 10.90.
                     </p>
                 </div>
 

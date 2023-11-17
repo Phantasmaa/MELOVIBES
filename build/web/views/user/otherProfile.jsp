@@ -136,11 +136,11 @@
                                                 <img class="postContentPicture" src="<%= image %>" alt="Post Image">
                                             </div>
                                         </c:if>
-                                        <div class="row justify-content-start interactionBtnRow text-start mt-2">
+                                        <div class="row justify-content-start interactionBtnRow text-start mt-2 mb-2">
                                             <div class="col-2">
                                                 <p><i class="bi bi-music-note-list"></i>10 likes</p>
                                             </div>
-                                            <div class="col-2">
+                                            <div class="col-3">
                                                 <p><i class="bi bi-music-note liked"></i>481 comments</p>
                                             </div>
                                         </div>
@@ -177,23 +177,23 @@
                 <div class="container-fluid mt-3" id="recomendados">
                     Recomendados
                     <div class="recomendado">
-                        <img src="../../Content/Images/Usuario/usuario.png" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
+                        <img src="../../content/Images/Usuario/usuario.png" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
                         TeoMusicMan
                     </div>
                     <div class="recomendado">
-                        <img src="../../Content/Images/Usuario/usuario.png" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
+                        <img src="../../content/Images/Usuario/usuario.png" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
                         TeoMusicMan
                     </div>  
                 </div>
 
-                <div class="container-fluid mt-4" id="publicidad">
+             <div class="container-fluid mt-4" id="publicidad">
                     <div id="titulo">Supercombo para apasionados</div>
                     <div class="text-center">
-                        <img src="../../Content/Images/Usuario/combo.jpg" class="img-fluid" alt="Publicidad"  >
+                        <img src="../../content/Images/Usuario/combo.jpg" class="img-fluid" alt="Publicidad"  >
                     </div>
                     #McDonalds #Combos
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quidem.
+                        Llévate un sándwich BigMac + papas regulares + gaseosa 12 onzas + cono de helado a solo S/. 10.90.
                     </p>
                 </div>
 

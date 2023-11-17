@@ -57,11 +57,9 @@ body{
 }
 
 
-#imagen_bajista{
-    margin-top: 15%;
-    margin-left: 10%;
+#imagen_cantante{
+    margin-top: 40%;
     opacity: 0.3;
-    height: 70%;
 }
 
 #user_foto{

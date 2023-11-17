@@ -17,6 +17,7 @@ html, body {
 
 .marketplaceNavBar>p{
     color: #696969;
+    font-size: 25px;
 }
 
 .marketplaceNavBar.active{
@@ -77,4 +78,17 @@ html, body {
 #charCountMessage{
     text-align: right;
     color: #767676;
+}
+
+.priceLabel{
+    font-weight:bold;
+}
+
+.articleNameLabel{
+    font-family: 'Montserrat', sans-serif;
+}
+
+#create{
+   font-size: 27px; 
+
 }

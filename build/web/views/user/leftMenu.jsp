@@ -31,8 +31,8 @@
             </div>
             <%=user.getUserName()%>
 
-            <form action="LogOutServlet" method="POST">
-                <button type="submit" class="bi bi-power" id="desconectar" style="cursor: pointer;"></button>
+            <form action="LogOutServlet" id="desconectar" method="POST">
+                <button type="submit" class="bi bi-power"></button>
             </form>
 
 

@@ -34,7 +34,7 @@
                     <div id="backBtn" class="col-6 text-start">
                         <i class="bi bi-arrow-left-circle"></i>  Atras
                     </div>
-                    <div class="col-3 text-end">
+                    <div class="col-3 text-end mb-3" id="create">
                         Crear Publicacion
                     </div>
                 </div>
@@ -149,10 +149,10 @@
                                 tab1.classList.remove("links_feed");
                                 tab2.classList.remove("links_feed");
                                 tab3.classList.remove("links_feed");
-                                tab2.classList.add("links_feed");
+                                tab1.classList.add("links_feed");
                                 tab3.classList.add("links_feed");
 
-                                tab1.classList.add("link_feed_selected");
+                                tab2.classList.add("link_feed_selected");
 
                             });
 

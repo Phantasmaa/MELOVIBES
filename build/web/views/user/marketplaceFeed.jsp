@@ -20,6 +20,9 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
         <link rel="stylesheet" href="../../content/Styles/Usuario/feedStyles.css">
         <link rel="stylesheet" href="../../content/Styles/Usuario/marketplaceFeedStyles.css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -53,10 +56,10 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
 
                     </style>
 
-                    <div class="col-3 mt-3 text-center marketplaceNavBar active" onclick="redirigirAServlet('allPublications', event)">
+                    <div class="col-3 mt-3 text-center marketplaceNavBar active" id="Recomendados" onclick="redirigirAServlet('allPublications', event)">
                         <p>Recomendados</p>
                     </div>
-                    <div class="col-3 mt-3 text-center marketplaceNavBar" onclick="redirigirAServlet('myPublications', event)">
+                    <div class="col-3 mt-3 text-center marketplaceNavBar" id="MisPublicaciones" onclick="redirigirAServlet('myPublications', event)">
                         <p>Mis Publicaciones</p>
                     </div>
 
@@ -66,24 +69,29 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                 <div class="text-center pt-4" id="pubs">
 
                     <% if (publicationsMarket != null && !publicationsMarket.isEmpty()) { %>
-                    <%   Collections.reverse(publicationsMarket);
-                        for (PublicationMarket publicationMarket : publicationsMarket) { %>
+                        <% Collections.reverse(publicationsMarket);
+                            int count = 0;
+                            for (PublicationMarket publicationMarket : publicationsMarket) { %>
 
-                    <div class="row">
+                            <% if (count % 4 == 0) { %>
+                                <div class="row">
+                            <% } %>
 
-                        <div class="col-3 text-start">
-                            <div class="articleImg">
-                                <img src="<%=publicationMarket.getImage()%>" alt=""/>
+                            <div class="col-3 text-start">
+                                <div class="articleImg">
+                                    <img src="<%=publicationMarket.getImage()%>" alt=""/>
+                                </div>
+                                <p class="priceLabel mb-1 mt-1"><%=publicationMarket.getPrice()%></p>
+                                <p class="articleNameLabel"><%=publicationMarket.getTitle()%></p>
                             </div>
-                            <p class="priceLabel"><%=publicationMarket.getPrice()%></p>
-                            <p class="articleNameLabel"><%=publicationMarket.getTitle()%></p>
-                        </div>               
 
-                    </div>
-
-                    <% } %>
+                            <% count++;
+                               if (count % 4 == 0 || count == publicationsMarket.size()) { %>
+                                </div>
+                            <% } %>
+                        <% } %>
                     <% } else { %>
-                    <p>No hay publicaciones disponibles.</p>
+                        <p>No hay publicaciones disponibles.</p>
                     <% } %>
 
                 </div>
@@ -117,7 +125,7 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                     </div>
                     #McDonalds #Combos
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quidem.
+                        Llévate un sándwich BigMac + papas regulares + gaseosa 12 onzas + cono de helado a solo S/. 10.90.
                     </p>
                 </div>
 
@@ -158,10 +166,10 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                                 tab1.classList.remove("links_feed");
                                 tab2.classList.remove("links_feed");
                                 tab3.classList.remove("links_feed");
-                                tab2.classList.add("links_feed");
+                                tab1.classList.add("links_feed");
                                 tab3.classList.add("links_feed");
 
-                                tab1.classList.add("link_feed_selected");
+                                tab2.classList.add("link_feed_selected");
 
                             });
 
@@ -172,33 +180,26 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                             function goToPublishArticle() {
                                 window.location.href = "createMarketplacePublication.jsp";
                             }
+                            
+                            
         </script>
 
-        <script>
-            function redirigirAServlet(parametro) {
-                window.location.href = 'feedMarket?urlParam=' + parametro;
-            }
-        </script>
 
-        <script>
-            
-            //arreglar la parte visual para indicar si está en recomendados o en mis publicaciones
+       <script>
+           // Arreglar la parte visual para indicar si está en recomendados o en mis publicaciones
             function redirigirAServlet(parametro, event) {
-                window.location.href = 'feedMarket?urlParam=' + parametro;
+            window.location.href = 'feedMarket?urlParam=' + parametro;
 
+            var elements = document.querySelectorAll('.marketplaceNavBar');
+            elements.forEach(function (element) {
+                element.classList.remove('active');
+            });
 
-                var elements = document.querySelectorAll('.marketplaceNavBar');
-                elements.forEach(function (element) {
-                    element.classList.remove('active');
-                });
-
-                var selectedElement = event.currentTarget;
-                selectedElement.classList.add('active');
-            }
-        </script>
-
-
-
+            // Asignar estado activo al elemento correspondiente
+            var selectedElement = event.currentTarget;
+            selectedElement.classList.add('active');
+        }
+       </script>
 
     </body>
 

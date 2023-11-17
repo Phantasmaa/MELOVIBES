@@ -118,7 +118,8 @@
                                                     <img class="postContentPicture" src="<%= image %>" alt="Post Image">
                                                 </div>
                                             </c:if>
-                                            <form action="DeletePublicationNormal" method="post">
+                                                
+                                            <form class="mt-3" action="DeletePublicationNormal" method="post">
                                                 <input type="hidden" name="publicationID" value="<%=publicationID %>">
                                                 <input type="submit" value="Eliminar Publicación">
                                             </form>
@@ -127,7 +128,7 @@
                                                 <div class="col-2">
                                                     <p><i class="bi bi-music-note-list"></i> 10 likes</p>
                                                 </div>
-                                                <div class="col-2">
+                                                <div class="col-3">
                                                     <p><i class="bi bi-music-note liked"></i> 10 comments</p>
                                                 </div>
                                             </div>
