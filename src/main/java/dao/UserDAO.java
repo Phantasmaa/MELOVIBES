@@ -33,15 +33,13 @@ public class UserDAO {
                 usuario.setPassword(resultado.getString("password"));
                 usuario.setFirstName(resultado.getString("FirstName"));
                 usuario.setLastName(resultado.getString("LastName"));
-                usuario.setUserImage(resultado.getString("UserImage"));
+                usuario.setUserImage(resultado.getBytes("UserImage"));
                 usuario.setCity(resultado.getString("City"));
                 usuario.setAge(resultado.getInt("Age"));
                 usuario.setBio(resultado.getString("Bio"));
                 usuario.setPhoneNumber(resultado.getString("PhoneNumber"));
                 usuario.setGender(resultado.getString("Gender"));
-                
-                if(usuario.getUserImage()==null){usuario.setUserImage("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");}
-                  
+
                 
                 return usuario;
             }
@@ -132,7 +130,7 @@ public class UserDAO {
             usuario.setPassword(resultado.getString("password"));
             usuario.setFirstName(resultado.getString("FirstName"));
             usuario.setLastName(resultado.getString("LastName"));
-            usuario.setUserImage(resultado.getString("UserImage"));
+            usuario.setUserImage(resultado.getBytes("UserImage"));
             usuario.setCity(resultado.getString("City"));
             usuario.setAge(resultado.getInt("Age"));
             usuario.setBio(resultado.getString("Bio"));
@@ -162,7 +160,7 @@ public class UserDAO {
                 usuario.setUserName(resultado.getString("username"));
                 usuario.setFirstName(resultado.getString("FirstName"));
                 usuario.setLastName(resultado.getString("LastName"));
-                usuario.setUserImage(resultado.getString("UserImage"));
+                usuario.setUserImage(resultado.getBytes("UserImage"));
                 usuario.setCity(resultado.getString("City"));
                 usuario.setAge(resultado.getInt("Age"));
                 usuario.setBio(resultado.getString("Bio"));

@@ -137,7 +137,7 @@ public class PublicationDAO {
 
         publication.setPublicationID(resultSet.getInt("PublicationID"));
         publication.setContent(resultSet.getString("ContentPubli"));
-        publication.setImage(resultSet.getString("ImagePubli"));
+        publication.setImage(resultSet.getBytes("ImagePubli"));
         publication.setActive(resultSet.getBoolean("ActivePubli"));
         publication.setMarket(resultSet.getBoolean("Market"));
         publication.setDate(resultSet.getTimestamp("Date"));
@@ -267,7 +267,7 @@ public class PublicationDAO {
         }
     }
 
-        public void deletePublication(int publicationID) {
+    public void deletePublication(int publicationID) {
         // Llamar al procedimiento almacenado para eliminar la publicación normal
         String callProcedure = "{ CALL DeletePublicationData(?) }";
         try (CallableStatement statement = conexion.prepareCall(callProcedure)) {

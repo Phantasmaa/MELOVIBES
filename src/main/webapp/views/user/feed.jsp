@@ -4,11 +4,11 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.Collections" %>
+<%@ page import="java.util.Base64" %>
 
 <% 
     User user = (User) session.getAttribute("usuario");
     List<Publication> publications = (List<Publication>) request.getAttribute("publications");
-    
 
 %>
 

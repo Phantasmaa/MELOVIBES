@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.util.Base64;
 
 @Data
 @NoArgsConstructor
@@ -12,11 +13,20 @@ import java.sql.Timestamp;
 public class Publication {
     private int publicationID;
     private String content;
-    private String image;
+    private byte[] image;
     private boolean isActive;
     private boolean isMarket;
     private Timestamp date;
     private int userID;
     private User user;
+
+    public String getImage() {
+        if (image != null) {
+            return "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(image);
+        } else {
+            return null;
+        }
+    }
+
 }
 

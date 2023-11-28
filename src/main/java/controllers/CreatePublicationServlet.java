@@ -32,7 +32,7 @@ public class CreatePublicationServlet extends HttpServlet {
 
         PublicationNormal normalPublication = new PublicationNormal();
         normalPublication.setContent(content);
-        normalPublication.setImage(image);
+       // normalPublication.setImage(image);
         normalPublication.setActive(isActive);
         normalPublication.setMarket(false);
         normalPublication.setDate(date);

@@ -34,7 +34,7 @@ public class CreatePublicationMarketServlet extends HttpServlet {
         marketPublication.setTitle(title);
         marketPublication.setPrice(price);
         marketPublication.setContent(description);
-        marketPublication.setImage(imageLink);
+        //marketPublication.setImage(imageLink);
         marketPublication.setActive(true);
         marketPublication.setDate(new Timestamp(System.currentTimeMillis()));
         marketPublication.setUserID(userID);

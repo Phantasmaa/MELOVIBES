@@ -3,8 +3,16 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-public class ConvertImage {
+import java.util.Base64;
 
+public class ConvertImage {
+    public static String getBase64ImageString(String base64Image) {
+        if (base64Image != null && !base64Image.isEmpty()) {
+            byte[] imageBytes = Base64.getDecoder().decode(base64Image);
+            return "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(imageBytes);
+        }
+        return "";
+    }
     public static byte[] convertToBytes(File file) throws IOException {
         try (FileInputStream fis = new FileInputStream(file)) {
             byte[] data = new byte[(int) file.length()];
