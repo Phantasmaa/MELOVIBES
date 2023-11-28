@@ -6,6 +6,8 @@ import models.PublicationNormal;
 import models.User;
 import util.Conexion;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -192,22 +194,21 @@ public class PublicationDAO {
         return marketPublications;
     }
 
-    public void createNormalPublication(PublicationNormal normalPublication) {
+    public void createNormalPublication(PublicationNormal normalPublication, InputStream imageInputStream) {
+        String publicationQuery = "INSERT INTO Publication (ContentPubli, ImagePubli, ActivePubli, Market, Date, UserID) VALUES (?, ?, ?, ?, ?, ?)";
 
-        String query = "INSERT INTO Publication (ContentPubli, ImagePubli, ActivePubli, Market, Date, UserID) VALUES (?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement publicationStatement = conexion.prepareStatement(publicationQuery, Statement.RETURN_GENERATED_KEYS)) {
+            publicationStatement.setString(1, normalPublication.getContent());
+            publicationStatement.setBytes(2, readImageBytes(imageInputStream));
+            publicationStatement.setBoolean(3, normalPublication.isActive());
+            publicationStatement.setBoolean(4, false);
+            publicationStatement.setTimestamp(5, normalPublication.getDate());
+            publicationStatement.setInt(6, normalPublication.getUserID());
 
-        try (PreparedStatement preparedStatement = conexion.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            preparedStatement.setString(1, normalPublication.getContent());
-            preparedStatement.setString(2, normalPublication.getImage());
-            preparedStatement.setBoolean(3, normalPublication.isActive());
-            preparedStatement.setBoolean(4, false);
-            preparedStatement.setTimestamp(5, normalPublication.getDate());
-            preparedStatement.setInt(6, normalPublication.getUserID());
-
-            int affectedRows = preparedStatement.executeUpdate();
+            int affectedRows = publicationStatement.executeUpdate();
 
             if (affectedRows > 0) {
-                try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                try (ResultSet generatedKeys = publicationStatement.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
                         int publicationID = generatedKeys.getInt(1);
                         normalPublication.setPublicationID(publicationID);
@@ -224,26 +225,31 @@ public class PublicationDAO {
             } else {
                 throw new SQLException("No se pudo insertar la publicación normal, ninguna fila afectada.");
             }
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void createMarketPublication(PublicationMarket marketPublication) {
-        String query = "INSERT INTO Publication (ContentPubli, ImagePubli, ActivePubli, Market, Date, UserID) VALUES (?, ?, ?, ?, ?, ?)";
+    private byte[] readImageBytes(InputStream inputStream) throws IOException {
+        return inputStream.readAllBytes();
+    }
 
-        try (PreparedStatement preparedStatement = conexion.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            preparedStatement.setString(1, marketPublication.getContent());
-            preparedStatement.setString(2, marketPublication.getImage());
-            preparedStatement.setBoolean(3, marketPublication.isActive());
-            preparedStatement.setBoolean(4, true);
-            preparedStatement.setTimestamp(5, marketPublication.getDate());
-            preparedStatement.setInt(6, marketPublication.getUserID());
 
-            int affectedRows = preparedStatement.executeUpdate();
+    public void createMarketPublication(PublicationMarket marketPublication, InputStream imageInputStream) {
+        String publicationQuery = "INSERT INTO Publication (ContentPubli, ImagePubli, ActivePubli, Market, Date, UserID) VALUES (?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement publicationStatement = conexion.prepareStatement(publicationQuery, Statement.RETURN_GENERATED_KEYS)) {
+            publicationStatement.setString(1, marketPublication.getContent());
+            publicationStatement.setBytes(2, readImageBytes(imageInputStream));
+            publicationStatement.setBoolean(3, marketPublication.isActive());
+            publicationStatement.setBoolean(4, true);
+            publicationStatement.setTimestamp(5, marketPublication.getDate());
+            publicationStatement.setInt(6, marketPublication.getUserID());
+
+            int affectedRows = publicationStatement.executeUpdate();
 
             if (affectedRows > 0) {
-                try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                try (ResultSet generatedKeys = publicationStatement.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
                         int publicationID = generatedKeys.getInt(1);
                         marketPublication.setPublicationID(publicationID);
@@ -262,13 +268,12 @@ public class PublicationDAO {
             } else {
                 throw new SQLException("No se pudo insertar la publicación de mercado, ninguna fila afectada.");
             }
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             e.printStackTrace();
         }
     }
 
     public void deletePublication(int publicationID) {
-        // Llamar al procedimiento almacenado para eliminar la publicación normal
         String callProcedure = "{ CALL DeletePublicationData(?) }";
         try (CallableStatement statement = conexion.prepareCall(callProcedure)) {
             statement.setInt(1, publicationID);

@@ -145,8 +145,8 @@
                         <!-- Formulario para crear publicación -->
                         <form action="createPublication" method="post" enctype="multipart/form-data">
                             <div class="my-3">
-                                <textarea name="publicationTextContent" cols="60" rows="7" placeholder="Tu publicación..."
-                                          spellcheck="false"></textarea>
+        <textarea name="publicationTextContent" cols="60" rows="7" placeholder="Tu publicación..."
+                  spellcheck="false"></textarea>
                             </div>
                             <div class="my-3">
                                 <input type="file" name="imageInput" accept="image/*">
@@ -156,6 +156,7 @@
                                 <button type="submit" class="btn btn-editPublication">Crear publicación</button>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>

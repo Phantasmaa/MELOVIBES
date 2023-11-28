@@ -42,7 +42,7 @@
 
                 <div class="pt-4">
                     <div class="formContainer">
-                        <form id="marketPublicationForm" class="row g-3" method="post" action="createPublicationMarket">
+                        <form id="marketPublicationForm" class="row g-3" method="post" action="createPublicationMarket" enctype="multipart/form-data">
                             <div class="col-8">
                                 <label for="itemTitle" class="form-label ms-1">Título</label>
                                 <input type="text" id="itemTitle" name="itemTitle" class="form-control" required>
@@ -58,10 +58,7 @@
                             </div>
                             <div class="col-12">
                                 <label class="form-label">Imagen de referencia</label>
-                                <div class="uploadImageContainer text-center">
-                                    <p>Ingresa el link de la imagen</p>
-                                    <input type="text" id="linkImage" name="linkImage" class="form-control" required>
-                                </div>
+                                <input type="file" id="imageInput" name="imageInput" accept="image/*" class="form-control" required>
                             </div>
                             <div class="col-12 justify-content-end">
                                 <button class="btn btn-lg btn-cancel me-3" type="button" onclick="cancelPublish();">
@@ -70,6 +67,7 @@
                                 <button type="submit" class="btn btn-lg btn-publish">Publicar <i class="bi bi-play-circle"></i></button>
                             </div>
                         </form>
+
                     </div>
                 </div>
 

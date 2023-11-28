@@ -20,6 +20,9 @@ public class Publication {
     private int userID;
     private User user;
 
+    public byte[] getBitImage(){
+        return image;
+    }
     public String getImage() {
         if (image != null) {
             return "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(image);
