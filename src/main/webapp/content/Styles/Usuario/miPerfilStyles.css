@@ -1,0 +1,311 @@
+body{
+    background-color: #DBDBDB;
+}
+
+#barra_izquierda{
+    border-right: 1px solid #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 0;
+}
+
+#logo{
+    width: 150%;
+    height: auto;
+}
+
+
+#opciones{
+    margin-left: 5%;
+    font-size: 20px;  
+}
+
+.nav-link{
+    color: #000;
+    padding-bottom: 1px;
+    padding-top: 1px;   
+}
+
+
+
+
+.links_feed:hover{
+    color:#8D397C;  
+    font-weight: bold;
+}
+
+
+
+
+#crear_pub{
+    background-color: #8D397C;
+    border-color: #8D397C;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+#crear_pub:hover{
+    background-color: #E5D6E2;
+    color:#8D397C;
+    border: 1px solid #8D397C;
+}
+
+
+#imagen_cantante{
+    margin-top: 40%;
+    opacity: 0.3;
+}
+
+#user_foto{
+    margin: 8px;
+}
+
+#nombre_usuario{
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#desconectar{
+    font-size: 25px;
+    text-align: right;
+    margin-left: auto;
+}
+
+#desconectar:hover{
+    color:#8D397C;  
+}
+
+
+#contenido{
+    margin-left:17.2%;
+    padding-left: 0px;
+}
+
+#bienvenida{
+    font-size: 30px;
+    padding: 10px;
+    padding-right: 50px;
+    border-bottom: 1px solid #000;
+    text-align: right;
+    color: #8D397C;
+    font-weight: bold;
+    
+}
+
+
+/* Styles para editar perfil */
+body{
+    background-color: #DBDBDB;
+}
+
+#barra_izquierda{
+    border-right: 1px solid #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 0;
+}
+
+#logo{
+    width: 150%;
+    height: auto;
+}
+
+
+#opciones{
+    margin-left: 5%;
+    font-size: 20px;  
+}
+
+.nav-link{
+    color: #000;
+    padding-bottom: 1px;
+    padding-top: 1px;   
+}
+
+.link_feed_selected{
+    color:#8D397C;  
+    font-weight: bold;
+    background-color: #E5D6E2;
+    border-left: 6px solid #8D397C;
+}
+
+.links_feed:hover{
+    color:#8D397C;  
+    font-weight: bold;
+}
+
+#crear_pub{
+    background-color: #8D397C;
+    border-color: #8D397C;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+#crear_pub:hover{
+    background-color: #E5D6E2;
+    color:#8D397C;
+    border: 1px solid #8D397C;
+}
+
+#imagen_bateria{
+    margin-top: 50%;
+    opacity: 0.5;
+    height: 120%;
+   
+}
+
+#user_foto{
+    margin: 8px;
+}
+
+#nombre_usuario{
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#desconectar{
+    font-size: 25px;
+    text-align: right;
+    margin-left: auto;
+}
+
+#desconectar:hover{
+    color:#8D397C;  
+}
+
+
+#contenido{
+    margin-left:17.1%;
+    padding-left: 0px;
+}
+
+#bienvenida{
+    font-size: 30px;
+    padding: 10px;
+    padding-right: 50px;
+    border-bottom: 1px solid #000;
+    color: #8D397C;
+    font-weight: normal;
+    margin-left: 0px;  
+}
+
+.btn.btn-secondary{
+    background-color: #3B398D;
+    border-color: #3B398D;
+    color: #FFF;
+    font-weight: 400;
+}
+
+.userInfo{
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+
+.row>div>button{
+    width: 100%;
+}
+
+.container-fluid.p-3{
+    padding-right: 3em;
+}
+
+
+#profileCard{
+    width: 100%;
+    height: auto;
+    border: none;
+    background-color: #E5D6E2;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.profilePicture{
+    width: 80%;
+    height: auto;
+}
+
+.stats>p{
+    font-size: 1.8em;
+}
+.stats>p>i{
+    color: #8D397C;
+}
+
+.labelInfo{
+    color: #8D397C;
+}
+
+.labelInfo, .Info{
+    font-size: 1.4em;
+}
+
+.tabRow{
+    border: 2px solid #000;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.tabRow>div>p{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.tabRow>div.activo{
+    border: 2px solid #8D397C;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-bottom: -2px;
+}
+
+.tabSelected{
+    color: #8D397C;
+}
+
+.postProfilePicture{
+    width: 125px;
+    height: auto;
+}
+
+.authorNickname{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.postContent{
+    font-size: 1.1em;
+}
+
+.postContentPicture{
+    width: 75%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.interactionBtnRow>div>p{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.liked{
+    color: #8D397C;
+}
+
+.pubs{
+    border: 2px solid #000;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+
+.details{
+    margin-bottom: 2%;
+}
