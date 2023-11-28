@@ -19,22 +19,22 @@ body{
 
 #opciones{
     margin-left: 5%;
-    font-size: 20px;  
+    font-size: 20px;
 }
 
 .nav-link{
     color: #000;
     padding-bottom: 1px;
-    padding-top: 1px;   
+    padding-top: 1px;
 }
 
 .links_feed:hover{
-    color:#8D397C;  
+    color:#8D397C;
     font-weight: bold;
 }
 
 .link_feed_selected{
-    color:#8D397C;  
+    color:#8D397C;
     font-weight: bold;
     background-color: #E5D6E2;
     border-left: 6px solid #8D397C;
@@ -45,7 +45,6 @@ body{
     border-color: #8D397C;
     font-size: 16px;
     font-weight: bold;
-
 }
 
 #crear_pub:hover{
@@ -53,7 +52,6 @@ body{
     color:#8D397C;
     border: 1px solid #8D397C;
 }
-
 
 #imagen_cantante{
     margin-top: 40%;
@@ -76,10 +74,8 @@ body{
 }
 
 #desconectar:hover{
-    color:#8D397C;  
+    color:#8D397C;
 }
-
-
 
 
 /* Styles para el medio */
@@ -91,10 +87,12 @@ body{
     margin-right: 0;
 }
 
+
 #bienvenida{
     font-size: 30px;
     padding: 10px;
-    padding-right: 70px;
+    padding-right: 0px;
+    padding-bottom: 0px;
     border-bottom: 1px solid #000;
     text-align: right;
     color: #8D397C;
@@ -105,39 +103,51 @@ body{
     color: black;
 }
 
-#pubs{
-    padding-left: 1.5%;
-}
-
-.postProfilePicture{
-    width: 125px;
-    height: auto;
-}
-
-.authorNickname{
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.postContent{
-    font-size: 1.1em;
-}
-
-.postContentPicture{
-    width: 75%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.interactionBtnRow>div>p{
-    font-size: 1.1em;
-    font-weight: bold;
-}
-
-.liked{
+#bienvenida>div>i{
     color: #8D397C;
 }
 
+#backBtn{
+    cursor: pointer;
+
+}
+
+#create{
+   font-size: 24px;
+   font-weight: 500;
+}
+
+.recomendado{
+    font-weight: 400;
+    color: black;
+}
+
+.recomendado img{
+    margin-right: 10px;
+}
+
+.recomendado p{
+    display: inline-block;
+
+}
+
+#ver-perfil{
+    background-color: #8D397C;
+    border-color: #8D397C;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 15% ;
+}
+
+#ver-perfil:hover{
+    background-color: #E5D6E2;
+    color:#8D397C;
+    border: 1px solid #8D397C;
+}
+
+.bi-eye-fill{
+    margin-left: 10px ;
+}
 
 /* Styles para lado derecho */
 
@@ -153,18 +163,17 @@ body{
     background-color: transparent;
 }
 
-#barra_busqueda{
-    padding: 0px;
+#buscar:focus {
+  outline: none; /* Elimina el borde al hacer clic */
 }
 
-#barra_busqueda input:focus{
-    outline: none; 
+#barra_busqueda{
+    padding: 0px;
 }
 
 .input-group{
     border: #a5a0a0 solid;
     border-width: 0px 0px 1px 0px;
-
 }
 
 #icono_busqueda{
@@ -173,19 +182,15 @@ body{
     border-width: 0px 0px 1px 0px;
 }
 
-#recomendados{
-    font-size: 16px;
-    font-weight: bold;
-    color: #8D397C;
+#buscar::-webkit-search-cancel-button,
+#buscar::-webkit-search-clear-button,
+#buscar::-webkit-search-results-button,
+#buscar::-webkit-search-results-decoration {
+  display: none;
 }
 
-.recomendado{
-    font-weight: 400;
-    color: black;
-}
-
-.recomendado img{
-    margin-right: 10px;
+#barra_busqueda input:focus{
+    outline: none;
 }
 
 #publicidad{
@@ -250,45 +255,4 @@ body{
     margin: 0 10px
 }
 
-.modal-footer{
-    padding-right: 6.4em;
-}
 
-.btn-editPublication{
-    background-color: #8D397C;
-    border-color: #8D397C;
-    color: #FFF;
-}
-
-#publicationTextContent{
-    background-color: #DBDBDB;
-    border: none;
-    resize: none;
-}
-
-#publicationTextContent:focus{
-    background-color: #DBDBDB;
-    border: none;
-    outline: none;
-}
-
-.publicationImageContainer{
-    width: 100%;
-    height: auto;
-}
-
-.publicationImageContainer>img{
-    width: 100%;
-    height: auto;
-}
-
-.uploadImage{
-    width: 100%;
-    height: 200px;
-    padding: 90px 0px;
-    background-color: #C0C0C0;
-}
-
-.modal-content{
-    background-color: #DBDBDB;
-}

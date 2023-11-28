@@ -71,7 +71,6 @@
                                     </div>
                                 </div>
 
-
                                 <div class="col12">
                                     <%
                                         List<Publication> publications = (List<Publication>) request.getAttribute("publications");

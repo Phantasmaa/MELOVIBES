@@ -1,4 +1,4 @@
-1<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="models.User" %>
 <%@ page import="dao.UserDAO" %>
 <% User user = (User) session.getAttribute("usuario");%>

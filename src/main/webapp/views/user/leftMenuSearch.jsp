@@ -1,5 +1,5 @@
 <nav class="col-md-2 d-none d-md-block sidebar pt-2" id="barra_izquierda">
-    <div class="d-flex flex-column justify-content-between h-100">      
+    <div class="d-flex flex-column justify-content-between h-100">
         <div class="text-center">
             <img src="../../content/Images/Administracion/logoMeloVibe.png" alt="logo_melovibe" id="logo" class="img-fluid rounded">
         </div>
@@ -16,11 +16,8 @@
                 </li>
             </ul>
         </div>
-        <div class="text-center">
 
-            <button class="btn btn-primary mt-3" id="crear_pub" data-bs-toggle="modal"  data-bs-target="#createPublicationModal">Crear publicacion <i class="bi bi-music-note-beamed"></i></button>
 
-        </div>
         <div class="text-center d-flex align-items-center">
             <img id="imagen_cantante" class="img-fluid rounded" src="../../content/Images/Usuario/cantante2.png" alt="cantante">
         </div>
@@ -29,7 +26,7 @@
             <div id="user_foto">
                 <a href="myprofile">
                     <img src="<%=user.getUserImage()%>" alt="usuario" height="40px">
-                </a>       
+                </a>
             </div>
             <%=user.getUserName()%>
 

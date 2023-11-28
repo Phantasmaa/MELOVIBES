@@ -9,6 +9,7 @@ html, body {
 
 #bienvenida{
     padding-bottom: 0px;
+    padding-right: 0px;
 }
 
 .marketplaceNavBar{
@@ -37,6 +38,7 @@ html, body {
 
 #backBtn{
     cursor: pointer;
+
 }
 
 #bienvenida>div>i{
@@ -89,6 +91,6 @@ html, body {
 }
 
 #create{
-   font-size: 27px; 
-
+   font-size: 24px;
+   font-weight: 500;
 }
