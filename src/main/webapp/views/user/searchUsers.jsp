@@ -29,7 +29,7 @@
 </head>
 <body>
     <div class="row vh-100">
-                <%@include file="leftMenuSearch.jsp" %>
+                <%@include file="../menus/leftMenuEmpty.jsp" %>
 
                 <div class="container-fluid col-md-8" id="contenido">
 
@@ -77,7 +77,7 @@
 
 
                 </div>
-                    <%@include file="rightMenuSearch.jsp" %>
+                    <%@include file="../menus/rightMenuSearch.jsp" %>
                 </div>
 
     <script>

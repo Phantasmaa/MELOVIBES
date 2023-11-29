@@ -25,7 +25,7 @@
     <body>
         <div class="row vh-100">
 
-            <%@include file="leftMenuMarketplace.jsp" %>
+            <%@include file="../menus/leftMenuMarketplace.jsp" %>
 
 
             <div class="container-fluid col-md-8" id="contenido">
@@ -74,7 +74,7 @@
 
             </div>
 
-            <%@include file="rightMenu.jsp" %>
+            <%@include file="../menus/rightMenu.jsp" %>
 
         </div>
 

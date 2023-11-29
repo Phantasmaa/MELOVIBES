@@ -19,7 +19,7 @@
     <body>
         <div class="row vh-100">
 
-            <%@include file="leftMenu.jsp" %>
+            <%@include file="../menus/leftMenuEmpty.jsp" %>
 
             <div class="container-fluid col-md-10" id="contenido">
                 <div id="bienvenida">Editar Perfil</div>

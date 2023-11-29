@@ -20,7 +20,7 @@
     </head>
     <body>
         <div class="row vh-100">
-            <%@include file="leftMenu.jsp" %>
+            <%@include file="../menus/leftMenuEmpty.jsp" %>
 
             <div class="container-fluid col-md-10" id="contenido">
                 <div class="container-fluid p-3">
@@ -125,10 +125,10 @@
 
                                             <div class="row justify-content-start interactionBtnRow text-start mt-2">
                                                 <div class="col-2">
-                                                    <p><i class="bi bi-music-note-list"></i> 10 likes</p>
+                                                    <p><i class="bi bi-music-note liked"></i> 10 likes</p>
                                                 </div>
                                                 <div class="col-3">
-                                                    <p><i class="bi bi-music-note liked"></i> 10 comments</p>
+                                                    <p><i class="bi bi-music-note-list"></i> 10 comments</p>
                                                 </div>
                                             </div>
                                         </div>

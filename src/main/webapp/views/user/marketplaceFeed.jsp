@@ -28,7 +28,7 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
     <body>
         <div class="row vh-100">
 
-            <%@include file="leftMenuMarketplace.jsp" %>
+            <%@include file="../menus/leftMenuMarketplace.jsp" %>
 
 
             <div class="container-fluid col-md-8" id="contenido">
@@ -97,7 +97,7 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                 </div>
             </div>
 
-            <%@include file="rightMenu.jsp" %>
+            <%@include file="../menus/rightMenu.jsp" %>
 
         </div>
 
