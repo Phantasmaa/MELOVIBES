@@ -138,10 +138,12 @@
                                         </c:if>
                                         <div class="row justify-content-start interactionBtnRow text-start mt-2 mb-2">
                                             <div class="col-2">
-                                                <p><i class="bi bi-music-note-list"></i>10 likes</p>
+                                                <p onclick="toggleLike('<%= publication.getPublicationID() %>')" id="likeButton<%= publication.getPublicationID() %>">
+                                                      <i class="bi bi-music-note" style="cursor: pointer;"></i> <%//= publication.getLikes() %> likes
+                                                </p>
                                             </div>
                                             <div class="col-3">
-                                                <p><i class="bi bi-music-note liked"></i>481 comments</p>
+                                                <p><i class="bi bi-music-note-list" style="cursor: pointer;"></i> <%//= publication.getComments() %> comentarios</p>
                                             </div>
                                         </div>
                                     </div>
@@ -216,5 +218,22 @@
 
         <script src="../../util/script/logOutScript.js">
         </script>
+
+
+         <script>
+              function toggleLike(publicationID) {
+                  var likeButton = document.getElementById('likeButton' + publicationID);
+                  var icon = likeButton.querySelector('i');
+
+                  if (icon.classList.contains('liked')) {
+                      icon.classList.remove('liked');
+
+                  } else {
+                      icon.classList.add('liked');
+
+                  }
+              }
+         </script>
+
     </body>
 </html>
