@@ -1,0 +1,66 @@
+#cabecera{
+    font-size: 30px;
+    padding: 10px;
+    padding-right: 2%;
+    border-bottom: 1px solid #000;
+    text-align: right;
+    color: #8D397C;
+    width: 99.7%;
+}
+
+.receptor{
+    font-weight: 600;
+    color: black;
+    text-align: center;
+}
+
+.receptor img{
+    margin-right: 10px;
+}
+
+.mensaje{
+    background-color: #A1D6FC;
+    border-radius: 15px;
+}
+
+ .memsaje p{
+     margin-bottom: 0;
+
+ }
+
+.respuesta{
+    background-color: #1D2A64;
+    color: white;
+    border-radius: 15px;
+}
+
+.custom-row {
+    max-width: 945px; /* Ajusta el valor según tus necesidades */
+    margin-left: 7px;
+}
+
+.boton{
+    background-color: #8D397C;
+    border-color: #8D397C;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.boton:hover{
+    background-color: #E5D6E2;
+    color:#8D397C;
+    border: 1px solid #8D397C;
+}
+
+.mensaje-input{
+        border: none;
+}
+ .mensaje-input:focus {
+        box-shadow: none !important;
+        border-color: transparent !important;
+ }
+
+ .input-group{
+        border-bottom: none !important;
+        box-shadow: none !important;
+ }
