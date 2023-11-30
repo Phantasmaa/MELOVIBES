@@ -44,9 +44,9 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                         Publicaciones
                     </div>
                     <%
-                        
-                    
-                    
+
+
+
                     %>
 
                     <style>
@@ -61,6 +61,10 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                     </div>
                     <div class="col-3 mt-3 text-center marketplaceNavBar" id="MisPublicaciones" onclick="redirigirAServlet('myPublications', event)">
                         <p>Mis Publicaciones</p>
+                    </div>
+
+                    <div class="col-3 mt-3 text-center marketplaceNavBar" id="BandejaDeEntrada" onclick="redirigirAServlet('myChats', event)">
+                        <p>Bandeja de entrada</p>
                     </div>
 
                 </div>
@@ -95,7 +99,54 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                     <% } %>
 
                 </div>
+
+                <div class="row text-center pt-3 hidden" id="chats" >
+
+                    <!-- Chat de ejemplo--!>
+                    <div class="col-8 row pt-2 pb-2">
+                        <div class="col-2">
+                            <a href="otherProfile.jsp"><img class="commentProfilePicture"
+                                                            src="../../content/Images/Usuario/usuario.png" alt="profilePicture"></a>
+
+                            <%--
+                            <a href="otherProfile.jsp"><img class="commentProfilePicture"
+                             src="<%= publication.getProfile().getUserImage() %>" alt="profilePicture"></a>
+                              --%>
+
+                        </div>
+                        <div class="col-10 row text-start">
+                            <div class="col-12">
+                                <p class="commentAuthorNickname" onclick="" style="cursor: pointer;">
+
+                                    <b>
+                                        JeffMusic
+                                    </b> · 23-11-04 12:00:00
+
+                                    <%--
+                                         <b>
+                                         <%= publication.getProfile().getUserName() %>
+                                         </b> · <%= publication.getCalendar().getDate() %>
+                                         --%>
+
+                                </p>
+                            </div>
+                            <div class="col-12">
+                                <p class="commentContent">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. A porro voluptate, deleniti
+                                    mollitia nobis, adipisci repellat maxime est aut obcaecati facere labore culpa
+                                    assumenda
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- otro chat (mensaje)--!>
+
+                </div>
+
             </div>
+
 
             <%@include file="../menus/rightMenu.jsp" %>
 
@@ -106,61 +157,89 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+                crossorigin="anonymous"></script>
 
         <script>
-                            document.addEventListener("DOMContentLoaded", function (event) {
-                                var tab1, tab2, tab3;
-                                tab1 = document.getElementById("LeftMenu-inicio");
-                                tab2 = document.getElementById("LeftMenu-marketplace");
-                                tab3 = document.getElementById("LeftMenu-perfil");
-                                tab1.classList.remove("link_feed_selected");
-                                tab2.classList.remove("link_feed_selected");
-                                tab3.classList.remove("link_feed_selected");
-                                tab1.classList.remove("links_feed");
-                                tab2.classList.remove("links_feed");
-                                tab3.classList.remove("links_feed");
-                                tab1.classList.add("links_feed");
-                                tab3.classList.add("links_feed");
+            document.addEventListener("DOMContentLoaded", function (event) {
+                var tab1, tab2, tab3;
+                tab1 = document.getElementById("LeftMenu-inicio");
+                tab2 = document.getElementById("LeftMenu-marketplace");
+                tab3 = document.getElementById("LeftMenu-perfil");
+                tab1.classList.remove("link_feed_selected");
+                tab2.classList.remove("link_feed_selected");
+                tab3.classList.remove("link_feed_selected");
+                tab1.classList.remove("links_feed");
+                tab2.classList.remove("links_feed");
+                tab3.classList.remove("links_feed");
+                tab1.classList.add("links_feed");
+                tab3.classList.add("links_feed");
 
-                                tab2.classList.add("link_feed_selected");
+                tab2.classList.add("link_feed_selected");
+                var completeParam = window.location.search.split("=");
+                var id = completeParam[1];
 
-                            });
+                if (id == 'allPublications') {
 
-                            function uploadImage() {
-                                alert("Este boton solicitara subir una imagen");
-                            }
+                    document.getElementById("MisPublicaciones").classList.remove("active");
+                    document.getElementById("BandejaDeEntrada").classList.remove("active");
+                    document.getElementById("Recomendados").classList.add("active");
 
-                            function goToPublishArticle() {
-                                window.location.href = "createMarketplacePublication.jsp";
-                            }
+                }
+                else if (id == 'myPublications') {
 
-                            function goToArticle(arcileID) {
-                                window.location.href="Article?article="+arcileID;
-                            }
+                    document.getElementById("BandejaDeEntrada").classList.remove("active");
+                    document.getElementById("Recomendados").classList.remove("active");
+                    document.getElementById("MisPublicaciones").classList.add("active");
 
-                            function goToSearch() {
-                                window.location.href="searchUsers.jsp";
-                            }
-                            
+                }
+                else if (id == 'myChats') {
+
+                    document.getElementById("MisPublicaciones").classList.remove("active");
+                    document.getElementById("Recomendados").classList.remove("active");
+                    document.getElementById("BandejaDeEntrada").classList.add("active");
+
+                    document.getElementById("chats").classList.remove("hidden");
+                    document.getElementById("pubs").classList.add("hidden");
+
+
+                }
+            });
+
+            function uploadImage() {
+                alert("Este boton solicitara subir una imagen");
+            }
+
+            function goToPublishArticle() {
+                window.location.href = "createMarketplacePublication.jsp";
+            }
+
+            function goToArticle(arcileID) {
+                window.location.href="Article?article="+arcileID;
+            }
+
+            function goToSearch() {
+                window.location.href="searchUsers.jsp";
+            }
+
         </script>
 
 
-       <script>
-           // Arreglar la parte visual para indicar si está en recomendados o en mis publicaciones
+        <script>
+            // Arreglar la parte visual para indicar si está en recomendados o en mis publicaciones
             function redirigirAServlet(parametro, event) {
-            window.location.href = 'feedMarket?urlParam=' + parametro;
+                window.location.href = 'feedMarket?urlParam=' + parametro;
 
-            var elements = document.querySelectorAll('.marketplaceNavBar');
-            elements.forEach(function (element) {
-                element.classList.remove('active');
-            });
+                var elements = document.querySelectorAll('.marketplaceNavBar');
+                elements.forEach(function (element) {
+                    element.classList.remove('active');
+                });
 
-            // Asignar estado activo al elemento correspondiente
-            var selectedElement = event.currentTarget;
-            selectedElement.classList.add('active');
-        }
-       </script>
+                // Asignar estado activo al elemento correspondiente
+                var selectedElement = event.currentTarget;
+                selectedElement.classList.add('active');
+
+            }
+        </script>
 
     </body>
 
