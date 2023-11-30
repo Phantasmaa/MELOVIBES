@@ -168,6 +168,11 @@ body{
     border-width: 0px 0px 1px 0px;
 }
 
+#btn-search:hover{
+    color: white;
+    background-color: #8D397C;
+}
+
 #buscar::-webkit-search-cancel-button,
 #buscar::-webkit-search-clear-button,
 #buscar::-webkit-search-results-button,

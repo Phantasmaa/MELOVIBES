@@ -118,6 +118,11 @@
                                 window.location.href = "feed.jsp";
                             }
 
+                            function goToSearch() {
+                                            window.location.href="searchUsers.jsp";
+                            }
+
+
         </script>
 
         <!-- Script para validar 25 carácteres en el título -->

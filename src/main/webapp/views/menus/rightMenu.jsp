@@ -1,6 +1,6 @@
 <div class="col-md-2" id="barra_derecha">
 
-                <div class="input-group container-fluid mt-2" id="barra_busqueda">
+                <div class="input-group container-fluid mt-2" id="barra_busqueda" onclick="goToSearch();" style="cursor: pointer;" >
                     <span class="input-group-text border-0" id="icono_busqueda">
                         <i class="bi bi-search"></i>
                     </span>

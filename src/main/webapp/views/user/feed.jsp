@@ -227,6 +227,11 @@
             function verPublicacion() {
                 window.location.href="publication.jsp";
             }
+
+            function goToSearch() {
+                window.location.href="searchUsers.jsp";
+            }
+
         </script>
 
         <!-- Script para validar 1000 caracteres en la publicación -->

@@ -138,6 +138,10 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                             function goToArticle() {
                                 window.location.href="articulo.jsp";
                             }
+
+                            function goToSearch() {
+                                window.location.href="searchUsers.jsp";
+                            }
                             
         </script>
 
