@@ -66,7 +66,7 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
 
                         <div class="d-flex justify-content-between">
                             <div class="mt-2" id="num_comentario">
-                                  <p><i class="bi bi-music-note-list " style="cursor: pointer;"></i> <%//= publication.getComments() %> comentarios</p>
+                                  <p><i class="bi bi-music-note-list " style="cursor: pointer;"></i> <%//= publication.getComments() %> 15 comentarios</p>
                             </div>
                             <button class="btn btn-primary mt-1 boton"  type="button">Enviar mensaje <i class="bi bi-chat"></i></button>
                         </div>

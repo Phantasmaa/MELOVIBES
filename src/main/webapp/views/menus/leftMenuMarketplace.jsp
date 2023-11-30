@@ -34,7 +34,7 @@
             
             
             <form action="LogOutServlet" method="POST" id="desconectar">
-                <button type="submit" class="bi bi-power"></button>
+                <button type="submit" class="bi bi-power boton-transp"></button>
             </form>
 
         </div>

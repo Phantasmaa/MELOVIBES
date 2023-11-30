@@ -292,3 +292,60 @@ body{
 .modal-content{
     background-color: #DBDBDB;
 }
+
+.postProfilePictureRespuesta{
+    width: 40px;
+    height: auto;
+}
+#marginPictureRespuesta{
+    margin-top: 1%;
+
+}
+.comment-input {
+    width: 100%;
+    resize: none;
+    border: none;
+    outline: none;
+}
+#TamañoModal{
+    max-width: 800px;
+}
+
+.btn-enviar {
+    margin: 5px;
+    background-color: white;
+    color: #4481eb; /* Texto azul */
+    border: 1px solid #4481eb;
+    border-radius: 40px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    font-size: 1.4em;
+    padding: 4px;
+    position: relative;
+    text-decoration: none;
+    width: 7em;
+    z-index: 2;
+    transition: color 0.2s ease, background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.btn-enviar:hover {
+    background-color: #4481eb;
+    color: white;
+    border-color: #4481eb;
+}
+
+.backBtn{
+    color: #8D397C;
+}
+
+.commentProfilePicture{
+    width: 100%;
+}
+
+.boton-transp{
+    border-color: transparent;
+    background-color: transparent;
+}

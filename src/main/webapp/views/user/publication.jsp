@@ -6,7 +6,7 @@
 <%@ page import="java.util.Collections" %>
 <%@ page import="java.util.Base64" %>
 
-<% 
+<%
     User user = (User) session.getAttribute("usuario");
     List<Publication> publications = (List<Publication>) request.getAttribute("publications");
 
@@ -30,60 +30,131 @@
 
             <div class="container-fluid col-md-8" id="contenido">
 
-                <div id="bienvenida" class="row justify-content-between">
-                    <div class="col-6 text-start">
-                        Bienvenido <b><%=user.getUserName()%></b>
-                    </div>
-                    <div class="col-2 text-end">
-                        Publicaciones
-                    </div>
-                </div>
-
-                <div class="text-center pt-4" id="pubs">
-                    <% if (publications != null && !publications.isEmpty()) { %>
-                    <%   Collections.reverse(publications);
-                        for (Publication publication : publications) { %>
-                    <div class="row">
-                        <div class="col-2">
-                            <a href="OtherProfile?userID=<%=publication.getUser().getUserID()%>">
-                                <img class="postProfilePicture" src="<%= publication.getUser().getUserImage() %>" alt="">
-                            </a>
+                        <div id="bienvenida" class="row justify-content-between">
+                            <div class="col-6 text-start">
+                                <a href="feed.jsp" class="backBtn">
+                                    <i class="bi bi-arrow-left"></i> Atras
+                                </a>
+                            </div>
+                            <div class="col-2 text-end">
+                                Publicaciones
+                            </div>
                         </div>
-                        <div class="col-9" onclick="verPublicacion();">
-                            <div class="row justify-content-between text-start">
+
+
+                        <div class="text-center pt-4" id="pubs">
+                            <!-- Itera sobre las publicaciones del perfil -->
+
+                            <div class="row">
                                 <div class="col-2">
-                                    <p class="authorNickname" onclick="redirectToOtherProfile(<%= publication.getUser().getUserID() %>)" style="cursor: pointer;">
-                                        <%= publication.getUser().getUserName() %>
+                                    <a href="otherProfile.jsp"><img class="postProfilePicture" src="../../content/Images/Usuario/usuario.png" alt=""> </a>
+
+                                    <%-- src="<%= publication.getProfile().getUserImage() %>" alt="" --%>
+                                </div>
+                                <div class="col-9">
+                                    <div class="row justify-content-between text-start">
+                                        <div class="col-4">
+                                            <p class="authorNickname"
+                                                onclick=""
+                                                 style="cursor: pointer;">
+                                                 TeoMusic
+                                            </p>
+
+                                             <%-- <p class="authorNickname"
+                                                onclick="location.href = 'otherProfile.jsp?userID=<%= profile.getProfileID() %>'"
+                                                style="cursor: pointer;">
+                                                <%= publication.getProfile().getUserName() %>
+                                            </p> --%>
+
+                                        </div>
+                                        <div class="col-2 text-end">
+                                            <!-- Muestra la fecha de la publicación -->
+                                            <p><i class="bi bi-clock"></i>
+                                                23-11-04 12:00:00
+                                            </p>
+
+                                            <%--
+                                            <p><i class="bi bi-clock"></i>
+                                                <%= publication.getCalendar().getDate() %>
+                                            </p>
+                                            --%>
+                                        </div>
+                                    </div>
+
+                                    <p class="text-start postContent">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque vero amet modi tempora ex eligendi voluptatem harum explicabo voluptates? Similique!
                                     </p>
-                                </div>
-                                <div class="col-2 text-end px-0">
-                                    <p><i class="bi bi-clock"></i> <%= publication.getDate() %></p>
-                                </div>
-                            </div>
-                            <p class="text-start postContent"><%= publication.getContent() %></p>
-                            <div>
-                                <img class="postContentPicture" src="<%= publication.getImage() %>" alt="">
-                            </div>
-                            <div class="row justify-content-start interactionBtnRow text-start mt-2">
-                                <div class="col-2">
-                                    <p onclick="toggleLike('<%= publication.getPublicationID() %>')" id="likeButton<%= publication.getPublicationID() %>">
-                                        <i class="bi bi-music-note" style="cursor: pointer;"></i> <%//= publication.getLikes() %> likes
+
+                                    <%--
+                                    <p class="text-start postContent">
+                                        <%= publication.getContent() %>
                                     </p>
-                                </div>
-                                <div class="col-3">
-                                    <p><button data-bs-toggle="modal" data-bs-target="#comentarModal" class="boton-transp"> <i class="bi bi-music-note-list" style="cursor: pointer;"></i> </button> <%//= publication.getComments() %> comentarios</p>
+                                    --%>
+
+                                    <div>
+                                        <img class="postContentPicture"
+                                            src="https://ichef.bbci.co.uk/news/976/cpsprodpb/DC68/production/_131342465_gettyimages-1697851379-1.jpg"
+                                            alt="">
+                                    </div>
+                                    <div class="row justify-content-start interactionBtnRow text-start mt-2">
+                                         <div class="col-2">
+                                             <p onclick="" id="">
+                                             <i class="bi bi-music-note" style="cursor: pointer;"></i> 6 likes
+                                             </p>
+                                         </div>
+                                         <div class="col-4">
+                                             <p><button data-bs-toggle="modal" data-bs-target="#comentarModal" class="boton-transp"> <i class="bi bi-music-note-list" style="cursor: pointer;"></i> </button> <%//= publication.getComments() %> 15 comentarios</p>
+                                         </div>
+                                    </div>
                                 </div>
                             </div>
-                            
+                            <div class="row justify-content-around" id="commentsSection">
+                                <div class="col-8 row">
+                                    <div class="col-2">
+
+                                        <a href="otherProfile.jsp"><img class="commentProfilePicture"
+                                        src="../../content/Images/Usuario/usuario.png" alt="profilePicture"></a>
+
+                                        <%--
+                                        <a href="otherProfile.jsp"><img class="commentProfilePicture"
+                                                src="<%= publication.getProfile().getUserImage() %>" alt="profilePicture"></a>
+                                        --%>
+
+                                    </div>
+                                    <div class="col-10 row text-start">
+                                        <div class="col-12">
+                                            <p class="commentAuthorNickname"
+                                                onclick=""
+                                                style="cursor: pointer;">
+
+                                                <b>
+                                                    JeffMusic
+                                                </b> · 23-11-04 12:00:00
+
+                                                <%--
+                                                <b>
+                                                   <%= publication.getProfile().getUserName() %>
+                                                </b> · <%= publication.getCalendar().getDate() %>
+                                                --%>
+
+                                            </p>
+                                        </div>
+                                        <div class="col-12">
+                                            <p class="commentContent">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. A porro voluptate, deleniti
+                                                mollitia nobis, adipisci repellat maxime est aut obcaecati facere labore culpa
+                                                assumenda
+                                                optio ad eaque delectus facilis quidem velit qui deserunt? Minima porro odit saepe
+                                                odio
+                                                distinctio ducimus aperiam enim, eaque est veritatis laboriosam eos quam quas
+                                                tempora?
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <% } %>
-                    <% } else { %>
-                    <p>No hay publicaciones disponibles.</p>
-                    <% } %>
-                </div>
-
-            </div>
 
                 <%@include file="../menus/rightMenu.jsp" %>
 
@@ -222,10 +293,6 @@
 
             function uploadImage() {
                 alert("Este boton solicitara subir una imagen");
-            }
-
-            function verPublicacion() {
-                window.location.href="publication.jsp";
             }
         </script>
 

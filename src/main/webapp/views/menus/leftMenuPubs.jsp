@@ -34,7 +34,7 @@
             <%=user.getUserName()%>
 
             <form action="LogOutServlet" id="desconectar" method="POST">
-                <button type="submit" class="bi bi-power"></button>
+                <button type="submit" class="bi bi-power boton-transp"></button>
             </form>
 
 
