@@ -18,7 +18,7 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
         <title>Marketplace | MeloVibe</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../../content/Styles/Usuario/feedStyles.css">
-        <link rel="stylesheet" href="../../content/Styles/Usuario/marketplaceFeedStyles.css"/>
+        <link rel="stylesheet" href="../../content/Styles/Usuario/marketplaceFeedStyles.css?e=7"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,6 +63,10 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                         <p>Mis Publicaciones</p>
                     </div>
 
+                    <div class="col-3 mt-3 text-center marketplaceNavBar" id="BandejaDeEntrada" onclick="redirigirAServlet('myChats', event)">
+                        <p>Bandeja de entrada</p>
+                    </div>
+
                 </div>
 
 
@@ -95,6 +99,54 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                     <% } %>
 
                 </div>
+
+                <div class="row text-center pt-3 hidden" id="chats" >
+
+                    <!-- Chat de ejemplo--!>
+                    <div class="col-8 row pt-2 pb-2">
+                       <div class="col-2">
+                        <a href="otherProfile.jsp"><img class="commentProfilePicture"
+                        src="../../content/Images/Usuario/usuario.png" alt="profilePicture"></a>
+
+                        <%--
+                        <a href="otherProfile.jsp"><img class="commentProfilePicture"
+                         src="<%= publication.getProfile().getUserImage() %>" alt="profilePicture"></a>
+                          --%>
+
+                         </div>
+                             <div class="col-10 row text-start">
+                                <div class="col-12">
+                                <p class="commentAuthorNickname" onclick="" style="cursor: pointer;">
+
+                                <b>
+                                    JeffMusic
+                                </b> · 23-11-04 12:00:00
+
+                                <%--
+                                     <b>
+                                     <%= publication.getProfile().getUserName() %>
+                                     </b> · <%= publication.getCalendar().getDate() %>
+                                     --%>
+
+                                      </p>
+                                </div>
+                                <div class="col-12">
+                                    <p class="commentContent">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. A porro voluptate, deleniti
+                                            mollitia nobis, adipisci repellat maxime est aut obcaecati facere labore culpa
+                                            assumenda
+
+                                    </p>
+                                </div>
+                             </div>
+                         </div>
+
+                        <!-- otro chat (mensaje)--!>
+
+                </div>
+
+                </div>
+
             </div>
 
             <%@include file="../menus/rightMenu.jsp" %>
@@ -124,7 +176,34 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                                 tab3.classList.add("links_feed");
 
                                 tab2.classList.add("link_feed_selected");
+                                var completeParam = window.location.search.split("=");
+                                  var id = completeParam[1];
 
+                                 if (id == 'allPublications') {
+
+                                     document.getElementById("MisPublicaciones").classList.remove("active");
+                                     document.getElementById("BandejaDeEntrada").classList.remove("active");
+                                     document.getElementById("Recomendados").classList.add("active");
+
+                                   }
+                                   else if (id == 'myPublications') {
+
+                                     document.getElementById("BandejaDeEntrada").classList.remove("active");
+                                     document.getElementById("Recomendados").classList.remove("active");
+                                     document.getElementById("MisPublicaciones").classList.add("active");
+
+                                   }
+                                   else if (id == 'myChats') {
+
+                                     document.getElementById("MisPublicaciones").classList.remove("active");
+                                     document.getElementById("Recomendados").classList.remove("active");
+                                     document.getElementById("BandejaDeEntrada").classList.add("active");
+
+                                     document.getElementById("chats").classList.remove("hidden");
+                                     document.getElementById("pubs").classList.add("hidden");
+
+
+                                   }
                             });
 
                             function uploadImage() {
@@ -159,6 +238,7 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
             // Asignar estado activo al elemento correspondiente
             var selectedElement = event.currentTarget;
             selectedElement.classList.add('active');
+
         }
        </script>
 

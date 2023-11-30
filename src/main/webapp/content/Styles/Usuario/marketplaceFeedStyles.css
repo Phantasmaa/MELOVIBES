@@ -94,3 +94,11 @@ html, body {
    font-size: 24px;
    font-weight: 500;
 }
+
+.hidden{
+    display: none;
+}
+
+#chats{
+    justify-content: center;
+}
