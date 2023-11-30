@@ -68,7 +68,7 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                             <div class="mt-2" id="num_comentario">
                                   <p><i class="bi bi-music-note-list " style="cursor: pointer;"></i> <%//= publication.getComments() %> 15 comentarios</p>
                             </div>
-                            <button class="btn btn-primary mt-1 boton"  type="button">Enviar mensaje <i class="bi bi-chat"></i></button>
+                            <button class="btn btn-primary mt-1 boton" onclick="goToChat();" style="cursor: pointer;"  type="button">Enviar mensaje <i class="bi bi-chat"></i></button>
                         </div>
                    </div>
                 </div>
@@ -105,6 +105,11 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
           </div>
 
          <%@include file="../menus/rightMenu.jsp" %>
+         <script>
+         function goToChat() {
+             window.location.href="chat.jsp";
+         }
+         </script>
 
      </div>
 

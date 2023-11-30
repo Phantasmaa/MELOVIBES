@@ -49,7 +49,7 @@
                                 <img class="postProfilePicture" src="<%= publication.getUser().getUserImage() %>" alt="">
                             </a>
                         </div>
-                        <div class="col-9" onclick="verPublicacion();">
+                        <div class="col-9">
                             <div class="row justify-content-between text-start">
                                 <div class="col-2">
                                     <p class="authorNickname" onclick="redirectToOtherProfile(<%= publication.getUser().getUserID() %>)" style="cursor: pointer;">
@@ -61,7 +61,7 @@
                                 </div>
                             </div>
                             <p class="text-start postContent"><%= publication.getContent() %></p>
-                            <div>
+                            <div onclick="verPublicacion();" style="cursor: pointer;" >
                                 <img class="postContentPicture" src="<%= publication.getImage() %>" alt="">
                             </div>
                             <div class="row justify-content-start interactionBtnRow text-start mt-2">
