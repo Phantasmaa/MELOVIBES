@@ -1,16 +1,19 @@
 package controllers;
-import static util.HashMethod.hashPassword;
+
+import dao.UserDAO;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import dao.UserDAO;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpSession;
 import models.User;
 import util.Conexion;
+
 import java.io.IOException;
 import java.sql.Connection;
+
+import static util.HashMethod.hashPassword;
 
 @WebServlet(name = "ResgisterServlet", urlPatterns = {"/views/log/ResgisterServlet"})
 

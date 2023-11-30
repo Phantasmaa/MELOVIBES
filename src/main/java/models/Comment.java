@@ -1,9 +1,10 @@
 package models;
 
-import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
@@ -14,6 +15,5 @@ public class Comment {
     private int publicationID;
     private int userID;
     private Timestamp date;
-    private PublicationNormal publicationNormal;
-    private PublicationMarket publicationMarket;
+    private User user;
 }

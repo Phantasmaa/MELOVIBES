@@ -61,7 +61,7 @@
                                 </div>
                             </div>
                             <p class="text-start postContent"><%= publication.getContent() %></p>
-                            <div onclick="verPublicacion();" style="cursor: pointer;" >
+                            <div onclick="verPublicacion(<%=publication.getPublicationID()%>);" style="cursor: pointer;" >
                                 <img class="postContentPicture" src="<%= publication.getImage() %>" alt="">
                             </div>
                             <div class="row justify-content-start interactionBtnRow text-start mt-2">
@@ -71,7 +71,7 @@
                                     </p>
                                 </div>
                                 <div class="col-3">
-                                    <p><button data-bs-toggle="modal" data-bs-target="#comentarModal" class="boton-transp"> <i class="bi bi-music-note-list" style="cursor: pointer;"></i> </button> <%//= publication.getComments() %> comentarios</p>
+                                    <p><button data-bs-toggle="modal" data-bs-target="#comentarModal" class="boton-transp"> <i class="bi bi-music-note-list"></i> </button> <%= publication.getNComment()%> comentarios</p>
                                 </div>
                             </div>
                             
@@ -117,78 +117,7 @@
             </div>
         </div>
 
-        <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false"
-            id="comentarModal" tabindex="-1" aria-labelledby="comentarModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content" >
-                    <div class="modal-header">
-                        <!-- Botón de cerrar ("x") -->
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" id="TamañoModal">
-                       <div class="row">
-                                               <div class="col-2">
-                                                       <img class="postProfilePicture" src="../../content/Images/Usuario/usuario.png" alt="">
-                                               </div>
-                                               <div class="col-9">
-                                                   <div class="row justify-content-between text-start">
-                                                       <div class="col-2">
-                                                           <p class="authorNickname" onclick="" style="cursor: pointer;">
-                                                               TeoMusic
-                                                           </p>
-                                                       </div>
-                                                       <div class="col-2 text-end px-0">
-                                                           <p><i class="bi bi-clock"></i> 11:00:00 </p>
-                                                       </div>
-                                                   </div>
-                                                   <p class="text-start postContent">Lorem </p>
-                                                   <div>
-                                                       <img class="postContentPicture" src="" alt="">
-                                                   </div>
-                                                   <div class="row justify-content-start interactionBtnRow text-start mt-2">
-                                                       <div class="col-2">
-                                                           <p onclick="" id="likeButton">
-                                                               <i class="bi bi-music-note" style="cursor: pointer;"></i> likes
-                                                           </p>
-                                                       </div>
-                                                       <div class="col-4">
-                                                           <p><i class="bi bi-music-note-list" style="cursor: pointer;"></i><%//= publication.getComments() %> comentarios</p>
-                                                       </div>
-                                                   </div>
 
-                                               </div>
-                                           </div>
-                        <div class="row align-items-start">
-                            <!-- Columna para la foto de perfil -->
-                            <div class="col-1 ml-2" id="marginPictureRespuesta">
-                                <img class="postProfilePictureRespuesta" src="../../content/Images/Usuario/usuario.png" alt="">
-                            </div>
-                            <!-- Columna para el comentario -->
-                            <div class="col-11">
-                                <textarea class="form-control comment-input mt-2" rows="3" placeholder="Escribe un comentario..."></textarea>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-9">
-
-                            </div>
-                            <!-- Botón de enviar -->
-                            <div class="col-2 mt-3" style="text-align: right;">
-                                <button type="button" class="btn-enviar" onclick="location.href='adminFeeds.jsp'">
-                                    Enviar <i class="bi bi-send-fill" style="margin-left: 5px;"></i>
-                                </button>
-                            </div>
-
-
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-            </div>
 
 
         <script>
@@ -224,9 +153,10 @@
                 alert("Este boton solicitara subir una imagen");
             }
 
-            function verPublicacion() {
-                window.location.href="publication.jsp";
+            function verPublicacion(publicationID) {
+                window.location.href = "Publication?publication=" + publicationID;
             }
+
 
             function goToSearch() {
                 window.location.href="searchUsers.jsp";

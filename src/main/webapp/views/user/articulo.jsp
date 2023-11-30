@@ -4,10 +4,12 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.Collections" %>
+<%@ page import="models.Comment" %>
 
-<% User user = (User) session.getAttribute("usuario");
-
-List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.getAttribute("publicationsMarket");
+<%
+    User user = (User) session.getAttribute("usuario");
+    PublicationMarket publication = (PublicationMarket) request.getAttribute("publication");
+    List<Comment> comments = (List<Comment>) request.getAttribute("comments");
 %>
 
 <!DOCTYPE html>
@@ -43,30 +45,30 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
 
                 <div class="row custom-row">
                     <div class="container-flud col-5 text-center mt-4">
-                        <img class="img-fluid rounded" src="../../content/Images/Usuario/cantante2.png" alt="cantante">
+                        <img class="img-fluid rounded" src="<%=publication.getImage()%>" alt="cantante">
                     </div>
 
                     <div class="container-flud col-md-7 mt-4 ">
                          <div class="row text-start">
                             <div class="col-7">
-                                <h2>Título del artículo</h2>
+                                <h2><%=publication.getTitle()%></h2>
                             </div>
                             <div class="col-2">
                             </div>
                             <div class="col-3 text-end px-0">
-                                 <p id="pub_date"><i class="bi bi-clock"></i> 2023-11-14 17:00:00.0 </p>
+                                 <p id="pub_date"><i class="bi bi-clock"></i> <%=publication.getDate()%></p>
                             </div>
                         </div>
 
-                        <div class="mt-1" id="price">Precio del articulo</div>
+                        <div class="mt-1" id="price">S/<%=publication.getPrice()%></div>
 
                         <div class="mt-2" id="description">
-                            Vendo un potente amplificador de guitarra. Ideal para rock y metal. ?? #GuitarAmpSale
+                            <%=publication.getContent()%>
                         </div>
 
                         <div class="d-flex justify-content-between">
                             <div class="mt-2" id="num_comentario">
-                                  <p><i class="bi bi-music-note-list " style="cursor: pointer;"></i> <%//= publication.getComments() %> 15 comentarios</p>
+                                  <p><i class="bi bi-music-note-list " style="cursor: pointer;"></i> <%= publication.getNComment() %>  comentarios</p>
                             </div>
                             <button class="btn btn-primary mt-1 boton" onclick="goToChat();" style="cursor: pointer;"  type="button">Enviar mensaje <i class="bi bi-chat"></i></button>
                         </div>
@@ -76,24 +78,40 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                 <div class="row">
                     <div class="col-2"> </div>
                     <div class="col-8">
-                         <div class="input-group mb-3">
-                             <img src="../../content/Images/Usuario/usuario.png" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
-                             <input type="text" class="form-control comentar-input"  placeholder="Escribe un comentario" aria-label="Escribe un comentario" aria-describedby="button-addon2">
-                             <button class="btn btn-primary mt-1 boton" type="button" >Comentar</button>
-                         </div>
+
+                        <form action="CreateComment" method="post" >
+                            <div class="input-group mb-3">
+                                <img src="<%=user.getUserImage()%>" alt="Foto" class="img-fluid rounded-circle mt-2" width="50">
+                                <input type="text" class="form-control comentar-input" name="commentContent" placeholder="Escribe un comentario" aria-label="Escribe un comentario" aria-describedby="button-addon2" required>
+                                <input type="hidden" name="userID" value="<%=user.getUserID()%>">
+                                <input type="hidden" name="type" value="market">
+                                <input type="hidden" name="publicationID" value="<%=publication.getPublicationID()%>">
+                                <button class="btn btn-primary mt-1 boton" type="submit">Comentar</button>
+                            </div>
+                        </form>
+
+
+
+
+                        <% if (comments != null && !comments.isEmpty()) { %>
+                        <% Collections.reverse(comments); %>
+                        <% for (Comment comment : comments) { %>
 
                          <div  class="comentario mb-3">
-                             <img src="../../content/Images/Usuario/usuario.png" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
+                             <img src="<%= comment.getUser().getUserImage() %>" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
 
                              <p class="authorNickname" onclick="" style="cursor: pointer;">
-                                 Jeff
+                                 <%= comment.getUser().getUserName() %>
                              </p>
-                             <p><i class="bi bi-clock"></i> 2023-11-14 17:00:00.0  </p>
+                             <p><i class="bi bi-clock"></i> <%= comment.getDate() %> </p>
                              <div class="mt-1">
-                             ¡Increíble oferta de amplificador! Me vendría perfecto para mis sesiones de práctica. ??
+                                 <%= comment.getContentComment() %>
                              </div>
                          </div>
-
+                        <% } %>
+                        <% } else { %>
+                        <p>No hay comentarios disponibles.</p>
+                        <% } %>
 
 
 

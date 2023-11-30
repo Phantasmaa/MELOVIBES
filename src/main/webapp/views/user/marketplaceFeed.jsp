@@ -78,7 +78,7 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                             <% } %>
 
                             <div class="col-3 text-start">
-                                <div class="articleImg" onclick="goToArticle();" style="cursor: pointer;">
+                                <div class="articleImg" onclick="goToArticle(<%=publicationMarket.getPublicationID()%>);" style="cursor: pointer;">
                                     <img src="<%=publicationMarket.getImage()%>" alt=""/>
                                 </div>
                                 <p class="priceLabel mb-1 mt-1"><%=publicationMarket.getPrice()%></p>
@@ -135,8 +135,8 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                                 window.location.href = "createMarketplacePublication.jsp";
                             }
 
-                            function goToArticle() {
-                                window.location.href="articulo.jsp";
+                            function goToArticle(arcileID) {
+                                window.location.href="Article?article="+arcileID;
                             }
 
                             function goToSearch() {

@@ -1,18 +1,20 @@
 package controllers;
 
-import models.User;
 import dao.UserDAO;
-import static util.HashMethod.hashPassword;
-import util.Conexion;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import models.User;
+import util.Conexion;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+
+import static util.HashMethod.hashPassword;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/views/log/LoginServlet"})
 public class LoginServlet extends HttpServlet {

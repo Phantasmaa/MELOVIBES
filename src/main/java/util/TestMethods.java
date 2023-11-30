@@ -1,7 +1,5 @@
 package util;
 
-import jakarta.servlet.http.HttpSession;
-
 import static util.GenerateCode.codeGenerator;
 import static util.MailSender.sendCode;
 public class TestMethods {

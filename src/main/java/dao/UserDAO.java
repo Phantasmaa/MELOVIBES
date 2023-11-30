@@ -1,8 +1,9 @@
 package dao;
 
 import com.mysql.cj.jdbc.CallableStatement;
-import util.Conexion;
 import models.User;
+import util.Conexion;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

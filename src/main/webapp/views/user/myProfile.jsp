@@ -113,11 +113,15 @@
                                                 <%= content %>
                                             </p>
                                             <%-- Verificar si hay una imagen antes de mostrarla --%>
-                                            <c:if test="${not empty image}">
-                                                <div>
-                                                    <img class="postContentPicture" src="<%= image %>" alt="Post Image">
-                                                </div>
-                                            </c:if>
+
+
+                                            <div>
+                                                <img class="postContentPicture" src="<%= image %>" alt="">
+                                            </div>
+
+
+
+
                                                 
                                             <form class="mt-3" action="DeletePublicationNormal" method="post">
                                                 <input type="hidden" name="publicationID" value="<%=publicationID %>">
@@ -131,7 +135,7 @@
                                                    </p>
                                                 </div>
                                                 <div class="col-3">
-                                                    <p><i class="bi bi-music-note-list" style="cursor: pointer;"></i> <%//= publication.getComments() %> comentarios</p>
+                                                    <p><i class="bi bi-music-note-list" style="cursor: pointer;"></i> <%= publication.getNComment() %> comentarios</p>
                                                 </div>
                                             </div>
                                         </div>

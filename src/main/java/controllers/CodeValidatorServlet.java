@@ -9,9 +9,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-import static util.GenerateCode.codeGenerator;
 import static util.HashMethod.hashPassword;
-import static util.MailSender.sendCode;
 
 @WebServlet(name = "CodeValidatorServlet", urlPatterns = {"/views/log/CodeValidatorServlet"})
 public class CodeValidatorServlet extends HttpServlet {

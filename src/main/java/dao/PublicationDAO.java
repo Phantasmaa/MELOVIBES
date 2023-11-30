@@ -12,9 +12,12 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static dao.CommentDAO.getNumberOfComments;
+
 public class PublicationDAO {
 
     private Connection conexion;
+
 
     public PublicationDAO() {
         conexion = Conexion.getConexion();
@@ -49,6 +52,7 @@ public class PublicationDAO {
 
             while (resultSet.next()) {
                 PublicationNormal normalPublication = mapRowToPublication(resultSet, new PublicationNormal());
+                normalPublication.setNComment(getNumberOfComments(resultSet.getInt("PublicationID")));
                 normalPublications.add(normalPublication);
             }
         } catch (SQLException e) {
@@ -70,7 +74,7 @@ public class PublicationDAO {
                 PublicationMarket marketPublication = mapRowToPublication(resultSet, new PublicationMarket());
                 marketPublication.setTitle(resultSet.getString("Tittle"));
                 marketPublication.setPrice(resultSet.getDouble("Price"));
-
+                marketPublication.setNComment(getNumberOfComments(resultSet.getInt("PublicationID")));
                 marketPublications.add(marketPublication);
             }
         } catch (SQLException e) {
@@ -161,6 +165,7 @@ public class PublicationDAO {
 
             while (resultSet.next()) {
                 PublicationNormal normalPublication = mapRowToPublication(resultSet, new PublicationNormal());
+                normalPublication.setNComment(getNumberOfComments(resultSet.getInt("PublicationID")));
                 normalPublications.add(normalPublication);
             }
         } catch (SQLException e) {
@@ -184,6 +189,7 @@ public class PublicationDAO {
                 PublicationMarket marketPublication = mapRowToPublication(resultSet, new PublicationMarket());
                 marketPublication.setTitle(resultSet.getString("Tittle"));
                 marketPublication.setPrice(resultSet.getDouble("Price"));
+                marketPublication.setNComment(getNumberOfComments(resultSet.getInt("PublicationID")));
 
                 marketPublications.add(marketPublication);
             }
@@ -283,6 +289,48 @@ public class PublicationDAO {
         }
     }
 
+    public PublicationNormal getNormalPublicationById(int publicationID) {
+        PublicationNormal normalPublication = null;
+        String query = "SELECT * FROM Publication p INNER JOIN NormalPubli n ON p.PublicationID = n.PublicationID WHERE p.PublicationID = ?";
 
+        try {
+            PreparedStatement statement = conexion.prepareStatement(query);
+            statement.setInt(1, publicationID);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                normalPublication = mapRowToPublication(resultSet, new PublicationNormal());
+                normalPublication.setNComment(getNumberOfComments(resultSet.getInt("PublicationID")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return normalPublication;
+    }
+
+    public PublicationMarket getMarketPublicationById(int publicationID) {
+        PublicationMarket marketPublication = null;
+        String query = "SELECT * FROM Publication p INNER JOIN MarketPubli m ON p.PublicationID = m.PublicationID WHERE p.PublicationID = ?";
+
+        try {
+            PreparedStatement statement = conexion.prepareStatement(query);
+            statement.setInt(1, publicationID);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                marketPublication = mapRowToPublication(resultSet, new PublicationMarket());
+                marketPublication.setNComment(getNumberOfComments(resultSet.getInt("PublicationID")));
+                marketPublication.setTitle(resultSet.getString("Tittle"));
+                marketPublication.setPrice(resultSet.getDouble("Price"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return marketPublication;
+    }
 
 }

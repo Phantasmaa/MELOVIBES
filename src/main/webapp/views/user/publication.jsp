@@ -1,15 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="models.Publication" %>
 <%@ page import="models.User" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.Iterator" %>
-<%@ page import="java.util.Collections" %>
-<%@ page import="java.util.Base64" %>
+<%@ page import="models.PublicationNormal" %>
+<%@ page import="models.Comment" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 
 <%
     User user = (User) session.getAttribute("usuario");
-    List<Publication> publications = (List<Publication>) request.getAttribute("publications");
-
+    PublicationNormal publication = (PublicationNormal) request.getAttribute("publication");
+    List<Comment> comments = (List<Comment>) request.getAttribute("comments");
 %>
 
 <!DOCTYPE html>
@@ -32,7 +32,7 @@
 
                         <div id="bienvenida" class="row justify-content-between">
                             <div class="col-6 text-start">
-                                <a href="feed.jsp" class="backBtn">
+                                <a href="feed" class="backBtn">
                                     <i class="bi bi-arrow-left"></i> Atras
                                 </a>
                             </div>
@@ -47,7 +47,7 @@
 
                             <div class="row">
                                 <div class="col-2">
-                                    <a href="otherProfile.jsp"><img class="postProfilePicture" src="../../content/Images/Usuario/usuario.png" alt=""> </a>
+                                    <a href="otherProfile.jsp"><img class="postProfilePicture" src="<%=publication.getUser().getUserImage()%>" alt=""> </a>
 
                                     <%-- src="<%= publication.getProfile().getUserImage() %>" alt="" --%>
                                 </div>
@@ -57,7 +57,7 @@
                                             <p class="authorNickname"
                                                 onclick=""
                                                  style="cursor: pointer;">
-                                                 TeoMusic
+                                                 <%=publication.getUser().getUserName()%>
                                             </p>
 
                                              <%-- <p class="authorNickname"
@@ -70,7 +70,7 @@
                                         <div class="col-2 text-end">
                                             <!-- Muestra la fecha de la publicación -->
                                             <p><i class="bi bi-clock"></i>
-                                                23-11-04 12:00:00
+                                                <%=publication.getDate()%>
                                             </p>
 
                                             <%--
@@ -82,8 +82,8 @@
                                     </div>
 
                                     <p class="text-start postContent">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque vero amet modi tempora ex eligendi voluptatem harum explicabo voluptates? Similique!
-                                    </p>
+                                        <%=publication.getContent()%>
+                                        </p>
 
                                     <%--
                                     <p class="text-start postContent">
@@ -93,7 +93,7 @@
 
                                     <div>
                                         <img class="postContentPicture"
-                                            src="https://ichef.bbci.co.uk/news/976/cpsprodpb/DC68/production/_131342465_gettyimages-1697851379-1.jpg"
+                                            src="<%=publication.getImage()%>"
                                             alt="">
                                     </div>
                                     <div class="row justify-content-start interactionBtnRow text-start mt-2">
@@ -103,55 +103,38 @@
                                              </p>
                                          </div>
                                          <div class="col-4">
-                                             <p><button data-bs-toggle="modal" data-bs-target="#comentarModal" class="boton-transp"> <i class="bi bi-music-note-list" style="cursor: pointer;"></i> </button> <%//= publication.getComments() %> 15 comentarios</p>
+                                             <p><button data-bs-toggle="modal" data-bs-target="#comentarModal" class="boton-transp"> <i class="bi bi-music-note-list" style="cursor: pointer;"></i> </button> <%= publication.getNComment() %>  comentarios</p>
                                          </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row justify-content-around" id="commentsSection">
+                                <% if (comments != null && !comments.isEmpty()) { %>
+                                <% Collections.reverse(comments); %>
+                                <% for (Comment comment : comments) { %>
                                 <div class="col-8 row">
                                     <div class="col-2">
-
-                                        <a href="otherProfile.jsp"><img class="commentProfilePicture"
-                                        src="../../content/Images/Usuario/usuario.png" alt="profilePicture"></a>
-
-                                        <%--
-                                        <a href="otherProfile.jsp"><img class="commentProfilePicture"
-                                                src="<%= publication.getProfile().getUserImage() %>" alt="profilePicture"></a>
-                                        --%>
-
+                                        <a href="otherProfile.jsp">
+                                            <img class="commentProfilePicture" src="<%= comment.getUser().getUserImage() %>" alt="profilePicture">
+                                        </a>
                                     </div>
                                     <div class="col-10 row text-start">
                                         <div class="col-12">
-                                            <p class="commentAuthorNickname"
-                                                onclick=""
-                                                style="cursor: pointer;">
-
-                                                <b>
-                                                    JeffMusic
-                                                </b> · 23-11-04 12:00:00
-
-                                                <%--
-                                                <b>
-                                                   <%= publication.getProfile().getUserName() %>
-                                                </b> · <%= publication.getCalendar().getDate() %>
-                                                --%>
-
+                                            <p class="commentAuthorNickname" onclick="" style="cursor: pointer;">
+                                                <b><%= comment.getUser().getUserName() %></b> · <%= comment.getDate() %>
                                             </p>
                                         </div>
                                         <div class="col-12">
                                             <p class="commentContent">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. A porro voluptate, deleniti
-                                                mollitia nobis, adipisci repellat maxime est aut obcaecati facere labore culpa
-                                                assumenda
-                                                optio ad eaque delectus facilis quidem velit qui deserunt? Minima porro odit saepe
-                                                odio
-                                                distinctio ducimus aperiam enim, eaque est veritatis laboriosam eos quam quas
-                                                tempora?
+                                                <%= comment.getContentComment() %>
                                             </p>
                                         </div>
                                     </div>
                                 </div>
+                                <% } %>
+                                <% } else { %>
+                                <p>No hay comentarios disponibles.</p>
+                                <% } %>
                             </div>
                         </div>
                     </div>
@@ -169,7 +152,7 @@
                     </div>
                     <div class="modal-body text-center">
                         <!-- Formulario para crear publicación -->
-                        <form action="createPublication" method="post" enctype="multipart/form-data">
+                        <form action="CreateComment?type=normal" method="post" enctype="multipart/form-data">
                             <div class="my-3">
         <textarea name="publicationTextContent" cols="60" rows="7" placeholder="Tu publicación..."
                   spellcheck="false"></textarea>
@@ -198,60 +181,50 @@
                     </div>
                     <div class="modal-body" id="TamañoModal">
                        <div class="row">
-                                               <div class="col-2">
-                                                       <img class="postProfilePicture" src="../../content/Images/Usuario/usuario.png" alt="">
-                                               </div>
+
                                                <div class="col-9">
                                                    <div class="row justify-content-between text-start">
                                                        <div class="col-2">
-                                                           <p class="authorNickname" onclick="" style="cursor: pointer;">
-                                                               TeoMusic
+                                                           <p class="authorNickname">
+                                                               <%=user.getUserName()%>
                                                            </p>
                                                        </div>
                                                        <div class="col-2 text-end px-0">
-                                                           <p><i class="bi bi-clock"></i> 11:00:00 </p>
+                                                           <%
+                                                               Date currentDate = new Date();
+                                                               SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+                                                               String formattedTime = timeFormat.format(currentDate);
+                                                           %>
+                                                           <p><i class="bi bi-clock"></i> <%=formattedTime%> </p>
                                                        </div>
-                                                   </div>
-                                                   <p class="text-start postContent">Lorem </p>
-                                                   <div>
+
                                                        <img class="postContentPicture" src="" alt="">
-                                                   </div>
-                                                   <div class="row justify-content-start interactionBtnRow text-start mt-2">
-                                                       <div class="col-2">
-                                                           <p onclick="" id="likeButton">
-                                                               <i class="bi bi-music-note" style="cursor: pointer;"></i> likes
-                                                           </p>
-                                                       </div>
-                                                       <div class="col-4">
-                                                           <p><i class="bi bi-music-note-list" style="cursor: pointer;"></i><%//= publication.getComments() %> comentarios</p>
-                                                       </div>
                                                    </div>
 
                                                </div>
                                            </div>
+
                         <div class="row align-items-start">
                             <!-- Columna para la foto de perfil -->
                             <div class="col-1 ml-2" id="marginPictureRespuesta">
-                                <img class="postProfilePictureRespuesta" src="../../content/Images/Usuario/usuario.png" alt="">
+                                <img class="postProfilePictureRespuesta" src="<%=user.getUserImage()%>" alt="">
                             </div>
-                            <!-- Columna para el comentario -->
                             <div class="col-11">
-                                <textarea class="form-control comment-input mt-2" rows="3" placeholder="Escribe un comentario..."></textarea>
+                                <form action="CreateComment" method="post">
+                                    <textarea class="form-control comment-input mt-2" name="commentContent" rows="3" placeholder="Escribe un comentario..."></textarea>
+                                    <input type="hidden" name="userID" value="<%=user.getUserID()%>">
+                                    <input type="hidden" name="publicationID" value="<%=publication.getPublicationID()%>">
+                                    <input type="hidden" name="type" value="normal">
+
+                                    <div class="row">
+                                        <div class="col-2 mt-3" style="text-align: right;">
+                                            <button type="submit" class="btn-enviar">
+                                                Enviar <i class="bi bi-send-fill" style="margin-left: 5px;"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-9">
-
-                            </div>
-                            <!-- Botón de enviar -->
-                            <div class="col-2 mt-3" style="text-align: right;">
-                                <button type="button" class="btn-enviar" onclick="location.href='adminFeeds.jsp'">
-                                    Enviar <i class="bi bi-send-fill" style="margin-left: 5px;"></i>
-                                </button>
-                            </div>
-
-
                         </div>
 
 

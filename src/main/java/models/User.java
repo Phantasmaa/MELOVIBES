@@ -24,7 +24,7 @@ public class User {
         if (userImage != null) {
             return "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(userImage);
         } else {
-            return null;
+            return "../../content/Images/Usuario/usuario.png";
         }
     }
 

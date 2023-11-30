@@ -19,6 +19,8 @@ public class Publication {
     private Timestamp date;
     private int userID;
     private User user;
+    private int nComment;
+    private int nLikes;
 
     public byte[] getBitImage(){
         return image;
@@ -27,7 +29,7 @@ public class Publication {
         if (image != null) {
             return "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(image);
         } else {
-            return null;
+            return "";
         }
     }
 
