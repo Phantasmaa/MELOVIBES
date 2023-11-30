@@ -1,0 +1,50 @@
+<<<<<<< HEAD:build/web/views/admin/modelExample/feeds.jsp
+<tr>
+    <th class="text-center">45</th>
+    <td>Juanito123</td>
+    <td>Marketplace</td>
+    <td>2023-10-12 18:54:21</td>
+    <td>
+        <div class="row">
+            <div class="col-4">
+                <button id="btn-verPublicacion" class="btn btn-info">Ver Publicacion <i
+                        class="bi bi-eye"></i></button>
+            </div>
+            <div class="col-4">
+                <button id="btn-editarPublicacion" class="btn btn-secondary">Editar <i
+                        class="bi bi-pencil"></i></button>
+            </div>
+            <div class="col-4">
+                <button id="btn-eliminarPublicacion" class="btn btn-danger"
+                    data-bs-toggle="modal"
+                    data-bs-target="#eliminationWarningModal">Eliminar <i
+                        class="bi bi-trash"></i></button>
+            </div>
+        </div>
+    </td>
+=======
+<tr>
+    <th class="text-center">45</th>
+    <td>Juanito123</td>
+    <td>Marketplace</td>
+    <td>2023-10-12 18:54:21</td>
+    <td>
+        <div class="row">
+            <div class="col-4">
+                <button id="btn-verPublicacion" class="btn btn-info">Ver Publicacion <i
+                        class="bi bi-eye"></i></button>
+            </div>
+            <div class="col-4">
+                <button id="btn-editarPublicacion" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editPublicationModal">Editar <i
+                        class="bi bi-pencil"></i></button>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-danger"
+                    data-bs-toggle="modal"
+                    data-bs-target="#eliminationWarningModal">Eliminar <i
+                        class="bi bi-trash"></i></button>
+            </div>
+        </div>
+    </td>
+>>>>>>> 3030bca2cc4ae066eadacfbb974b78b27b63abda:src/main/webapp/views/admin/modelExample/feeds.jsp
+</tr>
