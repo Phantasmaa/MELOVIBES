@@ -36,7 +36,9 @@
 
                 <div id="bienvenida" class="row justify-content-between">
                    <div class="col-2 text-start">
+                      <a href="feedMarket" class="backBtn">
                        <i class="bi bi-caret-left-square"></i> Atras
+                       </a>
                    </div>
                     <div class="col-2 text-end">
                           Articulo
@@ -68,7 +70,7 @@
 
                         <div class="d-flex justify-content-between">
                             <div class="mt-2" id="num_comentario">
-                                  <p><i class="bi bi-music-note-list " style="cursor: pointer;"></i> <%= publication.getNComment() %>  comentarios</p>
+                                  <p><i class="bi bi-music-note-list "></i> <%= publication.getNComment() %>  comentarios</p>
                             </div>
                             <button class="btn btn-primary mt-1 boton" onclick="goToChat();" style="cursor: pointer;"  type="button">Enviar mensaje <i class="bi bi-chat"></i></button>
                         </div>
@@ -99,12 +101,12 @@
 
                         <div class="comentario mb-3" >
                            <div class="col-12 row">
-                               <div class="col-2 comPicture">
+                               <div class="col-2 comPicture" onclick="redirectToOtherProfile(<%= comment.getUser().getUserID() %>)">
                                     <img src="<%= comment.getUser().getUserImage() %>" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
                                </div>
                                 <div class="col-10 row text-start" id="comentarioCampo">
                                     <div class="col-12 comDetails d-flex justify-content-between ">
-                                        <p class="authorNickname" onclick="" style="cursor: pointer;">
+                                        <p class="authorNickname" onclick="redirectToOtherProfile(<%= comment.getUser().getUserID() %>)" style="cursor: pointer;">
                                         <%= comment.getUser().getUserName() %>
                                         </p>
                                         <p><i class="bi bi-clock"></i> <%= comment.getDate() %> </p>
@@ -135,6 +137,11 @@
          function goToChat() {
              window.location.href="chat.jsp";
          }
+
+         function redirectToOtherProfile(userID) {
+                         location.href = 'OtherProfile?userID=' + userID;
+                     }
+
          </script>
 
      </div>

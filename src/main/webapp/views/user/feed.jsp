@@ -22,6 +22,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../../content/Styles/Usuario/feedStyles.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+
     </head>
     <body>
 
@@ -35,7 +40,7 @@
                         Bienvenido <b><%=user.getUserName()%></b>
                     </div>
                     <div class="col-2 text-end">
-                        Publicaciones
+                        <b>Publicaciones</b>
                     </div>
                 </div>
 
@@ -43,10 +48,10 @@
                     <% if (publications != null && !publications.isEmpty()) { %>
                     <%   Collections.reverse(publications);
                         for (Publication publication : publications) { %>
-                    <div class="row">
+                    <div class="row pub">
                         <div class="col-2">
                             <a href="OtherProfile?userID=<%=publication.getUser().getUserID()%>">
-                                <img class="postProfilePicture" src="<%= publication.getUser().getUserImage() %>" alt="">
+                                <img class="postProfilePicture rounded-circle" src="<%= publication.getUser().getUserImage() %>" alt="">
                             </a>
                         </div>
                         <div class="col-9">

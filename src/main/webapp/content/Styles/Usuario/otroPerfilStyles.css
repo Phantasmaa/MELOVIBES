@@ -123,10 +123,12 @@ body{
 
 .labelInfo{
     color: #8D397C;
+    font-weight: 700;
 }
 
 .labelInfo, .Info{
-    font-size: 1.2em;
+    font-size: 1.4em;
+
 }
 
 .details p{
@@ -303,4 +305,12 @@ body{
 #redes i{
     font-size: 30px;
     margin: 0 10px
+}
+
+.btnBack:hover{
+    color: red !importants;
+}
+
+#backBtn{
+    color: #8D397C;
 }

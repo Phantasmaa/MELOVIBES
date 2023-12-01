@@ -22,7 +22,7 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -41,7 +41,7 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
 
                     </div>
                     <div class="col-3 text-end">
-                        Publicaciones
+                        <b>Artículos</b>
                     </div>
                     <%
 

@@ -33,7 +33,7 @@
                         <div id="bienvenida" class="row justify-content-between">
                             <div class="col-6 text-start">
                                 <a href="feed" class="backBtn">
-                                    <i class="bi bi-arrow-left"></i> Atras
+                                    <i class="bi bi-caret-left-square"></i> Atras
                                 </a>
                             </div>
                             <div class="col-2 text-end">
@@ -47,7 +47,7 @@
 
                             <div class="row">
                                 <div class="col-2">
-                                    <a href="otherProfile.jsp"><img class="postProfilePicture" src="<%=publication.getUser().getUserImage()%>" alt=""> </a>
+                                    <a href="OtherProfile?userID=<%=publication.getUser().getUserID()%>"><img class="postProfilePicture rounded-circle" src="<%=publication.getUser().getUserImage()%>" alt=""> </a>
 
                                     <%-- src="<%= publication.getProfile().getUserImage() %>" alt="" --%>
                                 </div>
@@ -92,7 +92,7 @@
                                     --%>
 
                                     <div>
-                                        <img class="postContentPicture"
+                                        <img class="postContentPicture "
                                             src="<%=publication.getImage()%>"
                                             alt="">
                                     </div>
@@ -135,13 +135,13 @@
 
                                 <div class="col-8 row pt-2 pb-2">
                                     <div class="col-2 comPicture">
-                                        <a href="otherProfile.jsp">
-                                            <img class="commentProfilePicture img-fluid rounded-circle mt-2" width="50" src="<%= comment.getUser().getUserImage() %>" alt="profilePicture">
+                                        <a href="OtherProfile?userID=<%=comment.getUser().getUserID()%>">
+                                            <img class="img-fluid rounded-circle mt-2" width="50" src="<%= comment.getUser().getUserImage() %>" alt="profilePicture">
                                         </a>
                                     </div>
                                     <div class="col-10 row text-start" id="comentarioCampo">
                                         <div class="col-12 comDetails d-flex justify-content-between ">
-                                            <p class="authorNickname" onclick="" style="cursor: pointer;">
+                                            <p class="authorNickname" onclick="redirectToOtherProfile(<%= comment.getUser().getUserID() %>)" style="cursor: pointer;">
                                                 <%= comment.getUser().getUserName() %>
                                             </p>
                                             <p><i class="bi bi-clock"></i> <%= comment.getDate() %> </p>
@@ -197,6 +197,8 @@
             function redirectToOtherProfile(userID) {
                 location.href = 'OtherProfile?userID=' + userID;
             }
+
+
         </script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

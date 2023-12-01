@@ -94,14 +94,14 @@
                                     %>
                                     <div class="row">
                                         <div class="col-2">
-                                            <a href="otherProfile.jsp">
-                                                <img class="postProfilePicture" src="<%=user.getUserImage() %>" alt="Profile Picture">
+                                            <a href="myprofile">
+                                                <img class="postProfilePicture rounded-circle" src="<%=user.getUserImage() %>" alt="Profile Picture">
                                             </a>
                                         </div>
                                         <div class="col-10">
                                             <div class="row justify-content-between text-start">
                                                 <div class="col-2">
-                                                    <p class="authorNickname" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
+                                                    <p class="authorNickname" onclick="location.href = 'myprofile'" style="cursor: pointer;">
                                                         <%= authorNickname %>
                                                     </p>
                                                 </div>

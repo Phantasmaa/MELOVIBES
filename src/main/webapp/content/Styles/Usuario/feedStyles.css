@@ -1,5 +1,7 @@
 body{
     background-color: #DBDBDB;
+
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Styles para lado izquierdo */
@@ -112,6 +114,7 @@ body{
 .postProfilePicture{
     width: 125px;
     height: auto;
+
 }
 
 .authorNickname{
@@ -343,7 +346,7 @@ body{
 }
 
 .commentProfilePicture{
-
+     width: 100%;
 }
 
 .boton-transp{
@@ -407,3 +410,8 @@ body{
  .comDetails {
      height: 30px;
  }
+
+.pub{
+    border-color: black;
+    border-width: 0px 0px 1px 0px;
+}

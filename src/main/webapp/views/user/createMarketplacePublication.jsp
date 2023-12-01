@@ -31,7 +31,8 @@
             <div class="container-fluid col-md-8" id="contenido">
 
                 <div id="bienvenida" class="row justify-content-between">
-                    <div id="backBtn" class="col-2 text-start">
+
+                    <div id="backBtn" class="col-2 text-start" onclick="location.href = 'feedMarket'">
                          <i class="bi bi-arrow-left-circle"></i>  Atrás
                     </div>
                     <div class="col-4"> </div>
