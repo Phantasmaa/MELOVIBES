@@ -30,7 +30,7 @@ body{
 }
 
 .links_feed:hover{
-    color:#8D397C;  
+    color:#8D397C;
     font-weight: bold;
 }
 
@@ -144,25 +144,16 @@ body{
 
 
 .tabRow{
-    border-bottom: 2px solid #000;
+    border-bottom: 1px solid #000;
     margin-left: 1.1%;
     padding-right: 0px;
     width: 95%;
 }
 
 .tabRow>div>p{
-    font-size: 1.2em;
+    font-size: 1.8em;
     font-weight: bold;
-}
-
-.tabRow>div.activo{
-    border: 4px solid #8D397C;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    margin-bottom: -2px;
     color: #8D397C;
-    
 }
 
 .postProfilePicture{

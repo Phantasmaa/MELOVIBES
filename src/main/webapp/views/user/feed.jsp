@@ -69,7 +69,7 @@
                             <div class="postImg" onclick="verPublicacion(<%=publication.getPublicationID()%>);" style="cursor: pointer;" >
                                 <img class="postContentPicture" src="<%= publication.getImage() %>" alt="">
                             </div>
-                            <div class="row justify-content-start interactionBtnRow text-start mt-2">
+                            <div class="row justify-content-start interactionBtnRow text-start mt-3">
                                 <div class="col-2">
                                     <p onclick="toggleLike('<%= publication.getPublicationID() %>')" id="likeButton<%= publication.getPublicationID() %>">
                                         <i class="bi bi-music-note" style="cursor: pointer;"></i> <%//= publication.getLikes() %> likes

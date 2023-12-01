@@ -24,7 +24,7 @@
 
             <div class="container-fluid col-md-10" id="contenido">
                 <div id="bienvenida">Editar Perfil</div>
-                <div class="row">
+                <div class="row mt-3 justify-content-center">
                     <div class="col-md-3" id="CambiarFoto">
                         <div>Mi Foto <i class="bi bi-soundwave"></i></div>
                         <div>

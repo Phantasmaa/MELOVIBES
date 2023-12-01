@@ -26,7 +26,7 @@
                     </div>
                     #McDonalds #Combos
                     <p>
-                        Llevate un sandwich BigMac + papas regulares + gaseosa 12 onzas + cono de helado a solo S/. 10.90.
+                        Lleve un sandwich BigMac + papas regulares + gaseosa 12 onzas + cono de helado a solo S/. 10.90.
                     </p>
                 </div>
 

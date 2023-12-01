@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,7 +24,7 @@
                     <p class="fw-bold welcome-msg">Restablece tu contraseña</p>
                     <form action="RestorePasswordServlet" class="row justify-content-around" method="post" autocomplete="off">
                         <input id="email" name="email" type="email" class="text-field form-input" placeholder="Email">
-                        <button id="sendCodeBtn" type="submit" class="btn form-input" onclick="location.href='login.jsp'">Enviar C�digo</button>
+                        <button id="sendCodeBtn" type="submit" class="btn form-input" onclick="location.href='login.jsp'">Enviar Código</button>
                         <p class="form-input">Volver a la <a href="../../" class="link">Página Principal</a></p>
                     </form>
                 </div>

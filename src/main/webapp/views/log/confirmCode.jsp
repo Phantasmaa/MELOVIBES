@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,8 +24,8 @@
                 <p class="fw-bold welcome-msg">Ingrese el código:</p>
                 <form action="CodeValidatorServlet" class="row justify-content-around" method="post" autocomplete="off">
                     <input id="code" name="code" type="text" class="text-field form-input" placeholder="Ingrese el codigo">
-                    <button id="sendCodeBtn" type="submit" class="btn form-input" >Enviar C�digo</button>
-                    <p class="form-input">Volver a la <a href="../../" class="link">P�gina Principal</a></p>
+                    <button id="sendCodeBtn" type="submit" class="btn form-input" >Enviar Código</button>
+                    <p class="form-input">Volver a la <a href="../../" class="link">Página Principal</a></p>
                 </form>
             </div>
         </div>

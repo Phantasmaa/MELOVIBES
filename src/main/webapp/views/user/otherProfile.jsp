@@ -88,8 +88,8 @@
                     </div>
 
                     <div class="tabRow row mt-3">
-                        <div class="col-3 text-center  activo">
-                            <p><i class="bi bi-card-text"></i> Publicaciones</p>
+                        <div class="text-center">
+                            <p>Publicaciones</p>
                         </div>
                     </div>
 
@@ -180,7 +180,28 @@
 
         <script src="../../util/script/logOutScript.js">
         </script>
+         <script>
+                        document.addEventListener("DOMContentLoaded", function (event) {
+                            var tab1, tab2, tab3;
+                            tab1 = document.getElementById("LeftMenu-inicio");
+                            tab2 = document.getElementById("LeftMenu-marketplace");
+                            tab3 = document.getElementById("LeftMenu-perfil");
+                            tab1.classList.remove("link_feed_selected");
+                            tab2.classList.remove("link_feed_selected");
+                            tab3.classList.remove("link_feed_selected");
+                            tab1.classList.remove("links_feed");
+                            tab2.classList.remove("links_feed");
+                            tab3.classList.remove("links_feed");
+                            tab1.classList.add("links_feed");
+                            tab2.classList.add("links_feed");
+                            tab3.classList.add("links_feed");
 
+
+
+                        });
+
+
+            </script>
 
          <script>
               function toggleLike(publicationID) {
