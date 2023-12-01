@@ -43,7 +43,7 @@
     <%@include file="../menus/leftMenuEmpty.jsp" %>
     <div class="container-fluid col-md-8" id="contenido">
         <div id="cabecera" class="row justify-content-between">
-            <div id="backBtn" class="col-2 text-start">
+             <div id="backBtn" class="col-2 text-start" onclick="goBack()" style="cursor: pointer;">
                 <i class="bi bi-arrow-left-circle"></i>  Atrás
             </div>
             <div class="col-3"> </div>
@@ -69,7 +69,7 @@
         <%
             }
         %>
-        <div class="row custom-row">
+        <div class="row custom-row justify-content-center mt-4">
             <div class="input-group mb-3">
                 <input type="text" class="form-control mensaje-input" placeholder="Escribe un comentario" aria-label="Escribe un comentario" aria-describedby="button-addon2" id="messageInput">
                 <button class="btn btn-primary mt-1 boton" type="button" onclick="sendMessage()">Enviar</button>
@@ -143,6 +143,10 @@
         messageInput.value = '';
         console.log("Mensaje enviado");
     }
+
+     function goBack() {
+                          window.history.back();
+                      }
 
 </script>
 
