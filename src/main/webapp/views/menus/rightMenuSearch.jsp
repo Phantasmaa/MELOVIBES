@@ -19,7 +19,7 @@
 
     </div>
 
-    <div class="container-fluid mt-3" id="contactanos">
+    <div class="container-fluid mt-3" id="contactanos" onclick="window.location.href='aboutUs.jsp'" style="cursor: pointer;">
                         ¿Deseas publicar tu anuncio?
                         <div id="contacto">Contáctanos</div>
                         <div id="info">

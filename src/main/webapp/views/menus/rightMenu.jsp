@@ -20,7 +20,7 @@
         User recommendedUser2 = userDAO.getUserByID(userId2);
 
     %>
-    <div class="container-fluid mt-3" id="recomendados">
+    <div class="container-fluid mt-3" id="recomendados" >
         Recomendados
         <div class="recomendado">
             <img src="<%=recommendedUser1.getUserImage()%>" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="window.location.href='OtherProfile?userID=<%= recommendedUser1.getUserID() %>'" style="cursor: pointer;">
@@ -42,7 +42,7 @@
                     </p>
                 </div>
 
-                <div class="container-fluid mt-3" id="contactanos">
+                <div class="container-fluid mt-3" id="contactanos" onclick="window.location.href='aboutUs.jsp'" style="cursor: pointer;">
                     Publica tu anuncio
                     <div id="contacto">Contactanos</div>
                     <div id="info">

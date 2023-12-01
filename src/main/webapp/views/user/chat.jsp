@@ -52,7 +52,7 @@
             </div>
         </div>
 
-        <div class="receptor mt-2">
+        <div class="receptor mt-2 mb-3">
             <img src="<%=userToSend.getUserImage()%>" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href ='OtherProfile?userID='+receiverId" style="cursor: pointer;">
             <%=userToSend.getUserName()%> - <%=userToSend.getFirstName()%>
         </div>

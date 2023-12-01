@@ -168,6 +168,10 @@ body{
     border-width: 0px 0px 1px 0px;
 }
 
+.btn-ver{
+    margin-left: 120px;
+}
+
 #btn-search:hover{
     color: white;
     background-color: #8D397C;
