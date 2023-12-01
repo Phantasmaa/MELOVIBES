@@ -110,18 +110,21 @@
                             </div>
 
                             <div class="row justify-content-around">
-                            <div class="col-8 row">
-                            <form action="CreateComment" method="post" >
-                                <div class="input-group mb-3">
-                                     <img src="<%=user.getUserImage()%>" alt="Foto" class="img-fluid rounded-circle mt-2" width="50">
-                                     <input type="text" class="form-control comentar-input" name="commentContent" placeholder="Escribe un comentario" aria-label="Escribe un comentario" aria-describedby="button-addon2" required>
-                                     <input type="hidden" name="userID" value="<%=user.getUserID()%>">
-                                     <input type="hidden" name="type" value="normal">
-                                     <input type="hidden" name="publicationID" value="<%=publication.getPublicationID()%>">
-                                     <button class="btn btn-primary mt-1 boton" type="submit"> Comentar</button>
-                                 </div>
-                            </form>
-                             </div>
+                                <div class="col-8 row">
+                                    <form action="CreateComment" method="post" >
+                                        <div class="input-group mb-3 align-items-center">
+                                            <img src="<%=user.getUserImage()%>" alt="Foto" class="img-fluid rounded-circle mt-2" width="50">
+                                            <input type="text" class="form-control comentar-input " name="commentContent" placeholder="Escribe un comentario" aria-label="Escribe un comentario" aria-describedby="button-addon2" required>
+                                            <input type="hidden" name="userID" value="<%=user.getUserID()%>">
+                                            <input type="hidden" name="type" value="normal">
+                                            <input type="hidden" name="publicationID" value="<%=publication.getPublicationID()%>">
+                                            <button class="btn btn-primary mt-1 boton" type="submit">Comentar</button>
+                                         </div>
+                                    </form>
+
+
+
+                                </div>
                             </div>
 
 
@@ -129,25 +132,26 @@
                                 <% if (comments != null && !comments.isEmpty()) { %>
                                 <% Collections.reverse(comments); %>
                                 <% for (Comment comment : comments) { %>
-                                <div class="col-8 row">
-                                    <div class="col-2">
+
+                                <div class="col-8 row pt-2 pb-2">
+                                    <div class="col-2 comPicture">
                                         <a href="otherProfile.jsp">
-                                            <img class="commentProfilePicture" src="<%= comment.getUser().getUserImage() %>" alt="profilePicture">
+                                            <img class="commentProfilePicture img-fluid rounded-circle mt-2" width="50" src="<%= comment.getUser().getUserImage() %>" alt="profilePicture">
                                         </a>
                                     </div>
-                                    <div class="col-10 row text-start">
-                                        <div class="col-12">
-                                            <p class="commentAuthorNickname" onclick="" style="cursor: pointer;">
-                                                <b><%= comment.getUser().getUserName() %></b> · <%= comment.getDate() %>
+                                    <div class="col-10 row text-start" id="comentarioCampo">
+                                        <div class="col-12 comDetails d-flex justify-content-between ">
+                                            <p class="authorNickname" onclick="" style="cursor: pointer;">
+                                                <%= comment.getUser().getUserName() %>
                                             </p>
+                                            <p><i class="bi bi-clock"></i> <%= comment.getDate() %> </p>
                                         </div>
-                                        <div class="col-12">
-                                            <p class="commentContent">
-                                                <%= comment.getContentComment() %>
-                                            </p>
+                                     <div>
+                                           <%= comment.getContentComment() %>
                                         </div>
                                     </div>
                                 </div>
+
                                 <% } %>
                                 <% } else { %>
                                 <p>No hay comentarios disponibles.</p>

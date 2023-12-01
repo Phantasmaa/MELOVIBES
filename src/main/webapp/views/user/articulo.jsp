@@ -77,12 +77,12 @@
 
                 <div class="row">
                     <div class="col-2"> </div>
-                    <div class="col-8">
+                    <div class="col-8 mt-3">
 
                         <form action="CreateComment" method="post" >
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-3 align-items-center">
                                 <img src="<%=user.getUserImage()%>" alt="Foto" class="img-fluid rounded-circle mt-2" width="50">
-                                <input type="text" class="form-control comentar-input" name="commentContent" placeholder="Escribe un comentario" aria-label="Escribe un comentario" aria-describedby="button-addon2" required>
+                                <input type="text" class="form-control comentar-input " name="commentContent" placeholder="Escribe un comentario" aria-label="Escribe un comentario" aria-describedby="button-addon2" required>
                                 <input type="hidden" name="userID" value="<%=user.getUserID()%>">
                                 <input type="hidden" name="type" value="market">
                                 <input type="hidden" name="publicationID" value="<%=publication.getPublicationID()%>">
@@ -97,17 +97,25 @@
                         <% Collections.reverse(comments); %>
                         <% for (Comment comment : comments) { %>
 
-                         <div  class="comentario mb-3">
-                             <img src="<%= comment.getUser().getUserImage() %>" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
+                        <div class="comentario mb-3" >
+                           <div class="col-12 row">
+                               <div class="col-2 comPicture">
+                                    <img src="<%= comment.getUser().getUserImage() %>" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
+                               </div>
+                                <div class="col-10 row text-start" id="comentarioCampo">
+                                    <div class="col-12 comDetails d-flex justify-content-between ">
+                                        <p class="authorNickname" onclick="" style="cursor: pointer;">
+                                        <%= comment.getUser().getUserName() %>
+                                        </p>
+                                        <p><i class="bi bi-clock"></i> <%= comment.getDate() %> </p>
+                                    </div>
+                                <div>
+                                   <%= comment.getContentComment() %>
+                           </div>
+                        </div>
 
-                             <p class="authorNickname" onclick="" style="cursor: pointer;">
-                                 <%= comment.getUser().getUserName() %>
-                             </p>
-                             <p><i class="bi bi-clock"></i> <%= comment.getDate() %> </p>
-                             <div class="mt-1">
-                                 <%= comment.getContentComment() %>
-                             </div>
-                         </div>
+                        </div>
+                    </div>
                         <% } %>
                         <% } else { %>
                         <p>No hay comentarios disponibles.</p>

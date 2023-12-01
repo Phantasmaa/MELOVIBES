@@ -47,18 +47,22 @@
 }
 
 .comentar-input{
-        background-color: transparent !important;
-        border: none;
+       background-color: transparent;
+
+       padding-top: 0;
+       padding-bottom: 0;
+       height: 30px;
+       margin-left: 20px;
 
 }
 
  .comentar-input:focus {
         box-shadow: none !important;
-        border-color: transparent !important;
+
  }
 
  .input-group{
-        border-bottom: none !important;
+
         box-shadow: none !important;
  }
 
@@ -66,3 +70,17 @@
      display: inline-block;
  }
 
+#comentarioCampo{
+        background-color: #cfcfcf;
+        padding: 10px;
+        border-radius: 20px;
+        border-top-left-radius: 0px;
+}
+
+.comPicture{
+    width: 87px;
+}
+
+.comDetails {
+    height: 30px;
+}

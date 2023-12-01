@@ -135,7 +135,7 @@
                                                    </p>
                                                 </div>
                                                 <div class="col-3">
-                                                    <p><i class="bi bi-music-note-list" style="cursor: pointer;"></i> <%= publication.getNComment() %> comentarios</p>
+                                                    <p><i class="bi bi-music-note-list"></i> <%= publication.getNComment() %> comentarios</p>
                                                 </div>
                                             </div>
                                         </div>

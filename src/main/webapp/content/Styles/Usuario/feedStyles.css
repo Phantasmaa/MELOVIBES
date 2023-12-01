@@ -136,6 +136,7 @@ body{
 
 .liked{
     color: #8D397C;
+
 }
 
 
@@ -304,7 +305,7 @@ body{
 .comment-input {
     width: 100%;
     resize: none;
-    border: none;
+
     outline: none;
 }
 #TamañoModal{
@@ -342,7 +343,7 @@ body{
 }
 
 .commentProfilePicture{
-    width: 100%;
+
 }
 
 .boton-transp{
@@ -364,7 +365,6 @@ body{
 
 .comentar-input{
         background-color: transparent !important;
-        border: none;
 
 }
 
@@ -389,4 +389,21 @@ body{
      background-color: #E5D6E2;
      color:#8D397C;
      border: 1px solid #8D397C;
+ }
+
+ #comentarioCampo{
+         background-color: #cfcfcf;
+         padding: 10px;
+         border-radius: 20px;
+         border-top-left-radius: 0px;
+
+ }
+
+ .comPicture{
+      width: 110px;
+      padding: 0;
+ }
+
+ .comDetails {
+     height: 30px;
  }
