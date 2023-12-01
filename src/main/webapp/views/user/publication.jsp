@@ -67,7 +67,7 @@
                                             </p> --%>
 
                                         </div>
-                                        <div class="col-2 text-end">
+                                        <div class="col-3 text-end">
                                             <!-- Muestra la fecha de la publicación -->
                                             <p><i class="bi bi-clock"></i>
                                                 <%=publication.getDate()%>
@@ -98,16 +98,33 @@
                                     </div>
                                     <div class="row justify-content-start interactionBtnRow text-start mt-2">
                                          <div class="col-2">
-                                             <p onclick="" id="">
-                                             <i class="bi bi-music-note" style="cursor: pointer;"></i> 6 likes
+                                             <p onclick="toggleLike('<%= publication.getPublicationID() %>')" id="likeButton<%= publication.getPublicationID() %>">
+                                                  <i class="bi bi-music-note" style="cursor: pointer;"></i> <%//= publication.getLikes() %> likes
                                              </p>
                                          </div>
                                          <div class="col-4">
-                                             <p><button data-bs-toggle="modal" data-bs-target="#comentarModal" class="boton-transp"> <i class="bi bi-music-note-list" style="cursor: pointer;"></i> </button> <%= publication.getNComment() %>  comentarios</p>
+                                             <p><i class="bi bi-music-note-list"></i> <%= publication.getNComment() %>  comentarios</p>
                                          </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row justify-content-around">
+                            <div class="col-8 row">
+                            <form action="CreateComment" method="post" >
+                                <div class="input-group mb-3">
+                                     <img src="<%=user.getUserImage()%>" alt="Foto" class="img-fluid rounded-circle mt-2" width="50">
+                                     <input type="text" class="form-control comentar-input" name="commentContent" placeholder="Escribe un comentario" aria-label="Escribe un comentario" aria-describedby="button-addon2" required>
+                                     <input type="hidden" name="userID" value="<%=user.getUserID()%>">
+                                     <input type="hidden" name="type" value="normal">
+                                     <input type="hidden" name="publicationID" value="<%=publication.getPublicationID()%>">
+                                     <button class="btn btn-primary mt-1 boton" type="submit"> Comentar</button>
+                                 </div>
+                            </form>
+                             </div>
+                            </div>
+
+
                             <div class="row justify-content-around" id="commentsSection">
                                 <% if (comments != null && !comments.isEmpty()) { %>
                                 <% Collections.reverse(comments); %>
@@ -170,69 +187,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false"
-            id="comentarModal" tabindex="-1" aria-labelledby="comentarModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content" >
-                    <div class="modal-header">
-                        <!-- Botón de cerrar ("x") -->
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" id="TamañoModal">
-                       <div class="row">
-
-                                               <div class="col-9">
-                                                   <div class="row justify-content-between text-start">
-                                                       <div class="col-2">
-                                                           <p class="authorNickname">
-                                                               <%=user.getUserName()%>
-                                                           </p>
-                                                       </div>
-                                                       <div class="col-2 text-end px-0">
-                                                           <%
-                                                               Date currentDate = new Date();
-                                                               SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
-                                                               String formattedTime = timeFormat.format(currentDate);
-                                                           %>
-                                                           <p><i class="bi bi-clock"></i> <%=formattedTime%> </p>
-                                                       </div>
-
-                                                       <img class="postContentPicture" src="" alt="">
-                                                   </div>
-
-                                               </div>
-                                           </div>
-
-                        <div class="row align-items-start">
-                            <!-- Columna para la foto de perfil -->
-                            <div class="col-1 ml-2" id="marginPictureRespuesta">
-                                <img class="postProfilePictureRespuesta" src="<%=user.getUserImage()%>" alt="">
-                            </div>
-                            <div class="col-11">
-                                <form action="CreateComment" method="post">
-                                    <textarea class="form-control comment-input mt-2" name="commentContent" rows="3" placeholder="Escribe un comentario..."></textarea>
-                                    <input type="hidden" name="userID" value="<%=user.getUserID()%>">
-                                    <input type="hidden" name="publicationID" value="<%=publication.getPublicationID()%>">
-                                    <input type="hidden" name="type" value="normal">
-
-                                    <div class="row">
-                                        <div class="col-2 mt-3" style="text-align: right;">
-                                            <button type="submit" class="btn-enviar">
-                                                Enviar <i class="bi bi-send-fill" style="margin-left: 5px;"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-            </div>
 
 
         <script>

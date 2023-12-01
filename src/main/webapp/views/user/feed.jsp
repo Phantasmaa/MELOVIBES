@@ -61,7 +61,7 @@
                                 </div>
                             </div>
                             <p class="text-start postContent"><%= publication.getContent() %></p>
-                            <div onclick="verPublicacion(<%=publication.getPublicationID()%>);" style="cursor: pointer;" >
+                            <div class="postImg" onclick="verPublicacion(<%=publication.getPublicationID()%>);" style="cursor: pointer;" >
                                 <img class="postContentPicture" src="<%= publication.getImage() %>" alt="">
                             </div>
                             <div class="row justify-content-start interactionBtnRow text-start mt-2">
@@ -71,7 +71,7 @@
                                     </p>
                                 </div>
                                 <div class="col-3">
-                                    <p><button data-bs-toggle="modal" data-bs-target="#comentarModal" class="boton-transp"> <i class="bi bi-music-note-list"></i> </button> <%= publication.getNComment()%> comentarios</p>
+                                    <p><i class="bi bi-music-note-list"></i> <%= publication.getNComment() %>  comentarios</p>
                                 </div>
                             </div>
                             

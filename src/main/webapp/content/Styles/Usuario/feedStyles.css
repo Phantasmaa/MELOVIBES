@@ -350,3 +350,43 @@ body{
     background-color: transparent;
 
 }
+
+.postImg{
+    height: 25em;
+}
+
+.postImg img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.comentar-input{
+        background-color: transparent !important;
+        border: none;
+
+}
+
+ .comentar-input:focus {
+        box-shadow: none !important;
+        border-color: transparent !important;
+ }
+
+ .input-group{
+        border-bottom: none !important;
+        box-shadow: none !important;
+ }
+
+ .boton{
+     background-color: #8D397C;
+     border-color: #8D397C;
+     font-size: 14px;
+     font-weight: bold;
+ }
+
+ .boton:hover{
+     background-color: #E5D6E2;
+     color:#8D397C;
+     border: 1px solid #8D397C;
+ }
