@@ -17,7 +17,7 @@
             </ul>
         </div>
         <div class="text-center">
-            <button class="btn btn-primary mt-3" id="crear_pub" onclick="goToPublishArticle();">Publicar articulo <i class="bi bi-music-note-beamed"></i></button> 
+            <button class="btn btn-primary mt-3" id="crear_pub" onclick="window.location.href='createMarketplacePublication.jsp'">Publicar articulo <i class="bi bi-music-note-beamed"></i></button>
         </div>
         <div class="text-center d-flex align-items-center">
             <img id="imagen_cantante" class="img-fluid rounded" src="../../content/Images/Usuario/cantante2.png" alt="cantante">
