@@ -343,6 +343,7 @@ body{
 
 .backBtn{
     color: #8D397C;
+    text-decoration: none;
 }
 
 .commentProfilePicture{

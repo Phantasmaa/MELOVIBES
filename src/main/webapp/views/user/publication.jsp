@@ -33,7 +33,7 @@
                         <div id="bienvenida" class="row justify-content-between">
                             <div class="col-6 text-start">
                                 <a href="feed" class="backBtn">
-                                    <i class="bi bi-caret-left-square"></i> Atras
+                                    <i class="bi bi-caret-left-square"></i> Atrás
                                 </a>
                             </div>
                             <div class="col-2 text-end">

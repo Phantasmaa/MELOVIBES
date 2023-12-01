@@ -136,12 +136,12 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
                                     otherUserImage = "-";
                                 }
                     %>
-                    <div class="col-8 row pt-2 pb-2">
+                    <div class="col-8 row pt-4 pb-4 chatMessage ">
                         <!-- Imagen del remitente o destinatario -->
                         <div class="col-2">
                             <a href="chat.jsp?sendto=<%=otherUserId%>"><img class="commentProfilePicture" src="<%= otherUserImage %>" alt="profilePicture"></a>
                         </div>
-                        <div class="col-10 row text-start">
+                        <div class="col-10 row text-start ">
                             <div class="col-12">
                                 <p class="commentAuthorNickname" onclick="window.location.href='chat.jsp?sendto=<%=otherUserId%>'" style="cursor: pointer;">
                                     <b><%= otherUserName %></b><%= sentByCurrentUser ? "" : " -" %> · <%= message.getDate() %>
