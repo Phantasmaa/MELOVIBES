@@ -72,7 +72,7 @@
                             <div class="mt-2" id="num_comentario">
                                   <p><i class="bi bi-music-note-list "></i> <%= publication.getNComment() %>  comentarios</p>
                             </div>
-                            <button class="btn btn-primary mt-1 boton" onclick="goToChat();" style="cursor: pointer;"  type="button">Enviar mensaje <i class="bi bi-chat"></i></button>
+                            <button class="btn btn-primary mt-1 boton" onclick="goToChat(<%=publication.getUserID()%>);" style="cursor: pointer;"  type="button">Enviar mensaje <i class="bi bi-chat"></i></button>
                         </div>
                    </div>
                 </div>
@@ -134,8 +134,8 @@
 
          <%@include file="../menus/rightMenu.jsp" %>
          <script>
-         function goToChat() {
-             window.location.href="chat.jsp";
+         function goToChat(id) {
+             window.location.href="chat.jsp?sendto="+id;
          }
 
          function redirectToOtherProfile(userID) {

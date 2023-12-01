@@ -1,3 +1,5 @@
+<%@ page import="java.util.Random" %>
+<%@ page import="dao.UserDAO" %>
 <div class="col-md-2" id="barra_derecha">
 
                 <div class="input-group container-fluid mt-2" id="barra_busqueda" onclick="goToSearch();" style="cursor: pointer;" >
@@ -7,18 +9,28 @@
                     <input type="search" class="form-control" placeholder="Buscar usuarios" id="buscar"/>
                 </div>
 
-                <div class="container-fluid mt-3" id="recomendados">
-                    Recomendados
-                    <div class="recomendado">
-                        <img src="../../content/Images/Usuario/usuario.png" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
-                        TeoMusicMan
-                    </div>
-                    <div class="recomendado">
-                        <img src="../../content/Images/Usuario/usuario.png" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="location.href = 'otherProfile.jsp'" style="cursor: pointer;">
-                        TeoMusicMan
-                    </div>
-                </div>
+    <%
+        Random random = new Random();
+        int userId1 = random.nextInt(10) + 1; // Genera un ID aleatorio entre 1 y 10
+        int userId2 = random.nextInt(10) + 1; // Genera otro ID aleatorio entre 1 y 10
 
+        UserDAO userDAO = new UserDAO();
+
+        User recommendedUser1 = userDAO.getUserByID(userId1);
+        User recommendedUser2 = userDAO.getUserByID(userId2);
+
+    %>
+    <div class="container-fluid mt-3" id="recomendados">
+        Recomendados
+        <div class="recomendado">
+            <img src="<%=recommendedUser1.getUserImage()%>" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="window.location.href='OtherProfile?userID=<%= recommendedUser1.getUserID() %>'" style="cursor: pointer;">
+            <%= recommendedUser1.getUserName() %>
+        </div>
+        <div class="recomendado">
+            <img src="<%=recommendedUser2.getUserImage()%>" alt="Foto" class="img-fluid rounded-circle mt-2" width="50" onclick="window.location.href='OtherProfile?userID=<%= recommendedUser2.getUserID() %>'" style="cursor: pointer;">
+            <%= recommendedUser2.getUserName() %>
+        </div>
+    </div>
                 <div class="container-fluid mt-4" id="publicidad">
                     <div id="titulo">Supercombo para apasionados</div>
                     <div class="text-center">

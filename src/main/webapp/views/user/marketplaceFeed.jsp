@@ -4,6 +4,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.Collections" %>
+<%@ page import="models.Message" %>
 
 <% User user = (User) session.getAttribute("usuario"); 
 
@@ -100,50 +101,70 @@ List<PublicationMarket> publicationsMarket = (List<PublicationMarket>) request.g
 
                 </div>
 
-                <div class="row text-center pt-3 hidden" id="chats" >
 
-                    <!-- Chat de ejemplo--!>
+
+                <div class="row text-center pt-3 hidden" id="chats">
+                    <%
+                        List<Message> latestMessages = (List<Message>) session.getAttribute("latestMessages");
+                        if (latestMessages != null && !latestMessages.isEmpty()) {
+                            for (Message message : latestMessages) {
+                                // Determinar el ID del otro usuario
+                                int otherUserId;
+                                String otherUserName;
+                                String otherUserImage;
+
+                                if (message.getSenderId() == user.getUserID()) {
+                                    otherUserId = message.getReceiverId();
+                                } else {
+                                    otherUserId = message.getSenderId();
+                                }
+
+                                // Obtener información del otro usuario
+                                UserDAO userDAO = new UserDAO();
+                                User otherUser = userDAO.getUserByID(otherUserId);
+
+                                // Verificar si el mensaje fue enviado por el usuario actual
+                                boolean sentByCurrentUser = message.getSenderId() == user.getUserID();
+
+                                // Configurar el nombre y la imagen del otro usuario
+                                if (otherUser != null) {
+                                    otherUserName = otherUser.getUserName();
+                                    otherUserImage = otherUser.getUserImage();
+                                    otherUserId = otherUser.getUserID();
+                                } else {
+                                    otherUserName = "Desconocido";
+                                    otherUserImage = "-";
+                                }
+                    %>
                     <div class="col-8 row pt-2 pb-2">
+                        <!-- Imagen del remitente o destinatario -->
                         <div class="col-2">
-                            <a href="otherProfile.jsp"><img class="commentProfilePicture"
-                                                            src="../../content/Images/Usuario/usuario.png" alt="profilePicture"></a>
-
-                            <%--
-                            <a href="otherProfile.jsp"><img class="commentProfilePicture"
-                             src="<%= publication.getProfile().getUserImage() %>" alt="profilePicture"></a>
-                              --%>
-
+                            <a href="chat.jsp?sendto=<%=otherUserId%>"><img class="commentProfilePicture" src="<%= otherUserImage %>" alt="profilePicture"></a>
                         </div>
                         <div class="col-10 row text-start">
                             <div class="col-12">
-                                <p class="commentAuthorNickname" onclick="" style="cursor: pointer;">
-
-                                    <b>
-                                        JeffMusic
-                                    </b> · 23-11-04 12:00:00
-
-                                    <%--
-                                         <b>
-                                         <%= publication.getProfile().getUserName() %>
-                                         </b> · <%= publication.getCalendar().getDate() %>
-                                         --%>
-
+                                <p class="commentAuthorNickname" onclick="window.location.href='chat.jsp?sendto=<%=otherUserId%>'" style="cursor: pointer;">
+                                    <b><%= otherUserName %></b><%= sentByCurrentUser ? "" : " -" %> · <%= message.getDate() %>
                                 </p>
                             </div>
                             <div class="col-12">
                                 <p class="commentContent">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. A porro voluptate, deleniti
-                                    mollitia nobis, adipisci repellat maxime est aut obcaecati facere labore culpa
-                                    assumenda
-
+                                    <%= message.getContent() %>
                                 </p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- otro chat (mensaje)--!>
+                    <%
+                            }} else {
+                            System.out.println("nulo");
+                        }
+                    %>
 
                 </div>
+
+
+
+
 
             </div>
 

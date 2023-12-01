@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
 
@@ -189,5 +191,42 @@ public class UserDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    public List<User> searchUsers(String searchTerm) {
+        List<User> userList = new ArrayList<>();
+
+        try {
+            // Consulta SQL para buscar usuarios por nombre o nombre de usuario
+            System.out.println(searchTerm);
+            String sql = "SELECT * FROM User WHERE LOWER(FirstName) LIKE LOWER(?) OR LOWER(UserName) LIKE LOWER(?)";
+            try (PreparedStatement statement = conexion.prepareStatement(sql)) {
+                // Configurar los parámetros de búsqueda con el patrón
+                statement.setString(1, searchTerm);
+                statement.setString(2, searchTerm);
+
+                // Ejecutar la consulta
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    // Procesar los resultados y construir la lista de usuarios
+                    while (resultSet.next()) {
+                        System.out.println("si");
+                        User user = new User();
+                        user.setUserID(resultSet.getInt("UserID"));
+                        user.setEmail(resultSet.getString("Email"));
+                        user.setUserImage(resultSet.getBytes("UserImage"));
+                        user.setFirstName(resultSet.getString("FirstName"));
+                        user.setLastName(resultSet.getString("LastName"));
+                        user.setUserName(resultSet.getString("UserName"));
+                        // Agregar más campos según sea necesario
+                        System.out.println(user.getUserName());
+                        userList.add(user);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Manejar la excepción según tus necesidades
+        }
+
+        return userList;
     }
 }

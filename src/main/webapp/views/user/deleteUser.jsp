@@ -30,7 +30,7 @@
                                                         <div class="row mb-3"">
                                                             <div class="col-12">
                                                                 <p></p>
-                                                                <p>Hola, <strong>Juan Guarnizo!</strong> </p>
+                                                                <p>Hola, <strong><%=user.getFirstName()+' '+user.getLastName()%></strong> </p>
                                                                 <p>Lamentamos profundamente que hayas decidido dejar de formar parte
                                                                     de nuestra comunidad en MELOVIBE. Para continuar con la eliminación de tu perfil,
                                                                     por favor ingresa los siguientes datos solicitados.</p>

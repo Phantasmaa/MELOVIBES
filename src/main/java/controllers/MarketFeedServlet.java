@@ -1,5 +1,6 @@
 package controllers;
 
+import dao.MessageDAO;
 import dao.PublicationDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -8,6 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import models.Message;
 import models.PublicationMarket;
 import models.User;
 
@@ -33,13 +35,30 @@ public class MarketFeedServlet extends HttpServlet {
 
         if (urlParam == null || "allPublications".equals(urlParam)) {
             publicationsMarket = publicationDAO.getAllMarketPublications();
-        } else {
+            request.setAttribute("publicationsMarket", publicationsMarket);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/views/user/marketplaceFeed.jsp");
+            dispatcher.forward(request, response);
+        }
+        else if ("myChats".equals(urlParam)) {
+            // Obtener los últimos mensajes del usuario
+            MessageDAO messageDAO = new MessageDAO();
+            List<Message> latestMessages = messageDAO.getLatestMessages(user.getUserID());
+
+            // Almacenar los mensajes en la sesión
+            session.setAttribute("latestMessages", latestMessages);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/views/user/marketplaceFeed.jsp");
+            dispatcher.forward(request, response);
+
+        }
+        else {
             publicationsMarket = publicationDAO.getMarketPublicationsByUserID(user.getUserID());
+            request.setAttribute("publicationsMarket", publicationsMarket);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/views/user/marketplaceFeed.jsp");
+            dispatcher.forward(request, response);
+
         }
 
-        request.setAttribute("publicationsMarket", publicationsMarket);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/user/marketplaceFeed.jsp");
-        dispatcher.forward(request, response);
+
     }
 }
 
