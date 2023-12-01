@@ -412,6 +412,12 @@ body{
  }
 
 .pub{
-    border-color: black;
-    border-width: 0px 0px 1px 0px;
+    padding-top: 20px;
+}
+
+hr{
+    width: 95%;
+    height: 2px;
+    background-color: black;
+    border: none;
 }

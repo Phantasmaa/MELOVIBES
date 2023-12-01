@@ -116,7 +116,7 @@
                                             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
                                             String formattedDate = dateFormat.format(date);
                                 %>
-                                <div class="row">
+                                <div class="row pt-4">
                                     <div class="col-2">
                                         <a href="otherProfile.jsp">
                                             <img class="postProfilePicture" src="<%=publication.getUser().getUserImage() %>" alt="Profile Picture">
@@ -155,6 +155,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                 <hr>
                                 <%
                                         }
                                     } else {

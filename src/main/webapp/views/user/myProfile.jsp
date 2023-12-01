@@ -71,7 +71,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                 <hr>
                                 <div class="col12">
                                     <%
                                         List<Publication> publications = (List<Publication>) request.getAttribute("publications");
@@ -92,13 +92,13 @@
                                                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
                                                 String formattedDate = dateFormat.format(date);
                                     %>
-                                    <div class="row">
+                                    <div class="row mt-2">
                                         <div class="col-2">
                                             <a href="myprofile">
                                                 <img class="postProfilePicture rounded-circle" src="<%=user.getUserImage() %>" alt="Profile Picture">
                                             </a>
                                         </div>
-                                        <div class="col-10">
+                                        <div class="col-10 pb-4">
                                             <div class="row justify-content-between text-start">
                                                 <div class="col-2">
                                                     <p class="authorNickname" onclick="location.href = 'myprofile'" style="cursor: pointer;">
@@ -122,14 +122,11 @@
 
 
 
-                                                
-                                            <form class="mt-3" action="DeletePublicationNormal" method="post">
-                                                <input type="hidden" name="publicationID" value="<%=publicationID %>">
-                                                <input type="submit" value="Eliminar Publicación">
-                                            </form>
+
+
 
                                             <div class="row justify-content-start interactionBtnRow text-start mt-2">
-                                                <div class="col-2">
+                                                <div class="col-2 ">
                                                    <p onclick="toggleLike('<%= publication.getPublicationID() %>')" id="likeButton<%= publication.getPublicationID() %>">
                                                        <i class="bi bi-music-note" style="cursor: pointer;"></i> <%//= publication.getLikes() %> likes
                                                    </p>
@@ -138,7 +135,15 @@
                                                     <p><i class="bi bi-music-note-list"></i> <%= publication.getNComment() %> comentarios</p>
                                                 </div>
                                             </div>
+
+                                             <form action="DeletePublicationNormal" method="post">
+                                                  <input type="hidden" name="publicationID" value="<%=publicationID %>">
+                                                  <button type="submit"  class="btn btn-danger">Eliminar Publicación  <i class="bi bi-trash3-fill"></i></button>
+                                             </form>
                                         </div>
+
+
+                                         <hr>
                                     </div>
                                     <%
                                             }
@@ -156,12 +161,16 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
+
+
         <script src="../../util/script/logOutScript.js">
         </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+                crossorigin="anonymous"></script>
+
         <script>
             document.addEventListener("DOMContentLoaded", function (event) {
                 var tab1, tab2, tab3;

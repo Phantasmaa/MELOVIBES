@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                <div class="text-center pt-4" id="pubs">
+                <div class="text-center" id="pubs">
                     <% if (publications != null && !publications.isEmpty()) { %>
                     <%   Collections.reverse(publications);
                         for (Publication publication : publications) { %>
@@ -82,6 +82,8 @@
                             
                         </div>
                     </div>
+
+                    <hr>
                     <% } %>
                     <% } else { %>
                     <p>No hay publicaciones disponibles.</p>
